@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
   };
   const loginUser = (e) => {
     e.preventDefault();
+    axios.get("/");
   };
   return (
     <div className="mt-12">
