@@ -10,7 +10,13 @@ mongoose
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://gowithsoph-gamma.vercel.app",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 app.use("/", require("./routes/authRoutes"));
 
