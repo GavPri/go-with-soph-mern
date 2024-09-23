@@ -38,7 +38,6 @@ userSchema.pre("save", function (next) {
   } else {
     this.role = "user";
   }
-
   next();
 });
 
