@@ -13,7 +13,7 @@ const Register = () => {
     const { name, email, password } = data;
     try {
       const data = await axios.post(
-        "http://localhost:8000/register",
+        "/register",
         {
           name,
           email,

@@ -10,18 +10,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    credentials: true,
-    origin: [
-      "https://5173-gavpri-gowithsophmern-74r3xp0o5o7.ws-eu116.gitpod.io",
-      "http://localhost:5173",
-      "*",
-    ],
-    methods: "GET,POST,PUT,DELETE,OPTIONS", // Allow these HTTP methods
-    allowedHeaders: "Content-Type,Authorization",
-  })
-);
+app.use(cors());
 
 app.use("/", require("./routes/authRoutes"));
 

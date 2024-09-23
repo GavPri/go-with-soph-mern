@@ -12,8 +12,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import axios from "axios";
 
-axios.defaults.baseURL =
-  "https://8000-gavpri-gowithsophmern-74r3xp0o5o7.ws-eu116.gitpod.io";
+axios.defaults.baseURL = "https://gowithsoph.vercel.app";
 
 axios.defaults.withCredentials = true;
 
