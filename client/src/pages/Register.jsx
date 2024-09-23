@@ -18,11 +18,11 @@ const Register = () => {
         onSubmit={registerUser}
       >
         <label htmlFor="name"></label>
-        <input type="text" placeholder="enter your name..." />
+        <input type="text" placeholder="enter your name..." value={data.email} onChange={} />
         <label htmlFor="email"></label>
-        <input type="text" placeholder="enter your email..." />
+        <input type="text" placeholder="enter your email..." value={data.name} onChange={} />
         <label htmlFor="password"></label>
-        <input type="text" placeholder="enter your password..." />
+        <input type="text" placeholder="enter your password..." value={data.password} onChange={} />
         <button type="submit">submit</button>
       </form>
     </div>
