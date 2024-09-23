@@ -4,4 +4,4 @@ const test = (req, res) => {
 
 const registerUser = (req, res) => {};
 
-module.exports = test;
+module.exports = { test, registerUser };
