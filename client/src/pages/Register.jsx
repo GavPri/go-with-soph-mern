@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -7,8 +8,23 @@ const Register = () => {
     password: "",
   });
 
-  const registerUser = (e) => {
+  const registerUser = async (e) => {
     e.preventDefault();
+    const { name, email, password } = data;
+    try {
+      const data = await axios.post(
+        "/register",
+        {
+          name,
+          email,
+          password,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChange = (e) => {
@@ -27,7 +43,7 @@ const Register = () => {
       >
         <label htmlFor="name"></label>
         <input
-        name="name"
+          name="name"
           type="text"
           placeholder="enter your name..."
           value={data.name}
@@ -35,7 +51,7 @@ const Register = () => {
         />
         <label htmlFor="email"></label>
         <input
-        name="email"
+          name="email"
           type="text"
           placeholder="enter your email..."
           value={data.email}
@@ -43,7 +59,7 @@ const Register = () => {
         />
         <label htmlFor="password"></label>
         <input
-        name="password"
+          name="password"
           type="text"
           placeholder="enter your password..."
           value={data.password}
