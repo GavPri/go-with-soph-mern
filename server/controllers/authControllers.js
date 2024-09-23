@@ -37,12 +37,12 @@ const registerUser = async (req, res) => {
       return res.json({ error: "Please enter a valid email address." });
     }
     // * ----- Check if the email exists.
-    const exists = User.findOne({ email });
+    const exists = await User.findOne({ email });
     if (exists) {
       return res.json({ error: "This email is taken already." });
     }
 
-    const newUser = new User.create({ name, email, password });
+    const newUser = new User({ name, email, password });
     await newUser.save();
 
     res.json({ message: "User registered successfully.", user: newUser });
