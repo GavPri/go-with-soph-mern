@@ -1,9 +1,15 @@
 import React from "react";
 
 const Register = () => {
+  const registerUser = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="mt-12 bg-">
-      <form className="flex flex-col justify-center items-center">
+      <form
+        className="flex flex-col justify-center items-center"
+        onSubmit={registerUser}
+      >
         <label htmlFor="name"></label>
         <input type="text" placeholder="enter your name..." />
         <label htmlFor="email"></label>
