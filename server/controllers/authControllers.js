@@ -17,7 +17,7 @@ const registerUser = async (req, res) => {
     if (name.length > 50) {
       return res.json({ error: "Usernames must be under 50 characters." });
     }
-    if (!/.+@.+\..+/.test(name)) {
+    if (!/^[a-zA-Z0-9_-]+$/.test(name)) {
       return res.json({
         error:
           "Username can only contain letters, numbers, underscores, and hyphens",
