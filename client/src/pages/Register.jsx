@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Register = () => {
+
+  const [data, setData] = useState({
+    name: '', 
+    email: '',
+    password: '',
+  })
+
   const registerUser = (e) => {
     e.preventDefault();
   };
