@@ -3,3 +3,7 @@ const dotenv = require("dotenv").config();
 const cors = require("cors");
 
 const app = express();
+
+PORT = 8000;
+
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
