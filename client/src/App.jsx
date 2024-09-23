@@ -1,10 +1,11 @@
-function App() {
+import NavigationBar from "./components/NavigationBar";
 
+function App() {
   return (
     <>
-      <h1>Hello</h1>
+      <NavigationBar />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
