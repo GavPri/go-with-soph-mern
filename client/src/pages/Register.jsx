@@ -27,20 +27,23 @@ const Register = () => {
       >
         <label htmlFor="name"></label>
         <input
+        name="name"
           type="text"
           placeholder="enter your name..."
-          value={data.email}
+          value={data.name}
           onChange={handleChange}
         />
         <label htmlFor="email"></label>
         <input
+        name="email"
           type="text"
           placeholder="enter your email..."
-          value={data.name}
+          value={data.email}
           onChange={handleChange}
         />
         <label htmlFor="password"></label>
         <input
+        name="password"
           type="text"
           placeholder="enter your password..."
           value={data.password}
