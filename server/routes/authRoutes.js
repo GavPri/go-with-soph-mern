@@ -11,5 +11,6 @@ router.use(
 );
 
 router.get("/", test);
+router.post("/register", registerUser);
 
 module.exports = router;
