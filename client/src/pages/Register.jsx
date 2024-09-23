@@ -5,7 +5,7 @@ const Register = () => {
     e.preventDefault();
   };
   return (
-    <div className="mt-12 bg-">
+    <div className="mt-12">
       <form
         className="flex flex-col justify-center items-center"
         onSubmit={registerUser}
