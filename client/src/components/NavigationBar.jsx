@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function NavigationBar() {
   const [expanded, setExpanded] = useState(false);
   return (
-    <Navbar expand="lg" className="bg-brand text-text" fixed="top">
+    <Navbar expand="lg" className="bg-bg text-text" fixed="top">
       <Container>
         <Link to="/">
           <h1>GoWithSoph</h1>

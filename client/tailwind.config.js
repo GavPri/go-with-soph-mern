@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#014421", // Dark Green Base for background
-        text: "#F1F1F1", // White for text
+        bg: "#F1F1F1", //White  Base for background
+        text: "#014421", // Dark Green for text
         border: "#00A86B", // Light Green for border
         brand: "#00A86B", // Light Green for brand elements
         error: "#E63946", // Bright Red for error messages
