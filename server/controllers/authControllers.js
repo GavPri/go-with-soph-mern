@@ -48,7 +48,7 @@ const registerUser = async (req, res) => {
     }
 
     const hashedPassword = await hashPassword(password);
-    
+
     const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
@@ -59,8 +59,26 @@ const registerUser = async (req, res) => {
   }
 };
 
-const loginUser = async (req,res) => {
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-}
+    // * Check if user exists
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.json({
+        error: "No user with this email found.",
+      });
+    }
+
+    // * Check if passwords match
+    const matchPasswords = await comparePassword(password, user.password);
+    if (matchPasswords) {
+      res.json("Passwords match");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = { test, registerUser, loginUser };
