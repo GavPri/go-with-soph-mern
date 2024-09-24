@@ -32,25 +32,25 @@ function NavigationBar() {
           <Nav className="mx-auto">
             <NavLink
               to="/"
-              className=" text-xl py-4 lg:py-2 lg:px-2 lg:mr-4 lg:flex lg:justify-center bg-slate-400 text-brand"
+              className=" text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
             >
               Home
             </NavLink>
             <NavLink
               to="/blog"
-              className="text-xl py-4 lg:py-2 lg:px-4 lg:mr-4 lg:flex lg:justify-center bg-slate-400 text-brand"
+              className="text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
             >
               Blog
             </NavLink>
             <NavLink
               to="/register"
-              className="text-xl py-4 lg:py-2 lg:px-2  lg:mr-4 lg:flex lg:justify-center  bg-slate-400 text-brand"
+              className="text-xl my-4 lg:py-2 lg:px-6 lg:rounded-lg lg:mr-4 lg:flex lg:justify-center  lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
             >
               Register
             </NavLink>
             <NavLink
               to="/login"
-              className="text-xl py-4 lg:py-2 lg:px-2  lg:mr-4 lg:flex lg:justify-center  bg-slate-400 text-brand"
+              className="text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6  lg:mr-4 lg:flex lg:justify-center  lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
             >
               Login
             </NavLink>
