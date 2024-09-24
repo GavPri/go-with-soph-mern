@@ -45,7 +45,7 @@ const Login = () => {
         toast.error(data.error);
       } else {
         setData({ email: "", password: "" });
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       console.log({
