@@ -13,6 +13,13 @@ export default {
         accentPrimary: "#C7A600", // Muted Yellow for primary accent
         accentSecondary: "#4C5C4B", // Greenish Gray for secondary accent
       },
+      screens: {
+        sm: "576px", // Small devices (landscape phones, 576px and up)
+        md: "768px", // Medium devices (tablets, 768px and up)
+        lg: "992px", // Large devices (desktops, 992px and up)
+        xl: "1200px", // Extra large devices (large desktops, 1200px and up)
+        xxl: "1400px", // Extra extra large devices (larger desktops, 1400px and up)
+      },
     },
   },
   plugins: [],
