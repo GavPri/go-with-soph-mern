@@ -23,6 +23,10 @@ const registerUser = async (req, res) => {
           "Username can only contain letters, numbers, underscores, and hyphens",
       });
     }
+    const nameExists = await User.findOne({ email });
+    if (nameExists) {
+      return res.json({ error: "This email is taken already." });
+    }
 
     // * Password check
     // * ---- Check if password is enter & it's greater than 5 characters.
@@ -37,8 +41,8 @@ const registerUser = async (req, res) => {
       return res.json({ error: "Please enter a valid email address." });
     }
     // * ----- Check if the email exists.
-    const exists = await User.findOne({ email });
-    if (exists) {
+    const emailExists = await User.findOne({ email });
+    if (emailExists) {
       return res.json({ error: "This email is taken already." });
     }
 
