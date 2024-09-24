@@ -18,11 +18,11 @@ const Register = () => {
 
     if (!name || !email || !password) {
       toast.error("All fields are required");
-      return; 
+      return;
     }
 
     try {
-      const data = await axios.post(
+      const response = await axios.post(
         "/register",
         {
           name,
@@ -31,6 +31,9 @@ const Register = () => {
         },
         { withCredentials: true }
       );
+
+      const { data } = response;
+      
       if (data.error) {
         toast.error(data.error);
       } else {
