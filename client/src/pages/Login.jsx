@@ -15,9 +15,12 @@ const Login = () => {
       [name]: value,
     });
   };
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
-    axios.get("/");
+    const { email, password } = data;
+    try {
+      const { data } = await axios.post("/login", { email, password });
+    } catch (error) {console.log(error)}
   };
   return (
     <div className="mt-12">
