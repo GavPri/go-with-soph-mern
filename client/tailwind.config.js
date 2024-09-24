@@ -20,6 +20,9 @@ export default {
         xl: "1200px", // Extra large devices (large desktops, 1200px and up)
         xxl: "1400px", // Extra extra large devices (larger desktops, 1400px and up)
       },
+      fontFamily: {
+        qs: ["Quicksand", "sans-serif"]
+      }
     },
   },
   plugins: [],

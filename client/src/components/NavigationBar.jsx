@@ -18,7 +18,7 @@ function NavigationBar() {
     >
       <Container>
         <NavLink to="/">
-          <h1 className="text-xl text-brand">GoWithSoph</h1>
+          <h1 className="text-xl text-brand font-qs font-bold">GoWithSoph</h1>
         </NavLink>
         <Navbar.Toggle
           ref={ref}
