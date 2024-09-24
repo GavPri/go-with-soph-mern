@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { MdTravelExplore } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -23,6 +24,7 @@ const Register = () => {
         },
         { withCredentials: true }
       );
+      navigate("/login");
       console.log(data);
     } catch (error) {
       console.log(error);
