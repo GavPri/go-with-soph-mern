@@ -18,7 +18,9 @@ function NavigationBar() {
     >
       <Container>
         <NavLink to="/">
-          <h1 className="text-xl text-brand font-qs font-bold">GoWithSoph</h1>
+          <h1 className="text-2xl text-brand font-qs font-bold tracking-wider">
+            GoWithSoph
+          </h1>
         </NavLink>
         <Navbar.Toggle
           ref={ref}
@@ -29,7 +31,7 @@ function NavigationBar() {
           {expanded ? <FaTimes size={24} /> : <FaBars size={24} />}
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav" className="bg-bg">
-          <Nav className="mx-auto">
+          <Nav className="mx-auto font-qs">
             <NavLink
               to="/"
               className=" text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
