@@ -59,6 +59,7 @@ const Register = () => {
       [name]: value,
     });
   };
+  
   return (
     <div className="mt-24">
       <div className="text-center flex flex-col justify-center items-center">
