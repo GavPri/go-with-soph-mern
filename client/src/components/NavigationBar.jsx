@@ -18,8 +18,8 @@ function NavigationBar() {
   const getNavLinkClass = ({ isActive }) =>
     `text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200  hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out ${
       isActive
-        ? "bg-gradient-to-r from-brand to-accentPrimary text-text"
-        : "text-lightText"
+        ? "bg-gradient-to-r from-brand to-accentPrimary text-bg"
+        : "text-text"
     }`;
 
   return (
