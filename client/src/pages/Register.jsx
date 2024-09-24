@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { MdTravelExplore } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -24,7 +25,12 @@ const Register = () => {
         },
         { withCredentials: true }
       );
-      navigate("/login");
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        toast.success("Sign up successful");
+        navigate("/login");
+      }
       console.log(data);
     } catch (error) {
       console.log(error);
