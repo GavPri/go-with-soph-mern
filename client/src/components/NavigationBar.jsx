@@ -11,10 +11,10 @@ function NavigationBar() {
     <Navbar expand="lg" className="bg-bg text-text" fixed="top">
       <Container>
         <Link to="/">
-          <h1>GoWithSoph</h1>
+          <h1 className="text-xl text-brand">GoWithSoph</h1>
         </Link>
         <Navbar.Toggle
-          className="focus:outline-none focus:ring-0 border-0 text-text"
+          className="focus:outline-none focus:ring-0 border-0 text-brand"
           aria-controls="basic-navbar-nav"
           onClick={() => setExpanded(expanded ? false : "expanded")}
         >
