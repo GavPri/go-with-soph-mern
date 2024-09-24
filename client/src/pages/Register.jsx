@@ -59,23 +59,23 @@ const Register = () => {
       [name]: value,
     });
   };
-  
+
   return (
-    <div className="mt-24">
-      <div className="text-center flex flex-col justify-center items-center">
+    <div className="mt-32 flex flex-col justify-center items-center w-full">
+      <div className="text-center flex flex-col justify-center items-center font-qs font-bold tracking-wider text-2xl mb-6">
         <h2 className="flex flex-col items-center text-brand text-xl mb-2">
           {" "}
           <MdTravelExplore size={40} /> GoWithSoph
         </h2>
-        <p className="text-lg text-text mb-4">Register for an account</p>
+        <p className="text-lg text-text ">Register for an account</p>
       </div>
       <form
-        className="flex flex-col justify-center items-center"
+        className="flex flex-col justify-center items-center font-qs w-full mb-6"
         onSubmit={registerUser}
       >
         <label htmlFor="name"></label>
         <input
-          className="py-2 px-4 mb-2 border-2 border-text rounded-lg w-6/12"
+          className="py-2 px-4 mb-4 border-2 border-text rounded-lg w-6/12 lg:w-4/12"
           name="name"
           type="text"
           placeholder="enter your name..."
@@ -84,7 +84,7 @@ const Register = () => {
         />
         <label htmlFor="email"></label>
         <input
-          className="py-2 px-4 mb-2 border-2 border-text rounded-lg w-6/12"
+          className="py-2 px-4 mb-4 border-2 border-text rounded-lg w-6/12 lg:w-4/12"
           name="email"
           type="text"
           placeholder="enter your email..."
@@ -93,7 +93,7 @@ const Register = () => {
         />
         <label htmlFor="password"></label>
         <input
-          className="py-2 px-4 mb-2 border-2 border-text rounded-lg w-6/12"
+          className="py-2 px-4 mb-4 border-2 border-text rounded-lg w-6/12 lg:w-4/12"
           name="password"
           type="password"
           placeholder="enter your password..."
@@ -102,7 +102,7 @@ const Register = () => {
         />
         <button
           type="submit"
-          className="py-2 px-2 mb-4 bg-brand text-bg capitalize rounded-lg w-6/12"
+          className="py-2 px-2 mb-4 bg-brand text-bg capitalize rounded-lg w-6/12 lg:w-4/12"
         >
           {isLoading ? (
             <div className="flex justify-center items-center ">
