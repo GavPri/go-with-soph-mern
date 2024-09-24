@@ -125,7 +125,7 @@ const Register = () => {
               </svg>
             </div>
           ) : (
-            <p>Submit</p>
+            <p>Create Account</p>
           )}
         </button>
         <p className="text-text">
