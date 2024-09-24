@@ -14,11 +14,19 @@ import { IoMdSearch } from "react-icons/io";
 function NavigationBar() {
   const { expanded, setExpanded, ref } = useClickOutSideToggle();
 
+  // Function to get class names for NavLink
+  const getNavLinkClass = ({ isActive }) =>
+    `text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200  hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out ${
+      isActive
+        ? "bg-gradient-to-r from-brand to-accentPrimary text-text"
+        : "text-lightText"
+    }`;
+
   return (
     <Navbar
       expand="lg"
       expanded={expanded}
-      className="bg-bg text-text"
+      className="bg-bg text-text py-6 py-lg-0"
       fixed="top"
     >
       <Container>
@@ -35,30 +43,21 @@ function NavigationBar() {
         >
           {expanded ? <FaTimes size={24} /> : <FaBars size={24} />}
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav" className="bg-bg">
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className="bg-bg mt-6 px-4 pb-4 rounded-md px-lg-0 pb-lg-0 mt-lg-0"
+        >
           <Nav className="mx-auto font-qs">
-            <NavLink
-              to="/"
-              className=" text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
-            >
+            <NavLink to="/" className={getNavLinkClass}>
               Home
             </NavLink>
-            <NavLink
-              to="/blog"
-              className="text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
-            >
+            <NavLink to="/blog" className={getNavLinkClass}>
               Blog
             </NavLink>
-            <NavLink
-              to="/register"
-              className="text-xl my-4 lg:py-2 lg:px-6 lg:rounded-lg lg:mr-4 lg:flex lg:justify-center  lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
-            >
+            <NavLink to="/register" className={getNavLinkClass}>
               Register
             </NavLink>
-            <NavLink
-              to="/login"
-              className="text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6  lg:mr-4 lg:flex lg:justify-center  lg:bg-slate-200 text-brand hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out"
-            >
+            <NavLink to="/login" className={getNavLinkClass}>
               Login
             </NavLink>
           </Nav>
@@ -75,7 +74,7 @@ function NavigationBar() {
                 <Col xs="auto">
                   <Button
                     type="submit"
-                    className="bg-slate-200 text-brand border-0 outline-none py-2 px-6  hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out "
+                    className="bg-slate-200 text-brand border-0 outline-none py-2 px-6 hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out "
                   >
                     <IoMdSearch size={25} />
                   </Button>
