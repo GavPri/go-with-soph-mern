@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  return <div className="mt-20 min-h-[calc(100dvh-5rem)] bg-bg"></div>;
+};
 
-export default Home
+export default Home;
