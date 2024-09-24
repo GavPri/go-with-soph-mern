@@ -33,7 +33,7 @@ const Login = () => {
 
     try {
       setIsLoading(true);
-      const { response } = await axios.post(
+      const response = await axios.post(
         "/login",
         { email, password },
         { withCredentials: true }
@@ -48,9 +48,8 @@ const Login = () => {
         navigate("/");
       }
     } catch (error) {
-      console.log({
-        error: '"An error occurred during login. Please try again."',
-      });
+      console.error("An error occurred during login: ", error);
+      toast.error("An error occurred during login. Please try again.");
     } finally {
       setIsLoading(false);
     }
