@@ -12,6 +12,8 @@ const Register = () => {
     password: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const registerUser = async (e) => {
     e.preventDefault();
     const { name, email, password } = data;
@@ -33,7 +35,7 @@ const Register = () => {
       );
 
       const { data } = response;
-      
+
       if (data.error) {
         toast.error(data.error);
       } else {
