@@ -23,7 +23,7 @@ function App() {
       <>
         <div>
           <NavigationBar />
-          <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
+          <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
         </div>
         <div>
           <Outlet />
