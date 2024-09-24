@@ -75,7 +75,7 @@ const Register = () => {
       >
         <label htmlFor="name"></label>
         <input
-          className="py-2 px-4 mb-4 border-2 border-text rounded-lg w-6/12 lg:w-4/12"
+          className="py-2 px-4 mb-4 border-2 border-border rounded-lg w-6/12 lg:w-4/12"
           name="name"
           type="text"
           placeholder="enter your name..."
@@ -84,7 +84,7 @@ const Register = () => {
         />
         <label htmlFor="email"></label>
         <input
-          className="py-2 px-4 mb-4 border-2 border-text rounded-lg w-6/12 lg:w-4/12"
+          className="py-2 px-4 mb-4 border-2 border-border rounded-lg w-6/12 lg:w-4/12"
           name="email"
           type="text"
           placeholder="enter your email..."
@@ -93,7 +93,7 @@ const Register = () => {
         />
         <label htmlFor="password"></label>
         <input
-          className="py-2 px-4 mb-4 border-2 border-text rounded-lg w-6/12 lg:w-4/12"
+          className="py-2 px-4 mb-4 border-2 border-border rounded-lg w-6/12 lg:w-4/12"
           name="password"
           type="password"
           placeholder="enter your password..."

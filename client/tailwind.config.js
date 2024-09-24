@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#F1F1F1", //White  Base for background
+        bg: "#F5F5F5", //White  Base for background
         text: "#014421", // Dark Green for text
         border: "#00A86B", // Light Green for border
         brand: "#00A86B", // Light Green for brand elements
@@ -21,8 +21,8 @@ export default {
         xxl: "1400px", // Extra extra large devices (larger desktops, 1400px and up)
       },
       fontFamily: {
-        qs: ["Quicksand", "sans-serif"]
-      }
+        qs: ["Quicksand", "sans-serif"],
+      },
     },
   },
   plugins: [],
