@@ -74,7 +74,7 @@ const loginUser = async (req, res) => {
     // * Check if passwords match
     const matchPasswords = await comparePassword(password, user.password);
     if (matchPasswords) {
-      res.status(200).json({ message: "Passwords match" });
+      res.status(200).json({ message: "Log in successful" });
     } else {
       res.status(400).json({ error: "Incorrect password" });
     }
