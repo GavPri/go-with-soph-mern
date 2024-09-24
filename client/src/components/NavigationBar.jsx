@@ -4,23 +4,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
 import { Link } from "react-router-dom";
+import useClickOutSideToggle from "../hooks/useClickOutSideToggle";
 
 function NavigationBar() {
-  const [expanded, setExpanded] = useState(false);
-
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setExpanded(false);
-      }
-    };
-    document.addEventListener("mouseup", handleClickOutside);
-    return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
-    };
-  }, [ref]);
+  
+  const {expanded, setExpanded, ref} = useClickOutSideToggle();
 
   return (
     <Navbar expand="lg" expanded={expanded} className="bg-bg text-text" fixed="top">
