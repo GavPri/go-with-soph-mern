@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { MdTravelExplore } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -39,7 +40,10 @@ const Register = () => {
   return (
     <div className="mt-24">
       <div className="text-center flex flex-col justify-center items-center">
-        <h2 className="flex flex-col items-center text-brand text-xl mb-2"> <MdTravelExplore size={40} /> GoWithSoph</h2>
+        <h2 className="flex flex-col items-center text-brand text-xl mb-2">
+          {" "}
+          <MdTravelExplore size={40} /> GoWithSoph
+        </h2>
         <p className="text-lg text-text mb-4">Register for an account</p>
       </div>
       <form
@@ -75,10 +79,16 @@ const Register = () => {
         />
         <button
           type="submit"
-          className="py-2 px-2 bg-brand text-bg capitalize rounded-lg w-6/12"
+          className="py-2 px-2 mb-4 bg-brand text-bg capitalize rounded-lg w-6/12"
         >
           submit
         </button>
+        <p className="text-text">
+          Already have an account?{" "}
+          <Link className="text-accentSecondary" to="/login">
+            Login
+          </Link>
+        </p>
       </form>
     </div>
   );
