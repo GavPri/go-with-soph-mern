@@ -20,7 +20,7 @@ const Register = () => {
       toast.error("All fields are required");
       return; 
     }
-    
+
     try {
       const data = await axios.post(
         "/register",
@@ -31,8 +31,8 @@ const Register = () => {
         },
         { withCredentials: true }
       );
-      if (response.data.error) {
-        toast.error(response.data.error);
+      if (data.error) {
+        toast.error(data.error);
       } else {
         toast.success("Sign up successful");
         navigate("/login");
