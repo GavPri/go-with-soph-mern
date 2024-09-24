@@ -1,11 +1,16 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,12 +20,39 @@ const Login = () => {
       [name]: value,
     });
   };
+
   const loginUser = async (e) => {
     e.preventDefault();
     const { email, password } = data;
+
+    if (!email || !password) {
+      toast.error("All fields are required");
+      return;
+    }
+
     try {
-      const { data } = await axios.post("/login", { email, password });
-    } catch (error) {console.log(error)}
+      setIsLoading(true);
+      const { response } = await axios.post(
+        "/login",
+        { email, password },
+        { withCredentials: true }
+      );
+
+      const { data } = response;
+
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setData({ email: "", password: "" });
+        navigate("/home");
+      }
+    } catch (error) {
+      console.log({
+        error: '"An error occurred during login. Please try again."',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="mt-12">
@@ -39,7 +71,7 @@ const Login = () => {
         <label htmlFor="password"></label>
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="enter your password..."
           value={data.password}
           onChange={handleChange}
