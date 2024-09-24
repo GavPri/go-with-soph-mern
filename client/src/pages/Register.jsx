@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { MdTravelExplore } from "react-icons/md";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -36,7 +37,11 @@ const Register = () => {
     });
   };
   return (
-    <div className="mt-12">
+    <div className="mt-24">
+      <div className="text-center flex flex-col justify-center items-center">
+        <h2 className="flex flex-col items-center text-brand text-xl mb-2"> <MdTravelExplore size={40} /> GoWithSoph</h2>
+        <p className="text-lg text-text mb-4">Register for an account</p>
+      </div>
       <form
         className="flex flex-col justify-center items-center"
         onSubmit={registerUser}
