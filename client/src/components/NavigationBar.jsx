@@ -16,7 +16,7 @@ function NavigationBar() {
 
   // Function to get class names for NavLink
   const getNavLinkClass = ({ isActive }) =>
-    `text-xl my-4 lg:py-2 lg:rounded-lg lg:px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200  hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out ${
+    `text-xl my-4 py-2 lg:rounded-lg rounded-md px-6 lg:mr-4 lg:flex lg:justify-center lg:bg-slate-200  hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out ${
       isActive
         ? "bg-gradient-to-r from-brand to-accentPrimary text-bg"
         : "text-text"
