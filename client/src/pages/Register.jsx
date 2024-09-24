@@ -43,6 +43,7 @@ const Register = () => {
       >
         <label htmlFor="name"></label>
         <input
+          className="py-2 px-4 mb-2 border-2 border-text rounded-lg w-6/12"
           name="name"
           type="text"
           placeholder="enter your name..."
@@ -51,6 +52,7 @@ const Register = () => {
         />
         <label htmlFor="email"></label>
         <input
+          className="py-2 px-4 mb-2 border-2 border-text rounded-lg w-6/12"
           name="email"
           type="text"
           placeholder="enter your email..."
@@ -59,13 +61,19 @@ const Register = () => {
         />
         <label htmlFor="password"></label>
         <input
+          className="py-2 px-4 mb-2 border-2 border-text rounded-lg w-6/12"
           name="password"
           type="text"
           placeholder="enter your password..."
           value={data.password}
           onChange={handleChange}
         />
-        <button type="submit">submit</button>
+        <button
+          type="submit"
+          className="py-2 px-2 bg-brand text-bg capitalize rounded-lg w-6/12"
+        >
+          submit
+        </button>
       </form>
     </div>
   );
