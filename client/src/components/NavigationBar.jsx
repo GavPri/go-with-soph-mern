@@ -20,26 +20,29 @@ function NavigationBar() {
         >
           {expanded ? <FaTimes size={24} /> : <FaBars size={24} />}
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className="bg-bg">
           <Nav className="ml-auto">
-            <Link to="/" className="lg:mr-4 lg:flex lg:justify-center lg:pb-0">
+            <Link
+              to="/"
+              className=" text-xl py-4 lg:mr-4 lg:flex lg:justify-center lg:pb-0 "
+            >
               Home
             </Link>
             <Link
               to="/blog"
-              className="lg:mr-4 lg:flex lg:justify-center lg:pb-0"
+              className="text-xl py-4 lg:mr-4 lg:flex lg:justify-center lg:pb-0"
             >
               Blog
             </Link>
             <Link
               to="/register"
-              className="lg:mr-4 lg:flex lg:justify-center lg:pb-0"
+              className="text-xl py-4 lg:mr-4 lg:flex lg:justify-center lg:pb-0"
             >
               Register
             </Link>
             <Link
               to="/login"
-              className="lg:mr-4 lg:flex lg:justify-center lg:pb-0"
+              className="text-xl py-4 lg:mr-4 lg:flex lg:justify-center lg:py-0"
             >
               Login
             </Link>
