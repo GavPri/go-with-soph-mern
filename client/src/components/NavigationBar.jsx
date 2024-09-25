@@ -61,9 +61,9 @@ function NavigationBar() {
   const LoggedInLinks = () => {
     return (
       <>
-        <NavLink className={getNavLinkClass} onClick={handleLogout}>
+        <button className={getNavLinkClass} onClick={handleLogout}>
           Log out
-        </NavLink>
+        </button>
       </>
     );
   };
