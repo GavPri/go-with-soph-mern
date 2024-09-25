@@ -39,10 +39,19 @@ function NavigationBar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/logout", {}, { withCredentials: true });
-      toast.success("Goodbye! ");
-      setUser(null);
-      navigate("/login");
+      const response = await axios.post(
+        "/logout",
+        {},
+        { withCredentials: true }
+      );
+
+      if (response.status === 200) {
+        toast.success("Goodbye! ");
+        setUser(null);
+        navigate("/login");
+      } else {
+        toast.error("Logout failed. Please try again.");
+      }
     } catch (error) {
       toast.error("Logout failed. Please try again."); // Error toast
       console.error("Logout failed:", error);
