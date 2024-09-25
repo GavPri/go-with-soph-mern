@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
+import { userContextProvider } from "./context/userContext";
 
 axios.defaults.baseURL = "https://gowithsoph.vercel.app";
 
@@ -20,7 +21,7 @@ axios.defaults.withCredentials = true;
 function App() {
   const Root = () => {
     return (
-      <>
+      <userContextProvider>
         <div>
           <NavigationBar />
           <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
@@ -28,7 +29,7 @@ function App() {
         <div>
           <Outlet />
         </div>
-      </>
+      </userContextProvider>
     );
   };
 
