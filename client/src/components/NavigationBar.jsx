@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
 import { NavLink } from "react-router-dom";
 import useClickOutSideToggle from "../hooks/useClickOutSideToggle";
-
+import { useContext } from "react";
 
 function NavigationBar() {
   const { expanded, setExpanded, ref } = useClickOutSideToggle();
