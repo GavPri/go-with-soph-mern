@@ -39,7 +39,7 @@ function NavigationBar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/", {}, { withCredentials: true });
+      await axios.post("/logout", {}, { withCredentials: true });
       toast.success("Goodbye! ");
       setUser(null);
       navigate("/login");
