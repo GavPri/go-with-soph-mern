@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const { hashPassword, comparePassword } = require("../helpers/auth");
-const jwt= require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = require(process.env.JWT_SECRET);
 
 const test = (req, res) => {
   res.json("test is working");
@@ -76,7 +77,23 @@ const loginUser = async (req, res) => {
     const matchPasswords = await comparePassword(password, user.password);
     if (matchPasswords) {
       res.status(200).json({ message: "Log in successful" });
-      jwt.sign({email: user.email, id: user._id, name: user.name})
+      jwt.sign(
+        { email: user.email, id: user._id, name: user.name },
+        JWT_SECRET,
+        { expiresIn: "24h" },
+        {},
+        (err, token) => {
+          if (err) {
+            return res.status(500).json({ message: "Token generation failed" });
+          }
+
+         
+          res
+            .status(200) 
+            .cookie("token", token, { httpOnly: true }) 
+            .json({ message: "Log in successful", user }); 
+        }
+      );
     } else {
       res.status(400).json({ error: "Incorrect password" });
     }
