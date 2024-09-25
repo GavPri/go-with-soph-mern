@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 const { hashPassword, comparePassword } = require("../helpers/auth");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = require(process.env.JWT_SECRET);
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const test = (req, res) => {
   res.json("test is working");
@@ -91,7 +91,8 @@ const loginUser = async (req, res) => {
           res
             .status(200) 
             .cookie("token", token, { httpOnly: true }) 
-            .json({ message: "Log in successful", user }); 
+            .json({ message: "Log in successful", user });
+            console.log('Cookie added') 
         }
       );
     } else {
