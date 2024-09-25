@@ -11,7 +11,7 @@ import { toast } from "react-hot-toast";
 
 function NavigationBar() {
   // * Accessing the user.
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const { expanded, setExpanded, ref } = useClickOutSideToggle();
   // * navigate the user to home page after logout.
   const navigate = useNavigate();
