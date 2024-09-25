@@ -20,6 +20,28 @@ function NavigationBar() {
         : "text-text"
     }`;
 
+  const LoggedOutLinks = () => {
+    return (
+      <>
+        <NavLink to="/register" className={getNavLinkClass}>
+          Register
+        </NavLink>
+        <NavLink to="/login" className={getNavLinkClass}>
+          Login
+        </NavLink>
+      </>
+    );
+  };
+
+  const LoggedInLinks = () => {
+    return (
+      <>
+        <NavLink to="/logout" className={getNavLinkClass}>
+          Log out
+        </NavLink>
+      </>
+    );
+  }
   return (
     <Navbar
       expand="lg"
@@ -53,12 +75,7 @@ function NavigationBar() {
             <NavLink to="/blog" className={getNavLinkClass}>
               Blog
             </NavLink>
-            <NavLink to="/register" className={getNavLinkClass}>
-              Register
-            </NavLink>
-            <NavLink to="/login" className={getNavLinkClass}>
-              Login
-            </NavLink>
+            {user ? <LoggedInLinks /> : <LoggedOutLinks />}
           </Nav>
         </Navbar.Collapse>
       </Container>
