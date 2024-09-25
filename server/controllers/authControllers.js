@@ -26,7 +26,7 @@ const registerUser = async (req, res) => {
           "Username can only contain letters, numbers, underscores, and hyphens",
       });
     }
-    const nameExists = await User.findOne({ email });
+    const nameExists = await User.findOne({ name });
     if (nameExists) {
       return res.json({ error: "This email is taken already." });
     }
@@ -76,7 +76,6 @@ const loginUser = async (req, res) => {
     // * Check if passwords match
     const matchPasswords = await comparePassword(password, user.password);
     if (matchPasswords) {
-      res.status(200).json({ message: "Log in successful" });
       jwt.sign(
         { email: user.email, id: user._id, name: user.name },
         JWT_SECRET,
@@ -86,13 +85,14 @@ const loginUser = async (req, res) => {
           if (err) {
             return res.status(500).json({ message: "Token generation failed" });
           }
-
-         
           res
-            .status(200) 
-            .cookie("token", token, { httpOnly: true }) 
+            .status(200)
+            .cookie("token", token, {
+              httpOnly: true,
+              secure: true, // Only send the cookie over HTTPS
+              sameSite: "None", // Allow cross-origin requests
+            })
             .json({ message: "Log in successful", user });
-            console.log('Cookie added') 
         }
       );
     } else {
