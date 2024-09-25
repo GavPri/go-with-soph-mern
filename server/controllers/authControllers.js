@@ -129,7 +129,9 @@ const getProfile = (req, res) => {
 };
 
 const logoutUser = (req, res) => {
-  return;
+  res
+    .clearCookie("token", { httpOnly: true, secure: true, sameSite: "None" })
+    .json({ message: "You are logged out, goodbye!" });
 };
 
 module.exports = { test, registerUser, loginUser, getProfile, logoutUser };
