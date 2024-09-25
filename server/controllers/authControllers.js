@@ -116,5 +116,8 @@ const loginUser = async (req, res) => {
   }
 };
 
+const getProfile = () => {
+  
+}
 
-module.exports = { test, registerUser, loginUser };
+module.exports = { test, registerUser, loginUser, getProfile };
