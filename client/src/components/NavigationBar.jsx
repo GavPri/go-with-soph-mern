@@ -2,15 +2,19 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useClickOutSideToggle from "../hooks/useClickOutSideToggle";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 function NavigationBar() {
   // * Accessing the user.
   const { user } = useContext(UserContext);
   const { expanded, setExpanded, ref } = useClickOutSideToggle();
+  // * navigate the user to home page after logout.
+  const navigate = useNavigate();
 
   // Function to get class names for NavLink
   const getNavLinkClass = ({ isActive }) =>
@@ -33,10 +37,22 @@ function NavigationBar() {
     );
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.post("/", {}, { withCredentials: true });
+      toast.success("Goodbye! ");
+      setUser(null);
+      navigate("/login");
+    } catch (error) {
+      toast.error("Logout failed. Please try again."); // Error toast
+      console.error("Logout failed:", error);
+    }
+  };
+
   const LoggedInLinks = () => {
     return (
       <>
-        <NavLink to="/" className={getNavLinkClass}>
+        <NavLink className={getNavLinkClass} onClick={handleLogout}>
           Log out
         </NavLink>
       </>
