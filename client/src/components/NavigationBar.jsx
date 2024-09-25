@@ -8,6 +8,8 @@ import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
 function NavigationBar() {
+  // * Accessing the user.
+  const { user } = useContext(UserContext);
   const { expanded, setExpanded, ref } = useClickOutSideToggle();
 
   // Function to get class names for NavLink
@@ -30,6 +32,7 @@ function NavigationBar() {
           <h1 className="text-2xl text-brand font-qs font-bold tracking-wider">
             GoWithSoph
           </h1>
+          {user ? <p>Hey there, {user.name}!</p> : <p>Welcome back!</p>}
         </NavLink>
         <Navbar.Toggle
           ref={ref}
@@ -57,7 +60,6 @@ function NavigationBar() {
               Login
             </NavLink>
           </Nav>
-          
         </Navbar.Collapse>
       </Container>
     </Navbar>
