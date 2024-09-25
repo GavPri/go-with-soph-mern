@@ -128,4 +128,8 @@ const getProfile = (req, res) => {
   }
 };
 
-module.exports = { test, registerUser, loginUser, getProfile };
+const logoutUser = (req, res) => {
+  return;
+};
+
+module.exports = { test, registerUser, loginUser, getProfile, logoutUser };
