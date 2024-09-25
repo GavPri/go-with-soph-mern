@@ -61,27 +61,7 @@ function NavigationBar() {
               Login
             </NavLink>
           </Nav>
-          <Nav>
-            <Form inline className="flex justify-start items-center">
-              <Row>
-                <Col xs="auto">
-                  <Form.Control
-                    type="text"
-                    placeholder="Search"
-                    className="py-2 px-6 border-1 border-border focus:outline-none focus:ring-0 focus:shadow-none focus:border-border"
-                  />
-                </Col>
-                <Col xs="auto">
-                  <Button
-                    type="submit"
-                    className="bg-slate-200 text-brand border-0 outline-none py-2 px-6 hover:bg-gradient-to-r from-brand to-accentPrimary hover:text-bg transition-all duration-500 ease-in-out "
-                  >
-                    <IoMdSearch size={25} />
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
-          </Nav>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
