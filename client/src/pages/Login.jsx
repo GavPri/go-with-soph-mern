@@ -1,10 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { MdTravelExplore } from "react-icons/md";
+import { UserContext } from "../context/userContext";
 
 const Login = () => {
+  // * access user
+  const { user, setUser } = useContext(UserContext);
+
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
@@ -39,12 +43,13 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      const { data } = response;
+      const { user: loggedInUser, error } = response.data;
 
-      if (data.error) {
-        toast.error(data.error);
+      if (error) {
+        toast.error(error);
       } else {
         setData({ email: "", password: "" });
+        setUser(loggedInUser);
         navigate("/");
       }
     } catch (error) {
