@@ -66,41 +66,55 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     // * Check if user exists
+    console.log("Checking if user exists...");
     const user = await User.findOne({ email });
+
     if (!user) {
-      return res.json({
+      console.log("No user with this email found.");
+      return res.status(400).json({
         error: "No user with this email found.",
       });
     }
 
     // * Check if passwords match
     const matchPasswords = await comparePassword(password, user.password);
-    if (matchPasswords) {
-      jwt.sign(
+
+    if (!matchPasswords) {
+      console.log("Incorrect password.");
+      return res.status(400).json({ error: "Incorrect password" });
+    }
+
+    console.log("Passwords match. Generating token...");
+
+    // * Try to sign the JWT token
+    try {
+      const token = jwt.sign(
         { email: user.email, id: user._id, name: user.name },
         JWT_SECRET,
-        { expiresIn: "24h" },
-        {},
-        (err, token) => {
-          if (err) {
-            return res.status(500).json({ message: "Token generation failed" });
-          }
-          res
-            .status(200)
-            .cookie("token", token, {
-              httpOnly: true,
-              secure: true, // Only send the cookie over HTTPS
-              sameSite: "None", // Allow cross-origin requests
-            })
-            .json({ message: "Log in successful", user });
-        }
+        { expiresIn: "24h" }
       );
-    } else {
-      res.status(400).json({ error: "Incorrect password" });
+
+      console.log("Token generated successfully. Sending response...");
+
+      // * Send response with cookie and user data
+      res
+        .status(200)
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: true, // Send cookie only over HTTPS
+          sameSite: "None", // Allows cross-origin requests
+        })
+        .json({ message: "Log in successful", user });
+    } catch (err) {
+      console.error("Error generating token:", err);
+      return res.status(500).json({ message: "Token generation failed" });
     }
   } catch (error) {
-    console.log(error);
+    // * Catch and log any other errors during the login process
+    console.error("Error during login:", error);
+    return res.status(500).json({ error: "An error occurred during login." });
   }
 };
+
 
 module.exports = { test, registerUser, loginUser };
