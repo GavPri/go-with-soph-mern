@@ -5,6 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
 import { NavLink } from "react-router-dom";
 import useClickOutSideToggle from "../hooks/useClickOutSideToggle";
 import { useContext } from "react";
+import { UserContext } from "../context/userContext";
 
 function NavigationBar() {
   const { expanded, setExpanded, ref } = useClickOutSideToggle();
