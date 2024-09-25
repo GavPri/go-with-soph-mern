@@ -36,12 +36,12 @@ function NavigationBar() {
   const LoggedInLinks = () => {
     return (
       <>
-        <NavLink to="/logout" className={getNavLinkClass}>
+        <NavLink to="/" className={getNavLinkClass}>
           Log out
         </NavLink>
       </>
     );
-  }
+  };
   return (
     <Navbar
       expand="lg"
