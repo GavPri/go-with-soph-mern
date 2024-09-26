@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "./context/userContext";
+import CreatePost from "./pages/CreatePost";
 
 axios.defaults.baseURL = "https://gowithsoph.vercel.app";
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/create" element={<CreatePost />} />
       </Route>
     )
   );
