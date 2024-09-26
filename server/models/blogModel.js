@@ -18,11 +18,43 @@ const blogSchema = new Schema({
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: User,
+    ref: "User",
     required: true,
   },
   heroImage: {
     type: String,
-    required: true, 
-  }
+    required: true,
+  },
+  content: {
+    type: [
+      {
+        type: {
+          type: String,
+          enum: ["text", "image"],
+          required: true,
+        },
+        content: {
+          type: String,
+          required: function () {
+            return this.type === "text";
+          },
+        },
+        imageUrl: {
+          type: String,
+          required: function () {
+            return this.type === "image";
+          },
+        },
+        altText: {
+          type: String,
+          required: function () {
+            return this.type === "image";
+          },
+        },
+      },
+    ],
+    required: true,
+  },
+  publishedAt: { type: Date, default: Date.now },
+  createdAt: { type: Date, default: Date.now },
 });
