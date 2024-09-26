@@ -59,8 +59,13 @@ function NavigationBar() {
   };
 
   const LoggedInLinks = () => {
+    const { role } = user;
+
     return (
       <>
+        {user.role === "author" && (
+          <NavLink className={getNavLinkClass}>Create post </NavLink>
+        )}
         <button className={getNavLinkClass} onClick={handleLogout}>
           Log out
         </button>
