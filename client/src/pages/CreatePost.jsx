@@ -3,6 +3,13 @@ import { MdTravelExplore } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 
 const CreatePost = () => {
+  // todo State to handle form changes.
+
+  // todo Function to change input fields ---- add values & onclicks to inputs.
+
+  // todo handle submit function --- add it to form.
+
+  // todo add functions to display added 
   const continents = [
     "Asia",
     "Africa",
@@ -22,7 +29,7 @@ const CreatePost = () => {
         <p className="text-lg text-text ">Create a blog post</p>
       </div>
       {/* *Form inputs for form. */}
-      <form className="h-fit w-10/12 bg-bg p-4">
+      <form className="h-fit w-10/12 bg-bg p-4 rounded-lg">
         {/* 3 inputs for author. */}
         {/* Title */}
         <label htmlFor="title"></label>
