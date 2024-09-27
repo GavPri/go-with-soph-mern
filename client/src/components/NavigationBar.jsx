@@ -27,6 +27,9 @@ function NavigationBar() {
   const LoggedOutLinks = () => {
     return (
       <>
+        <NavLink className={getNavLinkClass} to="/create">
+          Create post{" "}
+        </NavLink>
         <NavLink to="/register" className={getNavLinkClass}>
           Register
         </NavLink>
@@ -61,11 +64,11 @@ function NavigationBar() {
   const LoggedInLinks = () => {
     const { role } = user;
 
+    // TODO add create post back to
+
     return (
       <>
-        {user.role === "author" && (
-          <NavLink className={getNavLinkClass} to='/create'>Create post </NavLink>
-        )}
+        {user.role === "author" && <div>Author</div>}
         <button className={getNavLinkClass} onClick={handleLogout}>
           Log out
         </button>
