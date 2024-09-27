@@ -1,5 +1,6 @@
 import React from "react";
 import { MdTravelExplore } from "react-icons/md";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const CreatePost = () => {
   return (
@@ -17,27 +18,38 @@ const CreatePost = () => {
         {/* Title */}
         <label htmlFor="title"></label>
         <input
-        placeholder="Title"
+          placeholder="Title"
           type="text"
           name="title"
-          className="bg-bg w-full mb-6 px-4 py-2 border-2 border-brand rounded-lg"
+          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         {/* Slug */}
         <label htmlFor="slug"></label>
         <input
-        placeholder="Slug"
+          placeholder="Slug"
           type="text"
           name="slug"
-          className="bg-bg w-full mb-6 px-4 py-2 border-2 border-brand rounded-lg"
+          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         {/* Hero image */}
         <label htmlFor="heroImage"></label>
         <input
-        placeholder="Hero image URL"
+          placeholder="Hero image URL"
           type="text"
           name="heroImage"
-          className="bg-bg w-full mb-6 px-4 py-2 border-2 border-brand rounded-lg"
+          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
+        {/* Tags */}
+        <div className="flex rounded-lg w-full">
+          <input
+            type="text"
+            className="rounded-l-lg w-10/12 px-4 py-2 border-b-2 border-brand bg-bg"
+            placeholder="Tags"
+          />
+          <button className="bg-brand text-bg rounded-r-lg w-2/12 flex justify-center">
+            <IoIosAddCircleOutline size={40} />
+          </button>
+        </div>
       </form>
     </div>
   );
