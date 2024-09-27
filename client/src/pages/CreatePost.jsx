@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdTravelExplore } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 
 const CreatePost = () => {
   // todo State to handle form changes.
+  const [formData, setFormData] = useState({
+    title: '', 
+    slug: '',
+    heroImage: '', 
+    destination: '',
+    tags: [],
+    continent: '',
+  })
 
   // todo Function to change input fields ---- add values & onclicks to inputs.
 
