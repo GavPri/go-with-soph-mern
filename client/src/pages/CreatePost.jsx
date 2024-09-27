@@ -21,9 +21,32 @@ const CreatePost = () => {
       [name]: value,
     }));
   };
-  // todo handle submit function --- add it to form.
 
-  // todo add functions to display added
+  // todo add functions to display tags added
+  const [tagInput, setTagInput] = useState("");
+
+  const handleTagChange = (e) => {
+    setTagInput(e.target.value);
+  };
+
+  const handleAddTag = (e) => {
+    e.preventDefault();
+    if (tagInput.trim() && !formData.tags.includes(tagInput.trim())) {
+      setFormData((prevData) => ({
+        ...prevData,
+        tags: [...prevData.tags, tagInput.trim()],
+      }));
+      setTagInput("");
+    }
+  };
+
+  // todo handle submit function --- add it to form.
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data:", formData);
+    // Handle form submission logic
+  };
+
   const continents = [
     "Asia",
     "Africa",
@@ -43,7 +66,10 @@ const CreatePost = () => {
         <p className="text-lg text-text ">Create a blog post</p>
       </div>
       {/* *Form inputs for form. */}
-      <form className="h-fit w-10/12 bg-bg p-4 rounded-lg">
+      <form
+        className="h-fit w-10/12 bg-bg p-4 rounded-lg"
+        onSubmit={handleSubmit}
+      >
         {/* 3 inputs for author. */}
         {/* Title */}
         <label htmlFor="title"></label>
@@ -75,25 +101,44 @@ const CreatePost = () => {
           name="heroImage"
           className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
-        <label htmlFor="destinations"></label>
+        <label htmlFor="destination"></label>
         <input
           value={formData.destination}
           onChange={handleChange}
           placeholder="Destination"
           type="text"
-          name="destinations"
+          name="destination"
           className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         {/* Tags */}
         <div className="flex rounded-lg w-full mb-6">
           <input
+            onChange={handleTagChange}
+            value={tagInput}
             type="text"
             className="rounded-l-lg w-10/12 px-4 py-2  border-b-2 border-brand bg-bg"
             placeholder="Tags"
           />
-          <button className="bg-brand text-bg rounded-r-lg w-2/12 flex justify-center">
+          <button
+            onClick={handleAddTag}
+            className="bg-brand text-bg rounded-r-lg w-2/12 flex justify-center"
+          >
             <IoIosAddCircleOutline size={40} />
           </button>
+          <div className="mb-6">
+            {formData.tags.length > 0 && (
+              <div className="flex flex-wrap">
+                {formData.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="bg-brand text-bg rounded-full px-3 py-1 mr-2 mb-2"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         {/* Continents */}
         <label htmlFor="continent"></label>
