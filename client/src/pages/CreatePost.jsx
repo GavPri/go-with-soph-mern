@@ -48,6 +48,13 @@ const CreatePost = () => {
           name="heroImage"
           className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
+        <label htmlFor="destinations"></label>
+        <input
+          placeholder="Destination"
+          type="text"
+          name="destinations"
+          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
+        />
         {/* Tags */}
         <div className="flex rounded-lg w-full mb-6">
           <input
