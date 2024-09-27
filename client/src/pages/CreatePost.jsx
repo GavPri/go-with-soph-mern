@@ -5,19 +5,25 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 const CreatePost = () => {
   // todo State to handle form changes.
   const [formData, setFormData] = useState({
-    title: '', 
-    slug: '',
-    heroImage: '', 
-    destination: '',
+    title: "",
+    slug: "",
+    heroImage: "",
+    destination: "",
     tags: [],
-    continent: '',
-  })
+    continent: "",
+  });
 
   // todo Function to change input fields ---- add values & onclicks to inputs.
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   // todo handle submit function --- add it to form.
 
-  // todo add functions to display added 
+  // todo add functions to display added
   const continents = [
     "Asia",
     "Africa",
@@ -42,6 +48,8 @@ const CreatePost = () => {
         {/* Title */}
         <label htmlFor="title"></label>
         <input
+          value={formData.title}
+          onChange={handleChange}
           placeholder="Title"
           type="text"
           name="title"
@@ -50,6 +58,8 @@ const CreatePost = () => {
         {/* Slug */}
         <label htmlFor="slug"></label>
         <input
+          value={formData.slug}
+          onChange={handleChange}
           placeholder="Slug"
           type="text"
           name="slug"
@@ -58,6 +68,8 @@ const CreatePost = () => {
         {/* Hero image */}
         <label htmlFor="heroImage"></label>
         <input
+          value={formData.heroImage}
+          onChange={handleChange}
           placeholder="Hero image URL"
           type="text"
           name="heroImage"
@@ -65,6 +77,8 @@ const CreatePost = () => {
         />
         <label htmlFor="destinations"></label>
         <input
+          value={formData.destination}
+          onChange={handleChange}
           placeholder="Destination"
           type="text"
           name="destinations"
@@ -84,6 +98,8 @@ const CreatePost = () => {
         {/* Continents */}
         <label htmlFor="continent"></label>
         <select
+          value={formData.continent}
+          onChange={handleChange}
           name="continent"
           id=""
           className="w-full px-4 py-2 mb-6 rounded-lg bg-bg border-b-2 border-brand text-text"
