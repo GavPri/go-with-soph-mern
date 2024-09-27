@@ -111,21 +111,23 @@ const CreatePost = () => {
           className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         {/* Tags */}
-        <div className="flex rounded-lg w-full mb-6">
-          <input
-            onChange={handleTagChange}
-            value={tagInput}
-            type="text"
-            className="rounded-l-lg w-10/12 px-4 py-2  border-b-2 border-brand bg-bg"
-            placeholder="Tags"
-          />
-          <button
-            onClick={handleAddTag}
-            className="bg-brand text-bg rounded-r-lg w-2/12 flex justify-center"
-          >
-            <IoIosAddCircleOutline size={40} />
-          </button>
-          <div className="mb-6">
+        <div className="flex flex-col rounded-lg w-full mb-6">
+          <div className="flex rounded-lg w-full mb-6">
+            <input
+              onChange={handleTagChange}
+              value={tagInput}
+              type="text"
+              className="rounded-l-lg w-10/12 px-4 py-2  border-b-2 border-brand bg-bg"
+              placeholder="Tags"
+            />
+            <button
+              onClick={handleAddTag}
+              className="bg-brand text-bg rounded-r-lg w-2/12 flex justify-center"
+            >
+              <IoIosAddCircleOutline size={40} />
+            </button>
+          </div>
+          <div className="">
             {formData.tags.length > 0 && (
               <div className="flex flex-wrap">
                 {formData.tags.map((tag, index) => (
