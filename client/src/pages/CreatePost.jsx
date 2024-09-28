@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { MdDelete, MdTravelExplore } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { Quill } from "quill";
+import "quill/dist/quill.core.css";
+
 
 const CreatePost = () => {
+
+  
   // todo State to handle form changes.
   const [formData, setFormData] = useState({
     title: "",
