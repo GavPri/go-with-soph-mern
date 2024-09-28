@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdTravelExplore } from "react-icons/md";
+import { MdDelete, MdTravelExplore } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 
 const CreatePost = () => {
@@ -40,6 +40,13 @@ const CreatePost = () => {
     }
   };
 
+  const handleDeleteTag = (tagToDelete) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      tags: prevData.tags.filter((tag) => tag !== tagToDelete),
+    }));
+  };
+
   // todo handle submit function --- add it to form.
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,7 +74,7 @@ const CreatePost = () => {
       </div>
       {/* *Form inputs for form. */}
       <form
-        className="h-fit w-10/12 bg-bg p-4 rounded-lg"
+        className="h-fit w-10/12 bg-bg p-4 rounded-lg lg:w-1/2"
         onSubmit={handleSubmit}
       >
         {/* 3 inputs for author. */}
@@ -131,12 +138,20 @@ const CreatePost = () => {
             {formData.tags.length > 0 && (
               <div className="flex flex-wrap">
                 {formData.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="bg-brand text-bg rounded-full px-3 py-1 mr-2 mb-2"
+                  <div
+                    key={tag}
+                    className="flex items-center justify-between mb-2"
                   >
-                    {tag}
-                  </span>
+                    <div className="bg-brand text-bg px-4 py-2 rounded-full mr-2 flex justify-between items-center ">
+                      {tag}
+                      <button
+                        onClick={() => handleDeleteTag(tag)}
+                        className="text-red-400 text-center ml-2"
+                      >
+                        <MdDelete size={20} />
+                      </button>
+                    </div>
+                  </div>
                 ))}
               </div>
             )}
