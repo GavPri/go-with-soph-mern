@@ -74,7 +74,7 @@ const CreatePost = () => {
       </div>
       {/* *Form inputs for form. */}
       <form
-        className="h-fit w-10/12 bg-bg p-4 rounded-lg lg:w-1/2"
+        className="h-fit w-10/12  p-4 rounded-lg lg:w-1/2"
         onSubmit={handleSubmit}
       >
         {/* 3 inputs for author. */}
@@ -86,7 +86,7 @@ const CreatePost = () => {
           placeholder="Title"
           type="text"
           name="title"
-          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
+          className="w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         {/* Slug */}
         <label htmlFor="slug"></label>
@@ -96,7 +96,7 @@ const CreatePost = () => {
           placeholder="Slug"
           type="text"
           name="slug"
-          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
+          className=" w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         {/* Hero image */}
         <label htmlFor="heroImage"></label>
@@ -106,7 +106,7 @@ const CreatePost = () => {
           placeholder="Hero image URL"
           type="text"
           name="heroImage"
-          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
+          className="w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         <label htmlFor="destination"></label>
         <input
@@ -115,7 +115,7 @@ const CreatePost = () => {
           placeholder="Destination"
           type="text"
           name="destination"
-          className="bg-bg w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
+          className="w-full mb-6 px-4 py-2 border-b-2 border-brand rounded-lg"
         />
         {/* Tags */}
         <div className="flex flex-col rounded-lg w-full mb-6">
@@ -124,7 +124,7 @@ const CreatePost = () => {
               onChange={handleTagChange}
               value={tagInput}
               type="text"
-              className="rounded-l-lg w-10/12 px-4 py-2  border-b-2 border-brand bg-bg"
+              className="rounded-l-lg w-10/12 px-4 py-2  border-b-2 border-brand"
               placeholder="Tags"
             />
             <button
@@ -164,7 +164,7 @@ const CreatePost = () => {
           onChange={handleChange}
           name="continent"
           id=""
-          className="w-full px-4 py-2 mb-6 rounded-lg bg-bg border-b-2 border-brand text-text"
+          className="w-full px-4 py-2 mb-6 rounded-lg border-b-2 border-brand text-text"
         >
           <option value="Select a continent">Select a continent</option>
           {continents.map((con) => (
