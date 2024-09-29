@@ -27,33 +27,7 @@ const blogSchema = new Schema(
       required: true,
     },
     content: {
-      type: [
-        {
-          type: {
-            type: String,
-            enum: ["text", "image"],
-            required: true,
-          },
-          content: {
-            type: String,
-            required: function () {
-              return this.type === "text";
-            },
-          },
-          imageUrl: {
-            type: String,
-            required: function () {
-              return this.type === "image";
-            },
-          },
-          altText: {
-            type: String,
-            required: function () {
-              return this.type === "image";
-            },
-          },
-        },
-      ],
+      type: String,
       required: true,
     },
     tags: {
@@ -68,15 +42,6 @@ const blogSchema = new Schema(
     },
     continent: {
       type: String,
-      enum: [
-        "Africa",
-        "Antarctica",
-        "Asia",
-        "Europe",
-        "North America",
-        "Australia/Oceania",
-        "South America",
-      ],
       required: true,
     },
     publishedAt: { type: Date, default: Date.now },
@@ -84,6 +49,6 @@ const blogSchema = new Schema(
   { timestamps: true }
 );
 
-const Blog = mongoose.model('Blog', blogSchema )
+const Blog = mongoose.model("Blog", blogSchema);
 
 module.exports = Blog;
