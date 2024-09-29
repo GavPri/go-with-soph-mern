@@ -18,8 +18,10 @@ const createBlog = async (req, res) => {
     await newBlogPost.save();
     res.status(201).json({ message: "Blog post created successfully" });
   } catch (error) {
-    res.status(400).json({error: 'There was an error creating the blog post.'})
+    res
+      .status(400)
+      .json({ error: "There was an error creating the blog post." });
   }
 };
 
-module.exports({ createBlog });
+module.exports = { createBlog };
