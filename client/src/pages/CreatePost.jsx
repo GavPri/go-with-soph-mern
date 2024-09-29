@@ -17,6 +17,7 @@ const CreatePost = () => {
     destination: "",
     tags: [],
     continent: "",
+    content: "", 
   });
 
   // todo Function to change input fields ---- add values & onclicks to inputs.
