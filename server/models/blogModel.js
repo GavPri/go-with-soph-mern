@@ -18,8 +18,9 @@ const blogSchema = new Schema(
       trim: true,
     },
     author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: User,
+      // type: mongoose.Schema.Types.ObjectId,
+      // ref: User,
+      type: String,
       required: true,
     },
     heroImage: {
