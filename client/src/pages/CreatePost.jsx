@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { MdDelete, MdTravelExplore } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const CreatePost = () => {
   // * find quill container
