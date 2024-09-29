@@ -5,10 +5,6 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const CreatePost = () => {
-  // * find quill container
-  const quillContainer = document.getElementById("#editor");
-  const quill = new Quill(quillContainer);
-
   // todo State to handle form changes.
   const [formData, setFormData] = useState({
     title: "",
@@ -17,7 +13,7 @@ const CreatePost = () => {
     destination: "",
     tags: [],
     continent: "",
-    content: "", 
+    content: "",
   });
 
   // todo Function to change input fields ---- add values & onclicks to inputs.
@@ -180,6 +176,14 @@ const CreatePost = () => {
             </option>
           ))}
         </select>
+        {/* *Quill text editor */}
+        <ReactQuill
+          value={formData.content}
+          className="mb-6 rounded-md"
+          onChange={() => {}}
+          placeholder="Write your blog here!"
+          theme="snow"
+        />
         {/* Button to submit or save draft */}
         <div className="flex justify-between items-center">
           <button className="bg-brand text-bg border-2 border-brand px-4 py-2 rounded-lg">
