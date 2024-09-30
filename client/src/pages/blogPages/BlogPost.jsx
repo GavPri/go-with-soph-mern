@@ -18,7 +18,7 @@ const BlogPost = () => {
     };
 
     fetchBlog();
-  }, [id]);
+  }, [_id]);
 
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-3/4">
