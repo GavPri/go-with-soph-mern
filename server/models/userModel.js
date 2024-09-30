@@ -32,7 +32,7 @@ const userSchema = new Schema({
 });
 
 userSchema.pre("save", function (next) {
-  const authorEmail = "author@example.com";
+  const authorEmail = ["author@example.com", "author2@example.com"];
   if (this.email === authorEmail) {
     this.role = "author";
   } else {
