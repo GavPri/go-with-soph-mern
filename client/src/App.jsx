@@ -7,13 +7,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home";
-import Blog from "./pages/Blog";
+import Blog from "./pages/blogPages/Blog";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "./context/userContext";
-import CreatePost from "./pages/CreatePost";
+import CreatePost from "./pages/blogPages/CreatePost";
 
 axios.defaults.baseURL = "https://gowithsoph.vercel.app";
 

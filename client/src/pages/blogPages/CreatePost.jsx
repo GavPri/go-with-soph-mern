@@ -3,7 +3,7 @@ import { MdDelete, MdTravelExplore } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { UserContext } from "../context/userContext";
+import { UserContext } from "../../context/userContext";
 import axios from "axios";
 
 const CreatePost = () => {
