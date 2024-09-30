@@ -28,11 +28,8 @@ const Blog = () => {
 
           return (
             // Return the Card component
-            <div
-              className="col-md-4 mb-4 w-full font-qs text-text bg-bg"
-              key={_id}
-            >
-              <Card className="w-full">
+            <div className="col-md-4 mb-4 w-full font-qs " key={_id}>
+              <Card className="w-full text-text bg-bg">
                 <Card.Img
                   variant="top"
                   src={heroImage}
