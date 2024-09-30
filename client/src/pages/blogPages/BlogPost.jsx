@@ -25,11 +25,11 @@ const BlogPost = () => {
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-3/4">
       {blogData ? (
-        <>
+        <div>
           <img src={blogData.heroImage} alt={blogData.title} />
           <h1>{blogData.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
-        </>
+        </div>
       ) : (
         <p>Loading...</p> // Render loading message while waiting for data
       )}
