@@ -80,7 +80,7 @@ const editBlogsID = async (req, res) => {
     author,
   } = req.body;
   try {
-    const updatedBlogPost = Blog.findByIdAndUpdate(
+    const updatedBlogPost = await Blog.findByIdAndUpdate(
       _id,
       {
         title,
@@ -97,7 +97,13 @@ const editBlogsID = async (req, res) => {
     if (!updatedBlogPost) {
       res.status(400).json({ error: "No blog post was found" });
     }
-    res.status(200).json({ message: "Blog post successfully updated" });
+
+    res
+      .status(200)
+      .json(
+        { message: "Blog post successfully updated" },
+        { blogPost: updatedBlogPost }
+      );
   } catch (error) {
     console.error(error);
     res.status(400).json({
