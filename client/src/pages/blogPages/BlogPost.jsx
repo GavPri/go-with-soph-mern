@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const BlogPost = () => {
   const { _id } = useParams();
@@ -24,7 +25,24 @@ const BlogPost = () => {
   }, [_id]);
 
   return (
-    <div className="mt-32 flex flex-col justify-center items-center w-full">
+    <div className="mt-32 flex flex-col justify-center items-center w-full relative">
+      {user.role === "author" && (
+        <>
+          <Dropdown className="absolute top-4 right-4">
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <span className="rounded-full w-3 h-3 bg-brand hover:bg-bg"></span>
+              <span className="rounded-full w-3 h-3 bg-brand hover:bg-bg"></span>
+              <span className="rounded-full w-3 h-3 bg-brand hover:bg-bg"></span>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item>
+                <NavLink to={`/edit-blog/${_id}`}>Edit</NavLink>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </>
+      )}
       {blogData ? (
         <>
           <div
