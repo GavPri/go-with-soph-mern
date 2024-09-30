@@ -120,9 +120,10 @@ const CreatePost = () => {
       const response = await axios.put(`/edit-blogs/${_id}`, dataToSend);
 
       console.log(response.data);
-      navigate(`/get-blogs/${_id}`);
-    } catch (error) {console.error({ error: error.response.data })}
-    ;
+      navigate(`/blog/${_id}`);
+    } catch (error) {
+      console.error({ error: error.response.data });
+    }
   };
 
   const continents = [
