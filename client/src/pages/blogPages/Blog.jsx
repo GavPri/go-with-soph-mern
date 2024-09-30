@@ -46,7 +46,12 @@ const Blog = () => {
                     />
                     {content.length > 100 && "..."}
                   </Card.Text>
-                  <NavLink>Read Blog</NavLink>{" "}
+                  <NavLink
+                    className={`bg-brand text-bg`}
+                    to={`/blog-post/${id}`}
+                  >
+                    Read Blog
+                  </NavLink>{" "}
                 </Card.Body>
               </Card>
             </div>
