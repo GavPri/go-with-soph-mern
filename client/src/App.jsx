@@ -46,7 +46,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<CreatePost />} />
         <Route path="/blog/:_id" element={<BlogPost />} />
-        <Route path="/edit-blog/:_id" element={<EditPost />}
+        <Route path="/edit-blog/:_id" element={<EditPost />} />
       </Route>
     )
   );
