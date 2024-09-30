@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+
   const getBlogs = async () => {
-    const response = await axios.get("/get-blogs");
-    console.log(response);
+    try {
+      const { data } = await axios.get("/get-blogs");
+      setBlogs(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -12,7 +19,13 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl"></div>
+    <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
+      <ul>
+        {blogs.map((blog) => (
+          <></>
+        ))}
+      </ul>
+    </div>
   );
 };
 
