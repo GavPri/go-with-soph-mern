@@ -25,6 +25,13 @@ const CreatePost = () => {
     }));
   };
 
+  const handleContent = (value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      content: value,
+    }));
+  };
+
   // todo add functions to display tags added
   const [tagInput, setTagInput] = useState("");
 
@@ -206,7 +213,7 @@ const CreatePost = () => {
           modules={modules}
           value={formData.content}
           className="mb-6 rounded-md"
-          onChange={() => {}}
+          onChange={handleContent}
           placeholder="Write your blog here!"
           theme="snow"
         />
