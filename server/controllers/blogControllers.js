@@ -80,7 +80,31 @@ const editBlogsID = async (req, res) => {
     author,
   } = req.body;
   try {
-  } catch (error) {}
+    const updatedBlogPost = new Blog.findByIdAndUpdate(
+      _id,
+      {
+        title,
+        heroImage,
+        slug,
+        tags,
+        destination,
+        continent,
+        content,
+        author,
+      },
+      { new: true, runValidators: true }
+    );
+    if (!updatedBlogPost) {
+      res.status(400).json({ error: "No blog post was found" });
+    }
+    res.status(200).json({ message: "Blog post successfully updated" });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({
+      error: "There was an error updating the blog post.",
+      details: error.message,
+    });
+  }
 };
 
 module.exports = { createBlog, getBlogs, getBlogsID, editBlogsID };
