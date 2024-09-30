@@ -9,9 +9,9 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const { response } = await axios.get(`/get-blogs/${_id}`);
-        setBlogData(response);
-        console.log(setBlogData);
+        const { data } = await axios.get(`/get-blogs/${_id}`);
+        setBlogData(data);
+        console.log(blogData);
       } catch (error) {
         console.log(error);
       }
@@ -22,9 +22,15 @@ const BlogPost = () => {
 
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-3/4">
-      <div>{blogData.heroImage}</div>
-      <div>{blogData.title}</div>
-      <div>{blogData.content}</div>
+      {blogData ? (
+        <>
+          <img src={blogData.heroImage} alt={blogData.title} />
+          <h1>{blogData.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
+        </>
+      ) : (
+        <p>Loading...</p> // Render loading message while waiting for data
+      )}
     </div>
   );
 };
