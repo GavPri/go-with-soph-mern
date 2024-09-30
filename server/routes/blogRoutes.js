@@ -8,11 +8,16 @@ const router = express.Router();
 
 // * import functions from blog controller
 
-const { createBlog, getBlogs } = require("../controllers/blogControllers");
+const {
+  createBlog,
+  getBlogs,
+  getBlogsID,
+} = require("../controllers/blogControllers");
 
 // * router for get and post requests
 
 router.post("/create", createBlog);
 router.get("/get-blogs", getBlogs);
+router.get("/get-blogs/:id", getBlogsID);
 
 module.exports = router;

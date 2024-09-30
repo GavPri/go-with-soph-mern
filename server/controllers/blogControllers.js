@@ -50,5 +50,19 @@ const getBlogs = async (req, res) => {
     });
   }
 };
+// * get a blog post by id.
 
-module.exports = { createBlog, getBlogs };
+const getBlogsID = async (req, res) => {
+  try {
+    const blogPost = await Blog.findById(req.params.id);
+  if (!blogPost) {
+    res.status(404).json({ error: "No matching blog post found." });
+  }
+  res.json(blogPost);
+  } catch (error) {
+    res.status(400).json({error: 'No blog found.'})
+  }
+  
+};
+
+module.exports = { createBlog, getBlogs, getBlogsID };
