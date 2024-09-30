@@ -28,7 +28,7 @@ const CreatePost = () => {
   useEffect(() => {
     const fetchBlogPost = async () => {
       try {
-        const data = await axios.get(`/get-blogs/${_id}`);
+        const response = await axios.get(`/get-blogs/${_id}`);
         setFormData((prevData) => ({
           ...prevData,
           ...response.data,
@@ -113,7 +113,7 @@ const CreatePost = () => {
 
     const dataToSend = {
       ...formData,
-      user: user.id,
+      user: user._id,
     };
 
     try {
@@ -121,8 +121,8 @@ const CreatePost = () => {
 
       console.log(response.data);
       navigate(`/get-blogs/${_id}`);
-    } catch (error) {}
-    console.error({ error: error.response.data });
+    } catch (error) {console.error({ error: error.response.data })}
+    ;
   };
 
   const continents = [
