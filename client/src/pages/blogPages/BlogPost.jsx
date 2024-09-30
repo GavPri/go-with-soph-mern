@@ -28,16 +28,19 @@ const BlogPost = () => {
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
       {user.role === "author" && (
         <>
-          <Dropdown className="absolute top-4 right-4">
+          <Dropdown className="absolute top-0 right-4">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <span className="rounded-full w-3 h-3 bg-brand hover:bg-bg"></span>
-              <span className="rounded-full w-3 h-3 bg-brand hover:bg-bg"></span>
-              <span className="rounded-full w-3 h-3 bg-brand hover:bg-bg"></span>
+              Edit/Delete
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
               <Dropdown.Item>
-                <NavLink to={`/edit-blog/${_id}`}>Edit</NavLink>
+                <NavLink
+                  className={`w-full h-full bg-bg text-accentSecondary`}
+                  to={`/edit-blog/${_id}`}
+                >
+                  Edit
+                </NavLink>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
