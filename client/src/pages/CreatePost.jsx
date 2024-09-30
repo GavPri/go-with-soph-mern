@@ -4,6 +4,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { UserContext } from "../context/userContext";
+import axios from "axios";
 
 const CreatePost = () => {
   // * Access user context.
@@ -87,15 +88,19 @@ const CreatePost = () => {
   };
 
   // todo handle submit function --- add it to form.
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const dataToSend = {
       formData,
       user: user.id,
     };
-    console.log("Form Data:", formData);
-    // Handle form submission logic
+
+    try {
+      const response = await axios.post("/create", dataToSend);
+      console.log(response.data);
+    } catch (error) {}
+    console.error("Error:", error.response.data);
   };
 
   const continents = [
