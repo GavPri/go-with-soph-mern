@@ -68,7 +68,11 @@ function NavigationBar() {
 
     return (
       <>
-        {user.role === "author" && <div>Author</div>}
+        {user.role === "author" && (
+          <NavLink className={getNavLinkClass} to="/create">
+            Create post
+          </NavLink>
+        )}
         <button className={getNavLinkClass} onClick={handleLogout}>
           Log out
         </button>
