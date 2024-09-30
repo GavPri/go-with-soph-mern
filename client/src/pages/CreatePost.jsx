@@ -93,7 +93,7 @@ const CreatePost = () => {
     e.preventDefault();
 
     const dataToSend = {
-      formData,
+      ...formData,
       user: user.id,
     };
 
