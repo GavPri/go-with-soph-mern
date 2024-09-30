@@ -100,7 +100,7 @@ const CreatePost = () => {
       const response = await axios.post("/create", dataToSend);
       console.log(response.data);
     } catch (error) {}
-    console.error("Error:", error.response.data);
+    console.error({ error: error.response.data });
   };
 
   const continents = [
