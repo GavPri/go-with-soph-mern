@@ -21,15 +21,23 @@ const Blog = () => {
 
   return (
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
-      <div>
+      <div className="w-3/4 lg:w-1/2">
         {blogs.map((blog) => {
           const { _id, title, heroImage, content } = blog; // Destructure id and content
 
           return (
             // Return the Card component
-            <div className="col-md-4 mb-4" key={_id}>
+            <div
+              className="col-md-4 mb-4 w-full font-qs text-text bg-bg"
+              key={_id}
+            >
               <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={heroImage} alt={title} />
+                <Card.Img
+                  variant="top"
+                  src={heroImage}
+                  alt={title}
+                  className=""
+                />
                 <Card.Body>
                   <Card.Title>{title}</Card.Title>
                   <Card.Text>
