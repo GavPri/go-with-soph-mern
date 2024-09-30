@@ -15,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "./context/userContext";
 import CreatePost from "./pages/blogPages/CreatePost";
 import BlogPost from "./pages/blogPages/BlogPost";
+import EditPost from "./pages/blogPages/EditPost";
 
 axios.defaults.baseURL = "https://gowithsoph.vercel.app";
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<CreatePost />} />
         <Route path="/blog/:_id" element={<BlogPost />} />
+        <Route path="/edit-blog/:_id" element={<EditPost />}
       </Route>
     )
   );
