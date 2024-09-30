@@ -7,7 +7,7 @@ import { UserContext } from "../context/userContext";
 
 const CreatePost = () => {
   // * Access user context.
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   // todo State to handle form changes.
   const [formData, setFormData] = useState({
@@ -89,6 +89,11 @@ const CreatePost = () => {
   // todo handle submit function --- add it to form.
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const dataToSend = {
+      formData,
+      user: user.id,
+    };
     console.log("Form Data:", formData);
     // Handle form submission logic
   };
