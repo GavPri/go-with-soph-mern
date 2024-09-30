@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { UserContext } from "../../context/userContext";
 
 const BlogPost = () => {
   const { _id } = useParams();
-  console.log("Fetched ID:", _id);
+  const { user } = useContext(UserContext);
   const [blogData, setBlogData] = useState(null);
 
   useEffect(() => {
