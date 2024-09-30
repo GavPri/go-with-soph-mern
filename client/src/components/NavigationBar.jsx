@@ -27,9 +27,6 @@ function NavigationBar() {
   const LoggedOutLinks = () => {
     return (
       <>
-        <NavLink className={getNavLinkClass} to="/create">
-          Create post{" "}
-        </NavLink>
         <NavLink to="/register" className={getNavLinkClass}>
           Register
         </NavLink>
