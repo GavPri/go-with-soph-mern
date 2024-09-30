@@ -80,7 +80,7 @@ const editBlogsID = async (req, res) => {
     author,
   } = req.body;
   try {
-    const updatedBlogPost = new Blog.findByIdAndUpdate(
+    const updatedBlogPost = Blog.findByIdAndUpdate(
       _id,
       {
         title,
