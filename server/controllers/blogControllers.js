@@ -1,8 +1,16 @@
 const Blog = require("../models/blogModel");
 
 const createBlog = async (req, res) => {
-  const { title, slug, heroImage, tags, destination, continent, content, author } =
-    req.body;
+  const {
+    title,
+    slug,
+    heroImage,
+    tags,
+    destination,
+    continent,
+    content,
+    author,
+  } = req.body;
 
   try {
     const newBlogPost = new Blog({
@@ -28,4 +36,19 @@ const createBlog = async (req, res) => {
   }
 };
 
-module.exports = { createBlog };
+// * get all blog posts.
+const getBlogs = async (req, res) => {
+  try {
+    const blogs = await Blog.find();
+
+    res.status(200).json(blogs);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "An error occurred while fetching blog posts",
+      details: error.message,
+    });
+  }
+};
+
+module.exports = { createBlog, getBlogs };
