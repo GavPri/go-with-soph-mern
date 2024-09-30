@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import DOMpurify from "dompurify";
+import { MdLocationPin } from "react-icons/md";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -24,7 +25,7 @@ const Blog = () => {
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <div className="w-3/4 lg:w-1/2">
         {blogs.map((blog) => {
-          const { _id, title, heroImage, content, tags } = blog; // Destructure id and content
+          const { _id, title, heroImage, content, tags, destination } = blog; // Destructure id and content
 
           return (
             // Return the Card component
@@ -39,8 +40,12 @@ const Blog = () => {
                 <Card.Body>
                   <Card.Title>{title}</Card.Title>
                   <Card.Text>
-                    <div className="rounded-full bg-bg border-border border-2 text-brand font-qs flex flex-wrap">
+                    <div className="my-2">
+                      <div className="rounded-full bg-bg border-border border-2 text-brand font-qs flex flex-wrap"></div>
                       {tags}
+                    </div>
+                    <div>
+                      <MdLocationPin size={20} /> {destination}
                     </div>
                     <div
                       dangerouslySetInnerHTML={{
