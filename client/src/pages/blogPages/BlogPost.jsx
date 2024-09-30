@@ -25,15 +25,19 @@ const BlogPost = () => {
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full">
       {blogData ? (
-        <div className="flex flex-col bg-bg w-3/4">
-          <img
-            src={blogData.heroImage}
-            alt={blogData.title}
-            className="rounded-lg"
-          />
-          <h1 className="font-qs text-text">{blogData.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
-        </div>
+        <>
+          <div
+            className="flex flex-col justify-center items-center bg-bg w-3/4 h-[350px] bg-cover bg-center rounded-lg"
+            style={{ backgroundImage: `url(${blogData.heroImage})` }}
+          >
+            <h1 className="font-qs text-text text-4xl bg-bg bg-opacity-60 px-4 py-2 rounded-md text-center">
+              {blogData.title}
+            </h1>
+          </div>
+          <div className="w-3/4 mt-8">
+            <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
+          </div>
+        </>
       ) : (
         <p>Loading...</p>
       )}
