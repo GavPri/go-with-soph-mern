@@ -105,7 +105,7 @@ function NavigationBar() {
           id="basic-navbar-nav"
           className="bg-bg mt-6 px-4 pb-4 rounded-md px-lg-0 pb-lg-0 mt-lg-0"
         >
-          <Nav className="mx-auto font-qs">
+          <Nav className="ml-auto font-qs">
             <NavLink to="/" className={getNavLinkClass}>
               Home
             </NavLink>
