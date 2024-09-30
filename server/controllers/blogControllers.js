@@ -68,6 +68,9 @@ const getBlogsID = async (req, res) => {
 // * Edit blogs by ID
 
 const editBlogsID = async (req, res) => {
+  const { _id } = req.params;
+  const { title, heroImage, slug, tags, destination, continent, content } =
+    req.body;
   try {
   } catch (error) {}
 };
