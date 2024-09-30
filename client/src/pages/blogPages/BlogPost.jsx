@@ -3,13 +3,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const BlogPost = () => {
-  const { id } = useParams();
+  const { _id } = useParams();
   const [blogData, setBlogData] = useState(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const { response } = await axios.get(`/get-blogs/${id}`);
+        const { response } = await axios.get(`/get-blogs/${_id}`);
         setBlogData(response);
         console.log(setBlogData);
       } catch (error) {
