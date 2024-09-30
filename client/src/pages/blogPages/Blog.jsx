@@ -45,7 +45,7 @@ const Blog = () => {
                       {tags.map((tag, index) => (
                         <div
                           key={index}
-                          className="rounded-full bg-bg border-border border-2 text-brand font-qs flex items-center justify-center px-4 py-1 mx-2 my-1"
+                          className="rounded-full bg-bg border-border border-2 text-brand font-qs flex items-center justify-center px-4 py-1 mr-2 my-1"
                         >
                           {tag}
                         </div>
