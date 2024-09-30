@@ -51,30 +51,25 @@ const getBlogs = async (req, res) => {
   }
 };
 
-
 // * get a blog post by id.
 
 const getBlogsID = async (req, res) => {
   try {
     const blogPost = await Blog.findById(req.params._id);
-  if (!blogPost) {
-    res.status(404).json({ error: "No matching blog post found." });
-  }
-  res.json(blogPost);
+    if (!blogPost) {
+      res.status(404).json({ error: "No matching blog post found." });
+    }
+    res.json(blogPost);
   } catch (error) {
-    res.status(400).json({error: 'No blog found.'})
+    res.status(400).json({ error: "No blog found." });
   }
-  
 };
 
 // * Edit blogs by ID
 
 const editBlogsID = async (req, res) => {
   try {
-    
-  } catch (error) {
-    
-  }
-}
+  } catch (error) {}
+};
 
-module.exports = { createBlog, getBlogs, getBlogsID };
+module.exports = { createBlog, getBlogs, getBlogsID, editBlogsID };
