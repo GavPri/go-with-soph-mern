@@ -9,8 +9,8 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`/get-blogs/${id}`);
-        setBlogData(response.data);
+        const { response } = await axios.get(`/get-blogs/${id}`);
+        setBlogData(response);
         console.log(setBlogData);
       } catch (error) {
         console.log(error);
@@ -21,8 +21,10 @@ const BlogPost = () => {
   }, [id]);
 
   return (
-    <div className="mt-32">
-      {blogData.title}, {blogData.content}, {blogData.heroImage}
+    <div className="mt-32 flex flex-col justify-center items-center w-3/4">
+      <div>{blogData.heroImage}</div>
+      <div>{blogData.title}</div>
+      <div>{blogData.content}</div>
     </div>
   );
 };
