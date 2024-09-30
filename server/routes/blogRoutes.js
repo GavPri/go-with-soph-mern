@@ -13,5 +13,6 @@ const { createBlog } = require("../controllers/blogControllers");
 // * router for get and post requests
 
 router.post("/create", createBlog);
+router.get("/get-blogs", getBlogs)
 
 module.exports = router;
