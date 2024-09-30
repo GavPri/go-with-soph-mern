@@ -29,7 +29,7 @@ const Blog = () => {
 
           return (
             // Return the Card component
-            <div className="col-md-4 mb-4 w-full font-qs " key={_id}>
+            <div className="col-md-4 mb-4 w-full font-qs" key={_id}>
               <Card className="w-full text-text bg-bg">
                 <Card.Img
                   variant="top"
@@ -40,12 +40,19 @@ const Blog = () => {
                 <Card.Body>
                   <Card.Title>{title}</Card.Title>
                   <Card.Text>
-                    <div className="my-2">
-                      <div className="rounded-full bg-bg border-border border-2 text-brand font-qs flex flex-wrap"></div>
-                      {tags}
+                    <div className="flex flex-wrap items-center">
+                      {/* Map through tags array and create a bubble for each tag */}
+                      {tags.map((tag, index) => (
+                        <div
+                          key={index}
+                          className="rounded-full bg-bg border-border border-2 text-brand font-qs flex items-center justify-center px-4 py-1 mx-2 my-1"
+                        >
+                          {tag}
+                        </div>
+                      ))}
                     </div>
-                    <div>
-                      <MdLocationPin size={20} /> {destination}
+                    <div className="flex items-center">
+                      <MdLocationPin size={20} /> <span>{destination}</span>
                     </div>
                     <div
                       dangerouslySetInnerHTML={{
