@@ -50,6 +50,8 @@ const getBlogs = async (req, res) => {
     });
   }
 };
+
+
 // * get a blog post by id.
 
 const getBlogsID = async (req, res) => {
@@ -64,5 +66,15 @@ const getBlogsID = async (req, res) => {
   }
   
 };
+
+// * Edit blogs by ID
+
+const editBlogsID = async (req, res) => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
 
 module.exports = { createBlog, getBlogs, getBlogsID };
