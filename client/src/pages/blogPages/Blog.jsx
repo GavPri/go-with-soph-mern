@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "react-bootstrap/Card"; // Correct import for Card
-import { NavLink } from "react-router-dom"; // Correct import for NavLink
+import Card from "react-bootstrap/Card";
+import { NavLink } from "react-router-dom";
+import DOMpurify from "dompurify";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -31,19 +32,22 @@ const Blog = () => {
               className="col-md-4 mb-4 w-full font-qs text-text bg-bg"
               key={_id}
             >
-              <Card style={{ width: "18rem" }}>
+              <Card className="w-full">
                 <Card.Img
                   variant="top"
                   src={heroImage}
                   alt={title}
-                  className=""
+                  className="object-cover h-[350px]"
                 />
                 <Card.Body>
                   <Card.Title>{title}</Card.Title>
                   <Card.Text>
-                    {content.length > 100
-                      ? `${content.slice(0, 100)}...`
-                      : content}{" "}
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: DOMpurify.sanitize(content.slice(0, 100)),
+                      }}
+                    />
+                    {content.length > 100 && "..."}
                   </Card.Text>
                   <NavLink>Read Blog</NavLink>{" "}
                 </Card.Body>
