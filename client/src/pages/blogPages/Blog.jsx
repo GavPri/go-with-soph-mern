@@ -24,7 +24,7 @@ const Blog = () => {
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <div className="w-3/4 lg:w-1/2">
         {blogs.map((blog) => {
-          const { _id, title, heroImage, content } = blog; // Destructure id and content
+          const { _id, title, heroImage, content, tags } = blog; // Destructure id and content
 
           return (
             // Return the Card component
@@ -39,6 +39,9 @@ const Blog = () => {
                 <Card.Body>
                   <Card.Title>{title}</Card.Title>
                   <Card.Text>
+                    <div className="rounded-full bg-bg border-border border-2 text-brand font-qs flex flex-wrap">
+                      {tags}
+                    </div>
                     <div
                       dangerouslySetInnerHTML={{
                         __html: DOMpurify.sanitize(content.slice(0, 100)),
