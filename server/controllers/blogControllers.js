@@ -1,7 +1,7 @@
 const Blog = require("../models/blogModel");
 
 const createBlog = async (req, res) => {
-  const { title, slug, heroImage, tags, destination, continent, content } =
+  const { title, slug, heroImage, tags, destination, continent, content, author } =
     req.body;
 
   try {
@@ -13,6 +13,7 @@ const createBlog = async (req, res) => {
       destination,
       continent,
       content,
+      author,
     });
 
     await newBlogPost.save();
