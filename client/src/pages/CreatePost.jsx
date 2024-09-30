@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdDelete, MdTravelExplore } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { UserContext } from "../context/userContext";
 
 const CreatePost = () => {
+  // * Access user context.
+  const { user, setUser } = useContext(UserContext);
+
   // todo State to handle form changes.
   const [formData, setFormData] = useState({
     title: "",
