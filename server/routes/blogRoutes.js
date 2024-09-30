@@ -18,6 +18,6 @@ const {
 
 router.post("/create", createBlog);
 router.get("/get-blogs", getBlogs);
-router.get("/get-blogs/:id", getBlogsID);
+router.get("/get-blogs/:_id", getBlogsID);
 
 module.exports = router;
