@@ -55,7 +55,7 @@ const BlogPost = () => {
                 <button onClick={handleShowModal}>Delete Blog</button>
                 <Modal
                   show={showModal}
-                  onHide={handleClose}
+                  onHide={handleCloseModal}
                   backdrop="static"
                   keyboard={false}
                 >
