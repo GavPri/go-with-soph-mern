@@ -63,8 +63,14 @@ const BlogPost = () => {
                     <Modal.Title>Delete blog post:</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    Are you sure you want to delete this blog post?: <br></br>
-                    {blogData.title}
+                    {blogData ? (
+                      <>
+                        Are you sure you want to delete this blog post?: <br />
+                        {blogData.title}
+                      </>
+                    ) : (
+                      <p>Loading blog data...</p>
+                    )}
                   </Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>
