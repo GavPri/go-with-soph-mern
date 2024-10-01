@@ -15,7 +15,7 @@ const SearchBar = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`/api/blog/search?q=${searchTerm}`);
+      const response = await axios.get(`/search-blogs/?q=${searchTerm}`);
       setSearchResults(response.data); // Store the results in state
     } catch (error) {
       console.log(error);
@@ -24,7 +24,7 @@ const SearchBar = () => {
 
   return (
     <div className="w-75 mb-3">
-      <form onSubmit={handleSearch}>
+      <form>
         <label
           for="search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -33,21 +33,6 @@ const SearchBar = () => {
         </label>
         <div class="relative" onClick={handleShow}>
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg
-              class="w-4 h-4 text-gray-500 dark:text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-              />
-            </svg>
           </div>
           <input
             type="search"
@@ -59,12 +44,6 @@ const SearchBar = () => {
               setSearchTerm(e.target.value);
             }}
           />
-          <button
-            type="submit"
-            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Search
-          </button>
         </div>
       </form>
 
@@ -84,12 +63,6 @@ const SearchBar = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 value={searchTerm}
               />
-              <button
-                type="submit"
-                className="text-white absolute end-2.5 bottom-2.5 bg-brand hover:bg-brand focus:ring-4 focus:outline-none focus:ring-border font-medium rounded-lg text-sm px-4 py-2"
-              >
-                Search
-              </button>
             </div>
           </form>
 
