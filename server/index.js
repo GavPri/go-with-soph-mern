@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/", require("./routes/authRoutes"));
 app.use("/", require("./routes/blogRoutes"));
+app.use("/", require("./routes/searchRoutes"));
 
 PORT = 8000;
 
