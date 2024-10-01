@@ -73,12 +73,12 @@ const SearchBar = () => {
                 <NavLink
                   to={`blog/${result._id}`}
                   key={result._id}
-                  className="mb-3 flex justify-between items-center p-2"
+                  className="mb-3 flex justify-between items-center p-2 bg-bg rounded-lg"
                 >
                   <img
                     src={result.heroImage}
                     alt={result.title}
-                    className="h-full aspect-square object-fill my-2 mr-2 basis-1/3"
+                    className="max-w-1/3 object-fill my-2 mr-2 rounded-lg"
                   />
                   <div className="flex flex-col ml-2 font-qs text-text justify-start basis-2/3">
                     <h5>{result.title}</h5>
