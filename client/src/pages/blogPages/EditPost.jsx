@@ -13,7 +13,7 @@ const CreatePost = () => {
   // * Access user context.
   const { user } = useContext(UserContext);
 
-  // todo State to handle form changes.
+  // * State to handle form changes.
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
@@ -41,7 +41,7 @@ const CreatePost = () => {
     fetchBlogPost();
   }, [_id]);
 
-  // todo Function to change input fields ---- add values & onclicks to inputs.
+  // * Function to change input fields ---- add values & onclicks to inputs.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -83,24 +83,24 @@ const CreatePost = () => {
   };
 
   const toolbarOptions = [
-    ["bold", "italic", "underline", "strike"], // toggled buttons
+    ["bold", "italic", "underline", "strike"],
     ["blockquote", "code-block"],
     ["link", "image", "video", "formula"],
 
-    [{ header: 1 }, { header: 2 }], // custom button values
+    [{ header: 1 }, { header: 2 }],
     [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-    [{ script: "sub" }, { script: "super" }], // superscript/subscript
-    [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-    [{ direction: "rtl" }], // text direction
+    [{ script: "sub" }, { script: "super" }],
+    [{ indent: "-1" }, { indent: "+1" }],
+    [{ direction: "rtl" }],
 
-    [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+    [{ size: ["small", false, "large", "huge"] }],
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
-    [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+    [{ color: [] }, { background: [] }],
     [{ font: [] }],
     [{ align: [] }],
 
-    ["clean"], // remove formatting button
+    ["clean"],
   ];
 
   const modules = {
@@ -142,7 +142,7 @@ const CreatePost = () => {
           {" "}
           <MdTravelExplore size={40} /> GoWithSoph
         </h2>
-        <p className="text-lg text-text ">Create a blog post</p>
+        <p className="text-lg text-text ">Edit blog posts</p>
       </div>
       {/* *Form inputs for form. */}
       <form
