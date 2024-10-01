@@ -5,10 +5,12 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { UserContext } from "../../context/userContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   // * Access user context.
   const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
   // todo State to handle form changes.
   const [formData, setFormData] = useState({
@@ -99,9 +101,13 @@ const CreatePost = () => {
 
     try {
       const response = await axios.post("/create", dataToSend);
+
+      const newPostID = response.data._id;
+      navigate(`/blog/${newPostID}`);
       console.log(response.data);
-    } catch (error) {}
-    console.error({ error: error.response.data });
+    } catch (error) {
+      console.error({ error: error.response.data });
+    }
   };
 
   const continents = [

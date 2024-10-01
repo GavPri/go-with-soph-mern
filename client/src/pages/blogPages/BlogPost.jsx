@@ -46,7 +46,7 @@ const BlogPost = () => {
 
         setShowModal(false);
 
-        navigate("/blogs");
+        navigate("/blog");
       }
     } catch (error) {
       console.log(error);
