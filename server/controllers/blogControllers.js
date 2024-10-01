@@ -116,14 +116,14 @@ const editBlogsID = async (req, res) => {
 const deleteBlogsID = async (req, res) => {
   const { _id } = req.params;
 
-  if (!id) {
-    res.status(404).json({ error: "No ID found" });
+  if (!_id) {
+    return res.status(404).json({ error: "No ID found" });
   }
 
   try {
     const blogToDelete = await Blog.findByIdAndDelete(_id);
     if (!blogToDelete) {
-      res.status(404).json({ error: "No blog was found." });
+      return res.status(404).json({ error: "No blog was found." });
     }
 
     res
