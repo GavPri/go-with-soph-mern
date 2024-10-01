@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import DOMpurify from "dompurify";
 import { MdLocationPin } from "react-icons/md";
+import SearchBar from "../../components/SearchBar";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -23,6 +24,7 @@ const Blog = () => {
 
   return (
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
+      <SearchBar />
       <div className="w-3/4 lg:w-1/2">
         {blogs.map((blog) => {
           const { _id, title, heroImage, content, tags, destination } = blog; // Destructure id and content

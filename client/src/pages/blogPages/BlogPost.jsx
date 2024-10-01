@@ -5,6 +5,7 @@ import { UserContext } from "../../context/userContext";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import SearchBar from "../../components/SearchBar";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ const BlogPost = () => {
   };
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
+      <SearchBar />
       {user.role === "author" && (
         <>
           <Dropdown className="absolute top-0 right-4">
