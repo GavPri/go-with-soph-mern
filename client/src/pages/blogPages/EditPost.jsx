@@ -259,9 +259,6 @@ const CreatePost = () => {
           <button className="bg-brand text-bg border-2 border-brand px-4 py-2 rounded-lg">
             Publish
           </button>
-          <button className="bg-bg text-brand border-brand border-2 px-4 py-2 rounded-lg">
-            Save Draft
-          </button>
         </div>
       </form>
     </div>
