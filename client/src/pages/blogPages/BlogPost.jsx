@@ -49,6 +49,9 @@ const BlogPost = () => {
                   Edit Blog
                 </NavLink>
               </Dropdown.Item>
+              <Dropdown.Item>
+                <button onClick={handleShowModal}>Delete Blog</button>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </>
