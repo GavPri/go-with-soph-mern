@@ -67,7 +67,7 @@ const BlogPost = () => {
                     {blogData.title}
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={handleCloseModal}>
                       Close
                     </Button>
                     <Button variant="warning">Delete Blog Post</Button>
