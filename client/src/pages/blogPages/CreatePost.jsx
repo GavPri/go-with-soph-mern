@@ -101,9 +101,7 @@ const CreatePost = () => {
 
     try {
       const response = await axios.post("/create", dataToSend);
-
-      const newPostID = response.data._id;
-      navigate(`/blog/${newPostID}`);
+      navigate("/blog/");
       console.log(response.data);
     } catch (error) {
       console.error({ error: error.response.data });
