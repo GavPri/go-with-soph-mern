@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 const BlogPost = () => {
   const { _id } = useParams();
