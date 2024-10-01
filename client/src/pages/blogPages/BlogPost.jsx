@@ -8,6 +8,7 @@ const BlogPost = () => {
   const { _id } = useParams();
   const { user } = useContext(UserContext);
   const [blogData, setBlogData] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -24,6 +25,12 @@ const BlogPost = () => {
     fetchBlog();
   }, [_id]);
 
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
       {user.role === "author" && (
@@ -39,7 +46,7 @@ const BlogPost = () => {
                   className={`w-full h-full bg-bg text-accentSecondary`}
                   to={`/edit-blog/${_id}`}
                 >
-                  Edit
+                  Edit Blog
                 </NavLink>
               </Dropdown.Item>
             </Dropdown.Menu>
