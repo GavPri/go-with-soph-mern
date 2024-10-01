@@ -53,6 +53,26 @@ const BlogPost = () => {
               </Dropdown.Item>
               <Dropdown.Item>
                 <button onClick={handleShowModal}>Delete Blog</button>
+                <Modal
+                  show={showModal}
+                  onHide={handleClose}
+                  backdrop="static"
+                  keyboard={false}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>Delete blog post:</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    Are you sure you want to delete this blog post?: <br></br>
+                    {blogData.title}
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button variant="warning">Delete Blog Post</Button>
+                  </Modal.Footer>
+                </Modal>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
