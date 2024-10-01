@@ -113,4 +113,24 @@ const editBlogsID = async (req, res) => {
   }
 };
 
-module.exports = { createBlog, getBlogs, getBlogsID, editBlogsID };
+const deleteBlogsID = async (req, res) => {
+  const { _id } = req.params;
+  const {
+    title,
+    heroImage,
+    slug,
+    tags,
+    destination,
+    continent,
+    content,
+    author,
+  } = req.body;
+};
+
+module.exports = {
+  createBlog,
+  getBlogs,
+  getBlogsID,
+  editBlogsID,
+  deleteBlogsID,
+};
