@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,8 +33,7 @@ const SearchBar = () => {
           Search
         </label>
         <div class="relative" onClick={handleShow}>
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          </div>
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"></div>
           <input
             type="search"
             id="search"
@@ -70,17 +70,28 @@ const SearchBar = () => {
           <div className="mt-4">
             {searchResults.length > 0 ? (
               searchResults.map((result) => (
-                <div key={result._id} className="mb-3">
-                  <h5>{result.title}</h5>
-                  <p>{result.content}</p>
-                  <p>
-                    <strong>Tags:</strong> {result.tags.join(", ")}
-                  </p>
-                  <p>
-                    <strong>Destinations:</strong> {result.destinations}
-                  </p>
+                <NavLink
+                  to={`blog/${result._id}`}
+                  key={result._id}
+                  className="mb-3 flex justify-between items-center p-2"
+                >
+                  <img
+                    src={result.heroImage}
+                    alt={result.title}
+                    className="h-full aspect-square object-fill my-2 mr-2 basis-1/3"
+                  />
+                  <div className="flex flex-col ml-2 font-qs text-text justify-start basis-2/3">
+                    <h5>{result.title}</h5>
+                    <p>{result.content}</p>
+                    <p>
+                      <strong>Tags:</strong> {result.tags.join(", ")}
+                    </p>
+                    <p>
+                      <strong>Destinations:</strong> {result.destinations}
+                    </p>
+                  </div>
                   <hr />
-                </div>
+                </NavLink>
               ))
             ) : (
               <p>No results found.</p>
