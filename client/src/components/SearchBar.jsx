@@ -71,7 +71,7 @@ const SearchBar = () => {
             {searchResults.length > 0 ? (
               searchResults.map((result) => (
                 <NavLink
-                  to={`blog/${result._id}`}
+                  to={`/${result._id}`}
                   key={result._id}
                   className="mb-3 flex justify-between items-center p-2 bg-bg rounded-lg"
                 >
@@ -80,14 +80,13 @@ const SearchBar = () => {
                     alt={result.title}
                     className="max-w-[33%] object-fill my-2 mr-2 rounded-lg"
                   />
-                  <div className="flex flex-col ml-2 font-qs text-text justify-start basis-2/3">
-                    <h5>{result.title}</h5>
-                    <p>{result.content}</p>
+                  <div className="flex flex-col ml-2 font-qs text-text basis-2/3 min-h-[200px] justify-between items-start">
+                    <h5 className="text-2xl">{result.title}</h5>
                     <p>
                       <strong>Tags:</strong> {result.tags.join(", ")}
                     </p>
                     <p>
-                      <strong>Destinations:</strong> {result.destinations}
+                      <strong>Destination:</strong> {result.destination}
                     </p>
                   </div>
                   <hr />
