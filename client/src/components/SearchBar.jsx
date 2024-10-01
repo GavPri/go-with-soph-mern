@@ -78,7 +78,7 @@ const SearchBar = () => {
                   <img
                     src={result.heroImage}
                     alt={result.title}
-                    className="max-w-1/3 object-fill my-2 mr-2 rounded-lg"
+                    className="max-w-[33%] object-fill my-2 mr-2 rounded-lg"
                   />
                   <div className="flex flex-col ml-2 font-qs text-text justify-start basis-2/3">
                     <h5>{result.title}</h5>
