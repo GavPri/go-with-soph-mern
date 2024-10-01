@@ -128,7 +128,7 @@ const deleteBlogsID = async (req, res) => {
 
     res
       .status(200)
-      .json({ message: "Blog post was deleted" }, { blogPost: blogToDelete });
+      .json({ message: "Blog post was deleted", blogPost: blogToDelete });
   } catch (error) {
     console.error(error);
     res.status(400).json({
