@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 const BlogPost = () => {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const { _id } = useParams();
   const { user } = useContext(UserContext);
   const [blogData, setBlogData] = useState(null);
@@ -32,6 +34,25 @@ const BlogPost = () => {
   };
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleDelete = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.delete(`/delete-blogs/${_id}`);
+
+      if (response.status === 200) {
+        console.log("Blog deleted successfully.");
+
+        setShowModal(false);
+
+        navigate("/blogs");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
@@ -76,7 +97,13 @@ const BlogPost = () => {
                     <Button variant="dark" onClick={handleCloseModal}>
                       Close
                     </Button>
-                    <Button className="btn bg-red-400 text-accentSecondary">Delete Blog Post</Button>
+                    <Button
+                      className="btn bg-red-400 text-accentSecondary"
+                      disabled={isLoading}
+                      onClick={handleDelete}
+                    >
+                      {isLoading ? <>Deleting post...</> : <>Delete post</>}
+                    </Button>
                   </Modal.Footer>
                 </Modal>
               </Dropdown.Item>
