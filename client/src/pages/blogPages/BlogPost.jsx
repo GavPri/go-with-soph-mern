@@ -73,10 +73,10 @@ const BlogPost = () => {
                     )}
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseModal}>
+                    <Button variant="dark" onClick={handleCloseModal}>
                       Close
                     </Button>
-                    <Button variant="warning">Delete Blog Post</Button>
+                    <Button className="btn bg-red-400 text-accentSecondary">Delete Blog Post</Button>
                   </Modal.Footer>
                 </Modal>
               </Dropdown.Item>
