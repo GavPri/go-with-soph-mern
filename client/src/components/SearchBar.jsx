@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <div className="font-qs">
+    <div className="font-qs" onClick={handleShow}>
       <form>
         <label for="search" class="mb-2 text-sm font-medium text-text sr-only">
           Search
@@ -27,8 +33,6 @@ const SearchBar = () => {
             </svg>
           </div>
           <input
-            type="search"
-            id="search"
             class="block w-full p-4 ps-10 text-sm text-text border border-border rounded-lg focus:ring-accentPrimary focus:border-accentPrimary "
             placeholder="Search"
             required
@@ -41,6 +45,20 @@ const SearchBar = () => {
           </button>
         </div>
       </form>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
