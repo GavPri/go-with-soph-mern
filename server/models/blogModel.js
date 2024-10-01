@@ -35,10 +35,9 @@ const blogSchema = new Schema(
       required: true,
       default: [], // Empty array by default
     },
-    destinations: {
-      type: [String], // Array of strings for destinations
-      required: true,
-      default: [], // Empty array by default
+    destination: {
+      type: String, // Array of strings for destinations
+      required: true, // Empty array by default
     },
     continent: {
       type: String,
