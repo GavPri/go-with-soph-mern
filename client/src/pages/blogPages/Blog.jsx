@@ -56,12 +56,6 @@ const Blog = () => {
                         <MdLocationPin size={20} />{" "}
                         <span className="ml-1">{destination}</span>
                       </div>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: DOMpurify.sanitize(content.slice(0, 100)),
-                        }}
-                      />
-                      {content.length > 100 && "..."}
                     </Card.Text>
                     <div className="mt-auto">
                       <NavLink
