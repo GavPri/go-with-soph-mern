@@ -15,11 +15,6 @@ function NavigationBar() {
   const { expanded, setExpanded, ref } = useClickOutSideToggle();
   // * navigate the user to home page after logout.
   const navigate = useNavigate();
-  // ! test delaying the close of navigation
-  const handleNavClick = (route) => {
-    setTimeout(() => setExpanded(false), 200); // Delay navbar collapse
-    navigate(route); // Perform navigation
-  };
 
   // Function to get class names for NavLink
   const getNavLinkClass = ({ isActive }) =>
@@ -38,7 +33,6 @@ function NavigationBar() {
         <NavLink
           to="/login"
           className={getNavLinkClass}
-          onClick={() => handleNavClick("/login")}
         >
           Login
         </NavLink>
