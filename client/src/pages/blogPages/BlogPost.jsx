@@ -58,7 +58,7 @@ const BlogPost = () => {
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
       <SearchBar />
-      {user.role === "author" && (
+      {user && user.role === "author" && (
         <>
           <Dropdown className="absolute top-0 right-4">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
