@@ -13,10 +13,8 @@ const useClickOutSideToggle = () => {
       }
     };
     document.addEventListener("mouseup", handleClickOutside);
-    document.addEventListener("touchend", handleClickOutside);
     return () => {
       document.removeEventListener("mouseup", handleClickOutside);
-      document.removeEventListener("touchend", handleClickOutside);
     };
   }, [ref]);
   
