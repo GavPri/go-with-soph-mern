@@ -128,7 +128,7 @@ const CreatePost = () => {
       </div>
       {/* *Form inputs for form. */}
       <form
-        className="h-fit w-10/12  p-4 rounded-lg lg:w-1/2"
+        className="h-fit w-10/12  p-4 rounded-lg"
         onSubmit={handleSubmit}
       >
         {/* 3 inputs for author. */}
