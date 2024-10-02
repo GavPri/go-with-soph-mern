@@ -26,51 +26,54 @@ const Blog = () => {
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <SearchBar />
       <div className="w-3/4">
-        {blogs.map((blog) => {
-          const { _id, title, heroImage, content, tags, destination } = blog; // Destructure id and content
+        <div className="row">
+          {blogs.map((blog) => {
+            const { _id, title, heroImage, content, tags, destination } = blog;
 
-          return (
-            // Return the Card component
-            <div className="col-md-4 mb-4 w-full font-qs" key={_id}>
-              <Card className="w-full text-text bg-bg">
-                <Card.Img
-                  variant="top"
-                  src={heroImage}
-                  alt={title}
-                  className="object-cover h-[350px]"
-                />
-                <Card.Body>
-                  <Card.Title>{title}</Card.Title>
-                  <Card.Text>
-                    <div className="flex flex-wrap items-center">
-                      {/* Map through tags array and create a bubble for each tag */}
-                      {tags.map((tag, index) => (
-                        <div
-                          key={index}
-                          className="rounded-full bg-bg border-border border-2 text-brand font-qs flex items-center justify-center px-4 py-1 mr-2 my-1"
-                        >
-                          {tag}
-                        </div>
-                      ))}
+            return (
+              <div className="col-md-4 mb-4" key={_id}>
+                <Card className="h-100 text-text bg-bg">
+                  <Card.Img
+                    variant="top"
+                    src={heroImage}
+                    alt={title}
+                    className="object-cover h-[250px]"
+                  />
+                  <Card.Body className="d-flex flex-column">
+                    <Card.Title>{title}</Card.Title>
+                    <Card.Text>
+                      <div className="d-flex flex-wrap mb-2">
+                        {tags.map((tag, index) => (
+                          <div
+                            key={index}
+                            className="rounded bg-light border text-brand px-2 py-1 mr-2 mb-2"
+                          >
+                            {tag}
+                          </div>
+                        ))}
+                      </div>
+                      <div className="d-flex align-items-center mb-2">
+                        <MdLocationPin size={20} />{" "}
+                        <span className="ml-1">{destination}</span>
+                      </div>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: DOMpurify.sanitize(content.slice(0, 100)),
+                        }}
+                      />
+                      {content.length > 100 && "..."}
+                    </Card.Text>
+                    <div className="mt-auto">
+                      <NavLink className="btn btn-primary" to={`/blog/${_id}`}>
+                        Read Blog
+                      </NavLink>
                     </div>
-                    <div className="flex items-center">
-                      <MdLocationPin size={20} /> <span>{destination}</span>
-                    </div>
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: DOMpurify.sanitize(content.slice(0, 100)),
-                      }}
-                    />
-                    {content.length > 100 && "..."}
-                  </Card.Text>
-                  <NavLink className={`bg-brand text-bg`} to={`/blog/${_id}`}>
-                    Read Blog
-                  </NavLink>{" "}
-                </Card.Body>
-              </Card>
-            </div>
-          );
-        })}
+                  </Card.Body>
+                </Card>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
