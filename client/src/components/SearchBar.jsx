@@ -71,7 +71,7 @@ const SearchBar = () => {
             {searchResults.length > 0 ? (
               searchResults.map((result) => (
                 <NavLink
-                  to={`/${result._id}`}
+                  to={`/blogs/${result._id}`}
                   key={result._id}
                   className="mb-3 flex justify-between items-center p-2 bg-bg rounded-lg"
                 >
