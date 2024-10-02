@@ -64,7 +64,10 @@ const Blog = () => {
                       {content.length > 100 && "..."}
                     </Card.Text>
                     <div className="mt-auto">
-                      <NavLink className="btn btn-primary" to={`/blog/${_id}`}>
+                      <NavLink
+                        className="btn bg-brand text-bg"
+                        to={`/blog/${_id}`}
+                      >
                         Read Blog
                       </NavLink>
                     </div>
