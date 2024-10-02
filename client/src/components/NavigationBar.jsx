@@ -38,9 +38,7 @@ function NavigationBar() {
         <NavLink
           to="/login"
           className={getNavLinkClass}
-          onClick={() => {
-            handleNavClick("/login");
-          }}
+          onClick={() => handleNavClick("/login")}
         >
           Login
         </NavLink>
