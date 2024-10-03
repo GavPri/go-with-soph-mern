@@ -22,7 +22,6 @@ const SearchBar = () => {
 
   // Function to handle search submission and fetch results
   const handleSearch = async (e) => {
-    
     setIsSearching(true);
     try {
       const response = await axios.get(`/search-blogs/?q=${searchTerm}`);
@@ -74,15 +73,17 @@ const SearchBar = () => {
               to={`/blog/${results._id}`}
               className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md flex justify-between my-2`}
             >
-              <div className="w-4/12 flex  flex-col justify-between items-center px-2">
-                <h3 className="text-2xl font-bold">{results.title}</h3>
-                <h4 className="text-xl font-semibold">{results.destination}</h4>
+              <div className="w-4/12 flex  flex-col justify-between items-start px-2">
+                <h3 className="text-2xl font-bold mb-2">{results.title}</h3>
+                <h4 className="text-xl font-semibold mb-2">
+                  {results.destination}
+                </h4>
               </div>
               <div className="flex flex-wrap gap-2">
                 {results.tags.map((tag, index) => (
                   <div
                     key={index}
-                    className="p-2 rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
+                    className=" h-fit p-2 rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
                   >
                     {tag}
                   </div>
