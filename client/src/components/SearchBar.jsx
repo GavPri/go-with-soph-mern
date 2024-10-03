@@ -43,63 +43,6 @@ const SearchBar = () => {
           />
         </div>
       </form>
-
-      {/* Modal that opens on search button click */}
-      <Modal show={show} onHide={handleClose} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Search Results</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {/* Display the search input inside the modal */}
-          <form onSubmit={handleSearch}>
-            <div className="relative">
-              <input
-                className="block w-full p-4 ps-10 text-sm text-text border border-border rounded-lg focus:ring-accentPrimary focus:border-accentPrimary"
-                placeholder="Search"
-                required
-                onChange={(e) => setSearchTerm(e.target.value)}
-                value={searchTerm}
-              />
-            </div>
-          </form>
-
-          {/* Search Results */}
-          <div className="mt-4">
-            {searchResults.length > 0 ? (
-              searchResults.map((result) => (
-                <NavLink
-                  to={`/blog/${result._id}`}
-                  key={result._id}
-                  className="mb-3 flex justify-between items-center p-2 bg-bg rounded-lg"
-                >
-                  <img
-                    src={result.heroImage}
-                    alt={result.title}
-                    className="max-w-[33%] object-fill my-2 mr-2 rounded-lg"
-                  />
-                  <div className="flex flex-col ml-2 font-qs text-text basis-2/3 min-h-[200px] justify-between items-start">
-                    <h5 className="text-2xl">{result.title}</h5>
-                    <p>
-                      <strong>Tags:</strong> {result.tags.join(", ")}
-                    </p>
-                    <p>
-                      <strong>Destination:</strong> {result.destination}
-                    </p>
-                  </div>
-                  <hr />
-                </NavLink>
-              ))
-            ) : (
-              <p>No results found.</p>
-            )}
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </div>
   );
 };
