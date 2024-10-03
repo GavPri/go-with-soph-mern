@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { IoMdSearch } from "react-icons/io";
 
 const SearchBar = () => {
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]); // To store search results
@@ -32,6 +33,10 @@ const SearchBar = () => {
       setIsSearching(false);
     }
   };
+
+  useEffect(() => {
+    setSearchTerm(""), setSearchResults([]);
+  }, [location.pathname]);
 
   return (
     // Form Container
