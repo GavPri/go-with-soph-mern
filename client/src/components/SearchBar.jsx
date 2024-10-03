@@ -78,17 +78,17 @@ const SearchBar = () => {
               to={`/blog/${results._id}`}
               className={`w-full p-4 font-qs text-text bg-bg border-2 border-border rounded-md flex justify-between my-2`}
             >
-              <div className="w-6/12 flex  flex-col justify-between items-start px-2">
+              <div className="w-full lg:w-6/12 flex  flex-col justify-between items-start px-2">
                 <h3 className="text-2xl font-bold mb-2">{results.title}</h3>
                 <h4 className="text-xl font-semibold mb-2">
                   {results.destination}
                 </h4>
               </div>
-              <div className="flex flex-wrap gap-1 justify-end">
+              <div className="hidden lg:flex lg:flex-wrap lg:gap-1 lg:justify-end">
                 {results.tags.map((tag, index) => (
                   <div
                     key={index}
-                    className=" h-fit p-2 rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
+                    className="h-fit p-2 rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
                   >
                     {tag}
                   </div>
