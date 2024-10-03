@@ -45,14 +45,14 @@ const SearchBar = () => {
         {/* Input wrapper */}
         <div class="flex items-center w-full bg-bg drop-shadow-md">
           {/* Icon wrapper */}
-          <div class="w-2/12 mr-2 flex justify-center items-center p-2 focus:outline-none focus:ring-0">
+          <div class="w-2/12 mr-2 flex justify-center items-center p-2 ">
             <IoMdSearch className="text-text bg-transparent" />
           </div>
           {/* Input */}
           <input
             type="search"
             id="search"
-            class="block w-8/12 py-2 px-4 text-sm  text-text bg-bg"
+            class="block w-8/12 py-2 px-4 text-sm  text-text bg-bg focus:outline-none focus:ring-0"
             placeholder="Type here to search..."
             required
             onChange={(e) => {
