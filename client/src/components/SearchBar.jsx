@@ -61,6 +61,10 @@ const SearchBar = () => {
           />
         </div>
       </form>
+      {/* Form to display search reaults. */}
+      <div className="absolute left-0 right-0 bottom-0 bg-bg drop-shadow-md max-h-60 overflow-y-auto z-50 rounded-md">
+
+      </div>
     </div>
   );
 };
