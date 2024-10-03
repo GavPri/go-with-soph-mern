@@ -69,9 +69,9 @@ const SearchBar = () => {
             <NavLink
               key={results._id}
               to={`/blog/${results._id}`}
-              className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md`}
+              className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md flex justify-between`}
             >
-              <div className="w-4/12 flex justify-between items-center px-2">
+              <div className="w-4/12 flex  flex-col justify-between items-center px-2">
                 <h3 className="text-2xl font-bold">{results.title}</h3>
                 <h4 className="text-xl font-semibold">{results.destination}</h4>
               </div>
