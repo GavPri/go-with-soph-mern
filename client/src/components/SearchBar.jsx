@@ -13,7 +13,7 @@ const SearchBar = () => {
     const delayDebounceFn = setTimeout(() => {
       if (searchTerm) {
         handleSearch();
-        console.log(searchTerm)
+        console.log(searchTerm);
       }
     }, 750);
 
@@ -52,8 +52,8 @@ const SearchBar = () => {
           <input
             type="search"
             id="search"
-            class="block w-8/12 py-1 px-2 text-sm  text-text bg-bg"
-            placeholder="Search"
+            class="block w-8/12 py-2 px-4 text-sm  text-text bg-bg"
+            placeholder="Type here to search..."
             required
             onChange={(e) => {
               setSearchTerm(e.target.value);
