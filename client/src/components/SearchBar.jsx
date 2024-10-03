@@ -71,15 +71,15 @@ const SearchBar = () => {
             <NavLink
               key={results._id}
               to={`/blog/${results._id}`}
-              className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md flex justify-between my-2`}
+              className={`w-full p-4 font-qs text-text bg-bg border-2 border-border rounded-md flex justify-between my-2`}
             >
-              <div className="w-4/12 flex  flex-col justify-between items-start px-2">
+              <div className="w-6/12 flex  flex-col justify-between items-start px-2">
                 <h3 className="text-2xl font-bold mb-2">{results.title}</h3>
                 <h4 className="text-xl font-semibold mb-2">
                   {results.destination}
                 </h4>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1 justify-end">
                 {results.tags.map((tag, index) => (
                   <div
                     key={index}
