@@ -17,8 +17,6 @@ const SearchBar = () => {
       }
     }, 750);
 
-    delayDebounceFn()
-
     return clearTimeout(delayDebounceFn);
   }, [searchTerm]);
 
