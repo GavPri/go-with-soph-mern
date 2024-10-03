@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { IoMdSearch } from "react-icons/io";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -43,7 +44,7 @@ const SearchBar = () => {
         {/* Input wrapper */}
         <div class="flex items-center w-full bg-bg">
           {/* Icon wrapper */}
-          <div class="w-2/12 mr-2"></div>
+          <div class="w-2/12 mr-2"><IoMdSearch className="text-text bg-transparent"/></div>
           {/* Input */}
           <input
             type="search"
