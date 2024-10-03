@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [isSearching, setIsSearching] = useState(false)
   const [searchResults, setSearchResults] = useState([]); // To store search results
 
   // Function to handle search submission and fetch results
