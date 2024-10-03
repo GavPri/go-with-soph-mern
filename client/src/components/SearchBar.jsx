@@ -35,7 +35,7 @@ const SearchBar = () => {
     // Form Container
     <div className="w-75 mb-3 relative">
       {/* Form */}
-      <form className="w-full" onSubmit={handleSearch}>
+      <form className="w-full">
         <label
           for="search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -69,7 +69,7 @@ const SearchBar = () => {
             <NavLink
               key={results._id}
               to={`/blog/${results._id}`}
-              className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md flex justify-between`}
+              className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md flex justify-between my-2`}
             >
               <div className="w-4/12 flex  flex-col justify-between items-center px-2">
                 <h3 className="text-2xl font-bold">{results.title}</h3>
