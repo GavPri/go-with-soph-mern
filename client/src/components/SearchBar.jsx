@@ -71,15 +71,15 @@ const SearchBar = () => {
               to={`/blog/${results._id}`}
               className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md`}
             >
-              <div className="w-4/12">
-                <h3>{results.title}</h3>
-                <h4>{results.destination}</h4>
+              <div className="w-4/12 flex justify-between items-center px-2">
+                <h3 className="text-2xl font-bold">{results.title}</h3>
+                <h4 className="text-xl font-semibold">{results.destination}</h4>
               </div>
               <div className="flex flex-wrap gap-2">
                 {results.tags.map((tag, index) => (
                   <div
                     key={index}
-                    className="rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
+                    className="p-2 rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
                   >
                     {tag}
                   </div>
@@ -88,7 +88,13 @@ const SearchBar = () => {
             </NavLink>
           ))
         ) : (
-          <>{!isSearching && <p>No results found.</p>}</>
+          <>
+            {!isSearching && searchResults.length === 0 ? (
+              <p>No results found.</p>
+            ) : (
+              ""
+            )}
+          </>
         )}
       </div>
     </div>
