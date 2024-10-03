@@ -17,17 +17,20 @@ const SearchBar = () => {
       }
     }, 750);
 
-    return clearTimeout(delayDebounceFn);
+    return () => clearTimeout(delayDebounceFn);
   }, [searchTerm]);
 
   // Function to handle search submission and fetch results
   const handleSearch = async (e) => {
     e.preventDefault();
+    setIsSearching(true);
     try {
       const response = await axios.get(`/search-blogs/?q=${searchTerm}`);
       setSearchResults(response.data); // Store the results in state
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsSearching(false);
     }
   };
 
