@@ -62,8 +62,34 @@ const SearchBar = () => {
         </div>
       </form>
       {/* Form to display search reaults. */}
-      <div className="absolute left-0 right-0 bottom-0 bg-bg drop-shadow-md max-h-60 overflow-y-auto z-50 rounded-md">
-
+      <div className="absolute left-0 right-0 bottom-0 bg-bg drop-shadow-md max-h-60 overflow-y-auto z-50 rounded-md w-full">
+        {isSearching && <p>Loading results</p>}
+        {!isSearching && searchResults.length > 0 ? (
+          searchResults.map((results) => (
+            <NavLink
+              key={results._id}
+              to={`/blog/${results._id}`}
+              className={`w-10/12 p-4 font-qs text-text bg-bg rounded-md`}
+            >
+              <div className="w-4/12">
+                <h3>{results.title}</h3>
+                <h4>{results.destination}</h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {results.tags.map((tag, index) => (
+                  <div
+                    key={index}
+                    className="rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
+                  >
+                    {tag}
+                  </div>
+                ))}
+              </div>
+            </NavLink>
+          ))
+        ) : (
+          <>{!isSearching && <p>No results found.</p>}</>
+        )}
       </div>
     </div>
   );
