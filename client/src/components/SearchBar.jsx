@@ -7,6 +7,7 @@ const SearchBar = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]); // To store search results
 
+  // Prevent API calls with each key stroke.
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       if (searchTerm) {
@@ -37,7 +38,7 @@ const SearchBar = () => {
         >
           Search
         </label>
-        <div class="relative" onClick={handleShow}>
+        <div class="relative">
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"></div>
           <input
             type="search"
