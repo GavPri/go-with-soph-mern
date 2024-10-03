@@ -33,7 +33,7 @@ const SearchBar = () => {
 
   return (
     // Form Container
-    <div className="w-75 mb-3">
+    <div className="w-75 mb-3 relative">
       {/* Form */}
       <form className="w-full">
         <label
