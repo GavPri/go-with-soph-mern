@@ -1,13 +1,23 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isSearching, setIsSearching] = useState(false)
+  const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]); // To store search results
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (searchTerm) {
+        handleSearch();
+      }
+    }, 750);
+
+    return clearTimeout(delayDebounceFn);
+  }, [searchTerm]);
 
   // Function to handle search submission and fetch results
   const handleSearch = async (e) => {
