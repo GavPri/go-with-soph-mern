@@ -35,7 +35,7 @@ const SearchBar = () => {
     // Form Container
     <div className="w-75 mb-3 relative">
       {/* Form */}
-      <form className="w-full">
+      <form className="w-full" onSubmit={handleSearch}>
         <label
           for="search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
