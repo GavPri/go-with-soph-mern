@@ -35,7 +35,7 @@ const SearchBar = () => {
     // Form Container
     <div className="w-75 mb-3 relative">
       {/* Form */}
-      <form className="w-full">
+      <div className="w-full">
         <label
           for="search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -60,7 +60,7 @@ const SearchBar = () => {
             }}
           />
         </div>
-      </form>
+      </div>
       {/* Form to display search reaults. */}
       <div className="absolute left-0 right-0 -bottom-50 bg-bg drop-shadow-md max-h-60 overflow-y-auto z-50 rounded-md w-full">
         {isSearching && <p>Loading results</p>}
