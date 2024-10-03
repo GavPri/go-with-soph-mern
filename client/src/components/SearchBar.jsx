@@ -30,7 +30,9 @@ const SearchBar = () => {
   };
 
   return (
+    // Form Container
     <div className="w-75 mb-3">
+      {/* Form */}
       <form>
         <label
           for="search"
@@ -38,8 +40,11 @@ const SearchBar = () => {
         >
           Search
         </label>
+        {/* Input wrapper */}
         <div class="relative">
+          {/* Icon wrapper */}
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"></div>
+          {/* Input */}
           <input
             type="search"
             id="search"
