@@ -22,7 +22,7 @@ const SearchBar = () => {
 
   // Function to handle search submission and fetch results
   const handleSearch = async (e) => {
-    e.preventDefault();
+    
     setIsSearching(true);
     try {
       const response = await axios.get(`/search-blogs/?q=${searchTerm}`);
