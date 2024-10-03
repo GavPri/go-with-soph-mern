@@ -62,7 +62,7 @@ const SearchBar = () => {
         </div>
       </form>
       {/* Form to display search reaults. */}
-      <div className="absolute left-0 right-0 bottom-0 bg-bg drop-shadow-md max-h-60 overflow-y-auto z-50 rounded-md w-full">
+      <div className="absolute left-0 right-0 -bottom-50 bg-bg drop-shadow-md max-h-60 overflow-y-auto z-50 rounded-md w-full">
         {isSearching && <p>Loading results</p>}
         {!isSearching && searchResults.length > 0 ? (
           searchResults.map((results) => (
@@ -89,11 +89,15 @@ const SearchBar = () => {
           ))
         ) : (
           <>
-            {!isSearching && searchResults.length === 0 ? (
-              <p>No results found.</p>
-            ) : (
-              ""
-            )}
+            <p
+              className={`${
+                searchResults.length === 0 && searchTerm.length > 0
+                  ? "inline-block font-qs p-4"
+                  : "hidden"
+              }`}
+            >
+              No results found.
+            </p>
           </>
         )}
       </div>
