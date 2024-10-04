@@ -6,6 +6,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import SearchBar from "../../components/SearchBar";
+import { CiHeart } from "react-icons/ci";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -125,6 +126,11 @@ const BlogPost = () => {
           </div>
           <div className="w-3/4 mt-8">
             <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
+          </div>
+          <div className="flex justify-between items-center w-full">
+            <button className={`p-4 font-qs border-2 border-brand rounded-md`}>
+              <CiHeart size={20} />
+            </button>
           </div>
         </>
       ) : (
