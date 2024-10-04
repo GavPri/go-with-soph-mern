@@ -68,7 +68,7 @@ const BlogPost = () => {
 
     try {
       const response = await axios.post(
-        `/${_id}/likes`,
+        `/blog/${_id}/likes`,
         {},
         { withCredentials: true }
       );
