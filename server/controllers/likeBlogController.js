@@ -22,7 +22,7 @@ const likeBlogPost = async (req, res) => {
       .status(200)
       .json({ message: "Liked blog post.", blogPost: blogPost.likes.length }); // return the numbers of likes
   } catch (error) {
-    console.log(error, "User ID :", userID);
+    console.log(error);
     res.status(400).json({ error: "Failed to like blog post.", error });
   }
 };
