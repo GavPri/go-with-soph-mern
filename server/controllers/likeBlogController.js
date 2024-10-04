@@ -7,8 +7,20 @@ const likeBlogPost = async (req, res) => {
 
     const blogPost = await blog.findById(blogID); // Await the request to match blog posts.
 
+     if (!blogID || !userID) {
+       return res
+         .status(400)
+         .json({ error: "Blog ID or User ID cannot be null." });
+     }
+
     if (!blogPost) {
-      return res.status(401).json({ error: "No blog post found." }); // Check if the block post exists
+      return res
+        .status(404)
+        .json({ error: "No blog post found with this ID." }); // Check if the block post exists
+    }
+
+    if (!userID) {
+      return res.status(404).json({ error: "No user ID found." });
     }
 
     if (blogPost.likes.includes(userID)) {
