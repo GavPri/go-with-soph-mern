@@ -2,10 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-const { likeblogPost } = require("../controllers/likeBlogController");
+const { likeBlogPost } = require("../controllers/likeBlogController");
 
-const { authenticate } = require("../middleware/authenticateUser");
+const authenticateUser = require("../middleware/authenticateUser");
 
-router.post('/:id/likes', authenticate, likeblogPost)
+router.post("/:_id/likes", authenticateUser, likeblogPost);
 
-module.exports = {router}
+module.exports = router;
