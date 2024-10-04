@@ -60,26 +60,27 @@ const BlogPost = () => {
     }
   };
 
-const handleLike = async () => {
-  if (!user) {
-    alert("Log in to like a post!");
-    return;
-  }
-
-  try {
-    const response = await axios.post(
-      `/get-blogs/${_id}/likes`,
-      {},
-      { withCredentials: true }
-    );
-    if (response.status === 200) {
-      setLikesCount(response.data.blogPost); // Use the actual like count returned from the backend
+  const handleLike = async () => {
+    console.log(user);
+    if (!user) {
+      alert("Log in to like a post!");
+      return;
     }
-  } catch (error) {
-    console.error("Failed to like the post:", error);
-    alert("Failed to like the post. Please try again.");
-  }
-};
+
+    try {
+      const response = await axios.post(
+        `/blogs/${_id}/likes`,
+        {},
+        { withCredentials: true }
+      );
+      if (response.status === 200) {
+        setLikesCount(response.data.blogPost); // Use the actual like count returned from the backend
+      }
+    } catch (error) {
+      console.error("Failed to like the post:", error);
+      alert("Failed to like the post. Please try again.");
+    }
+  };
 
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
