@@ -72,7 +72,7 @@ const BlogPost = () => {
         {},
         { withCredentials: true }
       );
-      if (res.status === 200) {
+      if (response.status === 200) {
         setLikesCount((prevCount) => prevCount + 1);
       }
     } catch (error) {
