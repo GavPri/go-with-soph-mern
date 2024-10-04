@@ -7,7 +7,7 @@ const likeBlogPost = async (req, res) => {
     const userID = req.user._id; // User id authenticated.
 
     const blogPost = await blog.findById(blogID); // Await the request to match blog posts.
-    const user = await User.findById(userID); // await finding blog post.
+
     if (!blogID || !userID) {
       return res
         .status(400)
@@ -31,6 +31,10 @@ const likeBlogPost = async (req, res) => {
     blogPost.likes.push(userID); // add users likes to the array & save
     await blogPost.save();
 
+    const user = await User.findById(userID); // await finding blog post.
+    if (!user) {
+      return res.status(404).json({ error: "No user found with this ID." });
+    }
     user.likes.push(blogID);
     await user.save();
 
