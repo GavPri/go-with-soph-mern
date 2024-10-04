@@ -31,12 +31,12 @@ const blogSchema = new Schema(
       required: true,
     },
     tags: {
-      type: [String], 
+      type: [String],
       required: true,
-      default: [], 
+      default: [],
     },
     destination: {
-      type: String, 
+      type: String,
       required: true,
     },
     continent: {
