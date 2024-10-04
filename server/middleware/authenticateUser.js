@@ -14,6 +14,13 @@ const authenticateUser = async (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "Log in to like a post" });
   }
+
+  // * Try catch block
+  try {
+
+    // get user information from token
+    const userInfo = jwt.verify(token, JWT_SECRET);
+  } catch (error) {}
 };
 
 module.exports = { authenticateUser };
