@@ -35,7 +35,7 @@ const likeBlogPost = async (req, res) => {
       .json({ message: "Liked blog post.", blogPost: blogPost.likes.length }); // return the numbers of likes
   } catch (error) {
     console.log(error);
-    res.status(400).json({ error: "Failed to like blog post.", error });
+    res.status(400).json({ error: "Failed to like blog post." });
   }
 };
 
