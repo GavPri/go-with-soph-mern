@@ -13,6 +13,9 @@ const likeBlogPost = async (req, res) => {
   if (blogPost.likeCount.includes(userID)) {
     return res.status(400).json({ message: "You have already liked post." }); // Check if user has already liked the post
   }
+
+  blogPost.likeCount.push(userID); // add users likes to the array & save
+  await blogPost.save()
 };
 
 module.exports = { likeBlogPost };
