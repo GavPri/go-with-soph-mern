@@ -61,13 +61,14 @@ const BlogPost = () => {
   };
 
   const handleLike = async () => {
-    console.log(user);
+    console.log("Blog data: ", blogData);
     if (!user) {
       alert("Log in to like a post!");
       return;
     }
 
     try {
+      console.log("User Found : ", user);
       const response = await axios.post(
         `/blogs/${_id}/likes`,
         {},
