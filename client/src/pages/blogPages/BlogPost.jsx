@@ -23,6 +23,7 @@ const BlogPost = () => {
         console.log("Fetched ID:", _id);
         const { data } = await axios.get(`/get-blogs/${_id}`);
         setBlogData(data);
+        setLikesCount(data.likes.length)
         console.log(blogData);
       } catch (error) {
         console.log(error);
