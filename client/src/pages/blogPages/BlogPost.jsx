@@ -65,6 +65,20 @@ const BlogPost = () => {
       alert("Log in to like a post!");
       return;
     }
+
+    try {
+      const response = await axios.post(
+        `/${_id}/likes`,
+        {},
+        { withCredentials: true }
+      );
+      if (res.status === 200) {
+        setLikesCount((prevCount) => prevCount + 1);
+      }
+    } catch (error) {
+      console.error("Failed to like the post:", error);
+      alert("Failed to like the post. Please try again.");
+    }
   };
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
@@ -138,8 +152,10 @@ const BlogPost = () => {
             <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
           </div>
           <div className="flex justify-between items-center w-full">
-            <button className={`p-4 font-qs border-2 border-brand rounded-md`}>
-              <CiHeart size={20} />
+            <button
+              className={`p-4 font-qs border-2 border-brand rounded-md flex flex-col items-end justify-evenly`}
+            >
+              <CiHeart size={20} /> <p>{likesCount} likes</p>
             </button>
           </div>
         </>
