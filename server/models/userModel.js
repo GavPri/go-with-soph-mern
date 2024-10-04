@@ -29,6 +29,10 @@ const userSchema = new Schema({
     enum: ["user", "author"],
     default: "user",
   },
+  likedBlogs: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Blog",
+  },
 });
 
 userSchema.pre("save", function (next) {
