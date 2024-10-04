@@ -15,6 +15,7 @@ const BlogPost = () => {
   const { user } = useContext(UserContext);
   const [blogData, setBlogData] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [likesCount, setLikesCount] = useState(0);
 
   useEffect(() => {
     const fetchBlog = async () => {
