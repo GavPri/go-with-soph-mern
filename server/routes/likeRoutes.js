@@ -6,6 +6,6 @@ const { likeBlogPost } = require("../controllers/likeBlogController");
 
 const { authenticateUser } = require("../middleware/authenticateUser");
 
-router.post("/get-blogs/:_id/likes", likeBlogPost);
+router.post("blogs/:_id/likes",  likeBlogPost);
 
 module.exports = router;
