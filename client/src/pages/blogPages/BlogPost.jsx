@@ -70,7 +70,7 @@ const BlogPost = () => {
       console.log("User Found : ", user);
       const response = await axios.post(
         `/blogs/${_id}/likes`,
-        {},
+        { user },
         { withCredentials: true }
       );
       if (response.status === 200) {
