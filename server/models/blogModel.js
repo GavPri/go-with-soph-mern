@@ -43,8 +43,12 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
-    likeCount: { type: String, default: 0 },
-
+    likes: [
+      {
+        type: mongoose.Schema.Types.ObjectId, // Reference to the User model
+        ref: "User", // Optional: if you want to populate later
+      },
+    ],
     publishedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
