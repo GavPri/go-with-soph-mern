@@ -17,9 +17,11 @@ const authenticateUser = async (req, res, next) => {
 
   // * Try catch block
   try {
-
     // get user information from token
     const userInfo = jwt.verify(token, JWT_SECRET);
+
+    // Find the user by id
+    const user = await User.findById(userInfo._id).select("-password");
   } catch (error) {}
 };
 
