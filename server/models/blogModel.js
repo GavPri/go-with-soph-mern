@@ -31,13 +31,13 @@ const blogSchema = new Schema(
       required: true,
     },
     tags: {
-      type: [String], // Array of strings for tags
+      type: [String], 
       required: true,
-      default: [], // Empty array by default
+      default: [], 
     },
     destination: {
-      type: String, // Array of strings for destinations
-      required: true, // Empty array by default
+      type: String, 
+      required: true,
     },
     continent: {
       type: String,
