@@ -11,11 +11,11 @@ const likeBlogPost = async (req, res) => {
       return res.status(401).json({ error: "No blog post found." }); // Check if the block post exists
     }
 
-    if (blogPost.likeCount.includes(userID)) {
+    if (blogPost.likes.includes(userID)) {
       return res.status(400).json({ message: "You have already liked post." }); // Check if user has already liked the post
     }
 
-    blogPost.likeCount.push(userID); // add users likes to the array & save
+    blogPost.likes.push(userID); // add users likes to the array & save
     await blogPost.save();
 
     res.status(200).json({ message: "Liked blog post." });
