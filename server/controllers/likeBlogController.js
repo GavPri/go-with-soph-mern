@@ -9,6 +9,10 @@ const likeBlogPost = async (req, res) => {
   if (!blogPost) {
     return res.status(401).json({ error: "No blog post found." }); // Check if the block post exists
   }
+
+  if (blogPost.likeCount.includes(userID)) {
+    return res.status(400).json({ message: "You have already liked post." }); // Check if user has already liked the post
+  }
 };
 
 module.exports = { likeBlogPost };
