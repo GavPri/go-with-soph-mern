@@ -22,7 +22,19 @@ const authenticateUser = async (req, res, next) => {
 
     // Find the user by id
     const user = await User.findById(userInfo._id).select("-password");
-  } catch (error) {}
+
+    // Check for user id
+    if (!user) {
+      return res.status(404).json({ message: "No user found." });
+    }
+
+    // attach user to the request object.
+    req.user = user;
+
+    next();
+  } catch (error) {
+    return res.status(401).json({ error: "Unauthorised, no token." });
+  }
 };
 
 module.exports = { authenticateUser };
