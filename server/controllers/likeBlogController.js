@@ -1,4 +1,5 @@
 const blog = require("../models/blogModel");
+const User = require("../models/userModel");
 
 const likeBlogPost = async (req, res) => {
   try {
@@ -6,12 +7,12 @@ const likeBlogPost = async (req, res) => {
     const userID = req.user._id; // User id authenticated.
 
     const blogPost = await blog.findById(blogID); // Await the request to match blog posts.
-
-     if (!blogID || !userID) {
-       return res
-         .status(400)
-         .json({ error: "Blog ID or User ID cannot be null." });
-     }
+    const user = await User.findById(userID); // await finding blog post.
+    if (!blogID || !userID) {
+      return res
+        .status(400)
+        .json({ error: "Blog ID or User ID cannot be null." });
+    }
 
     if (!blogPost) {
       return res
@@ -29,6 +30,9 @@ const likeBlogPost = async (req, res) => {
 
     blogPost.likes.push(userID); // add users likes to the array & save
     await blogPost.save();
+
+    user.likes.push(blogID);
+    await user.save();
 
     res
       .status(200)
