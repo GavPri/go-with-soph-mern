@@ -17,10 +17,6 @@ const authenticateUser = async (req, res, next) => {
 
   // * Try catch block
   try {
-    if (token){
-      res.status(201).json("Token value is true.")
-      console.log(token)
-    }
     // get user information from token
     const userInfo = jwt.verify(token, JWT_SECRET);
 
@@ -30,8 +26,9 @@ const authenticateUser = async (req, res, next) => {
     // Check for user id
     if (!user) {
       return res.status(404).json({ message: "No user found." });
-    }
+    } 
 
+    
     // attach user to the request object.
     req.user = user;
 
