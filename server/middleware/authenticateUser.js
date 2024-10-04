@@ -8,7 +8,8 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const authenticateUser = async (req, res, next) => {
   // * Get cookies from authorisation header
   const token =
-    req.cookies.token || req.headers["authorization"]?.replace("Bearer", "").trim();
+    req.cookies.token ||
+    req.headers["authorization"]?.replace("Bearer", "").trim();
 
   // * Check if cookie exists
   if (!token) {
@@ -23,16 +24,19 @@ const authenticateUser = async (req, res, next) => {
     // Find the user by id
     const user = await User.findById(userInfo._id).select("-password");
 
+    if (!userInfo || !userInfo._id) {
+      return res.status(401).json({ message: "Invalid token payload.", user });
+    }
+
     // Check for user id
     if (!user) {
       return res.status(404).json({ message: "No user found." });
-    } 
-
+    }
 
     // attach user to the request object.
     req.user = user;
 
-    res.status(200).json({message: 'User has been verified', user})
+    res.status(200).json({ message: "User has been verified", user });
 
     next();
   } catch (error) {
