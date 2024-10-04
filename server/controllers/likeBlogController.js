@@ -18,10 +18,12 @@ const likeBlogPost = async (req, res) => {
     blogPost.likes.push(userID); // add users likes to the array & save
     await blogPost.save();
 
-    res.status(200).json({ message: "Liked blog post." });
+    res
+      .status(200)
+      .json({ message: "Liked blog post.", blogPost: blogPost.likes.length }); // return the numbers of likes
   } catch (error) {
     console.log(error);
-    res.status(400).json({error: 'Failed to like blog post.'})
+    res.status(400).json({ error: "Failed to like blog post." });
   }
 };
 
