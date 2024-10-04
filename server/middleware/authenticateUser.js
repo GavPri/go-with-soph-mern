@@ -8,7 +8,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const authenticateUser = async (req, res, next) => {
   // * Get cookies from authorisation header
   const token =
-    req.cookies.token || req.Header("Authorization")?.replace("Bearer", "");
+    req.cookies.token || req.headers["authorization"]?.replace("Bearer", "");
 
   // * Check if cookie exists
   if (!token) {
