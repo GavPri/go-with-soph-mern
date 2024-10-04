@@ -43,6 +43,8 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
+    likeCount: { type: String, default: 0 },
+
     publishedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
