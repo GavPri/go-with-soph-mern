@@ -153,6 +153,7 @@ const BlogPost = () => {
           </div>
           <div className="flex justify-between items-center w-full">
             <button
+              onClick={handleLike}
               className={`p-4 font-qs border-2 border-brand rounded-md flex flex-col items-end justify-evenly`}
             >
               <CiHeart size={20} /> <p>{likesCount} likes</p>
