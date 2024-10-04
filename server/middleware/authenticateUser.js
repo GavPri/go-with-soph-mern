@@ -28,9 +28,11 @@ const authenticateUser = async (req, res, next) => {
       return res.status(404).json({ message: "No user found." });
     } 
 
-    
+
     // attach user to the request object.
     req.user = user;
+
+    res.status(200).json({message: 'User has been verified', user})
 
     next();
   } catch (error) {
