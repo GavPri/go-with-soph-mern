@@ -23,7 +23,7 @@ const BlogPost = () => {
         console.log("Fetched ID:", _id);
         const { data } = await axios.get(`/get-blogs/${_id}`);
         setBlogData(data);
-        setLikesCount(data.likes.length)
+        setLikesCount(data.likes.length);
         console.log(blogData);
       } catch (error) {
         console.log(error);
@@ -56,6 +56,14 @@ const BlogPost = () => {
       console.log(error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleLike = async () => {
+    if (!user) {
+      // check if user exists
+      alert("Log in to like a post!");
+      return;
     }
   };
   return (
