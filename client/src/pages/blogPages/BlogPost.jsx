@@ -153,12 +153,12 @@ const BlogPost = () => {
           <div className="w-3/4 mt-8">
             <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
           </div>
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center w-3/4">
             <button
               onClick={handleLike}
-              className={`p-4 font-qs border-2 border-brand rounded-md flex flex-col items-end justify-evenly`}
+              className={`p-2 font-qs flex flex-col items-center justify-evenly`}
             >
-              <CiHeart size={20} /> <p>{likesCount} likes</p>
+              <CiHeart size={20} /> <p>{likesCount}</p>
             </button>
           </div>
         </>
