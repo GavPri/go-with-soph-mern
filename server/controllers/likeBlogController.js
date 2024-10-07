@@ -90,14 +90,14 @@ const unlikeBlogPost = async (req, res) => {
     }
 
     // Remove the blog from the user's likedBlogs array
-    user.likedBlogs = user.likedBlogs.filter((likedBlogId) => {
-      return likedBlogId.toString() !== blogID;
-    });
+    user.likedBlogs = user.likedBlogs.filter(
+      (likedBlogId) => likedBlogId.toString() !== blogID
+    );
 
     // Remove the user from the blog's likes array
-    blogPost.likes = blogPost.likes.filter((likerId) => {
-      return likerId.toString() !== userID.toString();
-    });
+    blogPost.likes = blogPost.likes.filter(
+      (likerId) => likerId.toString() !== userID.toString()
+    );
 
     // Save the updated user and blog
     await user.save();
@@ -109,5 +109,6 @@ const unlikeBlogPost = async (req, res) => {
     res.status(400).json({ error: "There was an error unliking this post." });
   }
 };
+
 
 module.exports = { likeBlogPost, getLikedPosts, unlikeBlogPost };
