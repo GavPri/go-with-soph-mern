@@ -78,7 +78,10 @@ const getLikedPosts = async (req, res) => {
 };
 
 const unlikeBlogPost = async (req, res) => {
-  
-}
+  try {
+    const { blogID } = req.params; // get blog id to find blog in database
+    const userID = req.user._id; // get user id to find user in database
+  } catch (error) {}
+};
 
 module.exports = { likeBlogPost, getLikedPosts, unlikeBlogPost };
