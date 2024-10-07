@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const LikedBlogs = () => {
-  const [likedBlogs, setLikedBlogs] = useState([]); // state for storing blog posts. 
+  const [likedBlogs, setLikedBlogs] = useState([]); // state for storing blog posts.
   return <div>LikedBlogs</div>;
 };
 
