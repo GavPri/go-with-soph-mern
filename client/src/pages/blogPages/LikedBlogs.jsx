@@ -7,6 +7,10 @@ const LikedBlogs = () => {
 
   useEffect(() => {
     const fetchLikedPosts = async () => {
+      if (!user) {
+        console.log("User not logged in");
+        return;
+      }
       try {
         const response = axios.get("/liked-blogs", { withCredentials: true });
         setLikedBlogs(response.data.likedBlogs);
