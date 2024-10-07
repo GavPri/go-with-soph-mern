@@ -77,4 +77,8 @@ const getLikedPosts = async (req, res) => {
   }
 };
 
-module.exports = { likeBlogPost, getLikedPosts };
+const unlikeBlogPost = async (req, res) => {
+  
+}
+
+module.exports = { likeBlogPost, getLikedPosts, unlikeBlogPost };
