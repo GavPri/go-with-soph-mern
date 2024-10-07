@@ -81,7 +81,31 @@ const unlikeBlogPost = async (req, res) => {
   try {
     const { blogID } = req.params; // get blog id to find blog in database
     const userID = req.user._id; // get user id to find user in database
-  } catch (error) {}
+
+    const user = await User.findById(userID); // find user by id
+    const blogPost = await blog.findById(blogID); // find blog post by id
+
+    if (!user || !blogPost) {
+      return res.status(404).json({ error: "No user or blog post found." }); // return not found if user or blog is not true.
+    }
+
+    user.likedBlogs = user.likedBlogs.filter((likedBlogId) => {
+      likedBlogId.toString() !== blogID; // remove the blog from the users like array.
+    });
+
+    blog.likes = blog.likes.filter((likerId) => {
+      likerId.toString() !== likerId; // remove user from blogs like array.
+    });
+
+    // save updates to arrays.
+    await user.save();
+    await blog.save();
+
+    res.status(200).json({ message: "Likes updated." });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: "There was an error unliking this post." });
+  }
 };
 
 module.exports = { likeBlogPost, getLikedPosts, unlikeBlogPost };
