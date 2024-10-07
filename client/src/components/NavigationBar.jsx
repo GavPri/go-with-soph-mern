@@ -85,6 +85,9 @@ function NavigationBar() {
                     Create post
                   </NavLink>
                 )}
+                <NavLink className={getNavLinkClass} to="/likes">
+                  Likes
+                </NavLink>
                 <button className={getNavLinkClass} onClick={handleLogout}>
                   Log out
                 </button>
