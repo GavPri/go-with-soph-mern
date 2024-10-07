@@ -6,9 +6,14 @@ const LikedBlogs = () => {
   useEffect(() => {
     const fetchLikedPosts = async () => {
       try {
-      } catch (error) {}
+        const response = axios.get("/liked-blogs", { withCredentials: true });
+        setLikedBlogs(response.data.likedBlogs);
+      } catch (error) {
+        console.log("There was an error fetching the liked blogs", error);
+      }
     };
-  });
+    fetchLikedPosts();
+  }, []);
   return <div>LikedBlogs</div>;
 };
 
