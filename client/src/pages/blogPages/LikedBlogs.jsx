@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import SearchBar from "../../components/SearchBar";
-import "./LikedBlogs.css"; // Make sure this contains any additional custom styles
+
 
 const LikedBlogs = () => {
   const [likedBlogs, setLikedBlogs] = useState([]); // state for storing blog posts.
