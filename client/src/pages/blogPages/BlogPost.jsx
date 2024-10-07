@@ -36,7 +36,7 @@ const BlogPost = () => {
     };
     console.log(blogData);
     fetchBlog();
-  }, [_id]);
+  }, [_id, user]);
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -165,7 +165,7 @@ const BlogPost = () => {
             >
               <CiHeart
                 size={20}
-                className={`${hasLiked ? "bg-brand" : "bg-bg"} text-text`}
+                className={`${hasLiked ? "text-green-500" : "text-gray-500"}`}
               />
               <p>{likesCount}</p>
             </button>
