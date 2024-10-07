@@ -79,7 +79,7 @@ const getLikedPosts = async (req, res) => {
 
 const unlikeBlogPost = async (req, res) => {
   try {
-    const { blogID } = req.params._id; // Get blog ID from params
+    const blogID = req.params._id; // Get blog ID from params
     const userID = req.user._id; // Get user ID from authenticated user
 
     const user = await User.findById(userID); // Find user by ID
