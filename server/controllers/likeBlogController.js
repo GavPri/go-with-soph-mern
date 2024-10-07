@@ -85,8 +85,12 @@ const unlikeBlogPost = async (req, res) => {
     const user = await User.findById(userID); // Find user by ID
     const blogPost = await blog.findById(blogID); // Find blog post by ID
 
-    if (!user || !blogPost) {
-      return res.status(404).json({ error: "No user or blog post found." });
+    if (!user) {
+      return res.status(404).json({ error: "No user found." });
+    }
+
+    if(!blogPost){
+      return res.status(404).json({error: "No blog found."})
     }
 
     // Remove the blog from the user's likedBlogs array
