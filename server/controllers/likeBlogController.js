@@ -37,7 +37,9 @@ const likeBlogPost = async (req, res) => {
     }
 
     if (user.likedBlogs.includes(blogID)) {
-      return res.status(400).json({error: 'You have already liked this blog post.'})
+      return res
+        .status(400)
+        .json({ error: "You have already liked this blog post." });
     }
 
     user.likedBlogs.push(blogID);
@@ -49,6 +51,29 @@ const likeBlogPost = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: "Failed to like blog post." });
+  }
+};
+
+const getLikedPosts = async (req, res) => {
+  try {
+    const userID = req.user._id;
+
+    if (!userID) {
+      return res.status(400).json({ error: "No user ID found" });
+    }
+
+    const user = await User.findById(userID).populate("likedBlogs");
+
+    if (!user) {
+      return res.status(404).json({ error: "No user account found." });
+    }
+
+    const userLikedBlogs = await blog.find({ _id: { $in: user.likedBlogs } });
+
+    res.status(200).json({ likedBlogs: userLikedBlogs });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json("There was an error fetching your blog posts.");
   }
 };
 
