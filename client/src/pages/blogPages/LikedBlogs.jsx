@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/userContext";
 import { NavLink } from "react-router-dom";
-import { Card } from "react-bootstrap"; // Ensure Card is imported
-import { MdLocationPin } from "react-icons/md"; // Make sure to import the icon
+import { Card } from "react-bootstrap"; //
+import { MdLocationPin } from "react-icons/md";
+import axios from "axios";
 
 const LikedBlogs = () => {
   const [likedBlogs, setLikedBlogs] = useState([]); // state for storing blog posts.
