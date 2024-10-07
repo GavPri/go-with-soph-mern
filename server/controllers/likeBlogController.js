@@ -35,6 +35,11 @@ const likeBlogPost = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "No user found with this ID." });
     }
+
+    if (user.likedBlogs.includes(blogID)) {
+      return res.status(400).json({error: 'You have already liked this blog post.'})
+    }
+    
     user.likes.push(blogID);
     await user.save();
 
