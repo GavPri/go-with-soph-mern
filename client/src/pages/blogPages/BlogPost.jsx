@@ -65,25 +65,35 @@ const BlogPost = () => {
   };
 
   const handleLike = async () => {
-    console.log("Blog data: ", blogData);
     if (!user) {
-      alert("Log in to like a post!");
+      alert("Log in to like or unlike a post!");
       return;
     }
 
     try {
-      console.log("User Found : ", user);
-      const response = await axios.post(
-        `/blogs/${_id}/likes`,
-        { user },
-        { withCredentials: true }
-      );
+      const endpoint = hasLiked
+        ? `/blogs/${_id}/unlike`
+        : `/blogs/${_id}/likes`;
+      const method = hasLiked ? "POST" : "POST"; // Both are POST requests
+      const response = await axios({
+        method,
+        url: endpoint,
+        data: { user },
+        withCredentials: true,
+      });
+
       if (response.status === 200) {
-        setLikesCount(response.data.blogPost); // Use the actual like count returned from the backend
+        setHasLiked(!hasLiked); // Toggle like status
+        setLikesCount((prev) => (hasLiked ? prev - 1 : prev + 1)); // Update likes count
       }
     } catch (error) {
-      console.error("Failed to like the post:", error);
-      alert("Failed to like the post. Please try again.");
+      console.error(
+        `Failed to ${hasLiked ? "unlike" : "like"} the post:`,
+        error
+      );
+      alert(
+        `Failed to ${hasLiked ? "unlike" : "like"} the post. Please try again.`
+      );
     }
   };
 
