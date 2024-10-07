@@ -79,29 +79,31 @@ const getLikedPosts = async (req, res) => {
 
 const unlikeBlogPost = async (req, res) => {
   try {
-    const { blogID } = req.params; // get blog id to find blog in database
-    const userID = req.user._id; // get user id to find user in database
+    const { blogID } = req.params; // Get blog ID from params
+    const userID = req.user._id; // Get user ID from authenticated user
 
-    const user = await User.findById(userID); // find user by id
-    const blogPost = await blog.findById(blogID); // find blog post by id
+    const user = await User.findById(userID); // Find user by ID
+    const blogPost = await blog.findById(blogID); // Find blog post by ID
 
     if (!user || !blogPost) {
-      return res.status(404).json({ error: "No user or blog post found." }); // return not found if user or blog is not true.
+      return res.status(404).json({ error: "No user or blog post found." });
     }
 
+    // Remove the blog from the user's likedBlogs array
     user.likedBlogs = user.likedBlogs.filter((likedBlogId) => {
-      likedBlogId.toString() !== blogID; // remove the blog from the users like array.
+      return likedBlogId.toString() !== blogID;
     });
 
-    blog.likes = blog.likes.filter((likerId) => {
-      likerId.toString() !== likerId; // remove user from blogs like array.
+    // Remove the user from the blog's likes array
+    blogPost.likes = blogPost.likes.filter((likerId) => {
+      return likerId.toString() !== userID.toString();
     });
 
-    // save updates to arrays.
+    // Save the updated user and blog
     await user.save();
-    await blog.save();
+    await blogPost.save();
 
-    res.status(200).json({ message: "Likes updated." });
+    res.status(200).json({ message: "Successfully unliked the blog post." });
   } catch (error) {
     console.log(error);
     res.status(400).json({ error: "There was an error unliking this post." });
