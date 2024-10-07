@@ -77,4 +77,4 @@ const getLikedPosts = async (req, res) => {
   }
 };
 
-module.exports = { likeBlogPost };
+module.exports = { likeBlogPost, getLikedPosts };
