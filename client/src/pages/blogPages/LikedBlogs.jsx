@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../context/userContext";
 
 const LikedBlogs = () => {
   const [likedBlogs, setLikedBlogs] = useState([]); // state for storing blog posts.
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     const fetchLikedPosts = async () => {
@@ -13,7 +15,7 @@ const LikedBlogs = () => {
       }
     };
     fetchLikedPosts();
-  }, []);
+  }, [user]);
   return <div>LikedBlogs</div>;
 };
 
