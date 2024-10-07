@@ -16,6 +16,7 @@ const BlogPost = () => {
   const [blogData, setBlogData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [likesCount, setLikesCount] = useState({});
+  const [hasLiked, setHasLiked] = useState(false);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -24,6 +25,10 @@ const BlogPost = () => {
         const { data } = await axios.get(`/get-blogs/${_id}`);
         setBlogData(data);
         setLikesCount(data.likes.length);
+
+        if (user && data.likes.includes(user._id)) {
+          setHasLiked(true);
+        }
         console.log(blogData);
       } catch (error) {
         console.log(error);
@@ -158,7 +163,11 @@ const BlogPost = () => {
               onClick={handleLike}
               className={`p-2 font-qs flex flex-col items-center justify-evenly`}
             >
-              <CiHeart size={20} /> <p>{likesCount}</p>
+              <CiHeart
+                size={20}
+                className={`${hasLiked ? "bg-brand" : "bg-bg"} text-text`}
+              />
+              <p>{likesCount}</p>
             </button>
           </div>
         </>
