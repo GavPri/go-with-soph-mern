@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/userContext";
+import { NavLink } from "react-router-dom";
+import { Card } from "react-bootstrap"; // Ensure Card is imported
+import { MdLocationPin } from "react-icons/md"; // Make sure to import the icon
 
 const LikedBlogs = () => {
   const [likedBlogs, setLikedBlogs] = useState([]); // state for storing blog posts.
@@ -12,7 +15,9 @@ const LikedBlogs = () => {
         return;
       }
       try {
-        const response = axios.get("/liked-blogs", { withCredentials: true });
+        const response = await axios.get("/liked-blogs", {
+          withCredentials: true,
+        });
         setLikedBlogs(response.data.likedBlogs);
       } catch (error) {
         console.log("There was an error fetching the liked blogs", error);
@@ -20,7 +25,57 @@ const LikedBlogs = () => {
     };
     fetchLikedPosts();
   }, [user]);
-  return <div>LikedBlogs</div>;
+
+  return (
+    <div className="liked-posts">
+      <h1>Your Liked Posts</h1>
+      {!user ? (
+        <p>Please log in to view your liked posts.</p>
+      ) : likedBlogs.length > 0 ? (
+        likedBlogs.map((post) => {
+          // Destructure the necessary properties from each post
+          const { _id, title, heroImage, tags, destination } = post;
+
+          return (
+            <Card key={_id} className="h-100 text-text bg-bg">
+              <Card.Img
+                variant="top"
+                src={heroImage}
+                alt={title}
+                className="object-cover h-[250px]"
+              />
+              <Card.Body className="d-flex flex-column">
+                <Card.Title>{title}</Card.Title>
+                <Card.Text>
+                  <div className="d-flex flex-wrap mb-2">
+                    {tags.map((tag, index) => (
+                      <div
+                        key={index}
+                        className="rounded bg-light border text-brand px-2 py-1 mr-2 mb-2"
+                      >
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="d-flex align-items-center mb-2">
+                    <MdLocationPin size={20} />{" "}
+                    <span className="ml-1">{destination}</span>
+                  </div>
+                </Card.Text>
+                <div className="mt-auto">
+                  <NavLink className="btn bg-brand text-bg" to={`/blog/${_id}`}>
+                    Read Blog
+                  </NavLink>
+                </div>
+              </Card.Body>
+            </Card>
+          );
+        })
+      ) : (
+        <p>You haven't liked any posts yet.</p>
+      )}
+    </div>
+  );
 };
 
 export default LikedBlogs;
