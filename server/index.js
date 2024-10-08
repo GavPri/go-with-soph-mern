@@ -21,10 +21,10 @@ app.use(
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/", require("./routes/authRoutes"));
-app.use("/", require("./routes/blogRoutes"));
-app.use("/", require("./routes/searchRoutes"));
-app.use("/", require("./routes/likeRoutes"));
+app.use("/api/", require("./routes/authRoutes"));
+app.use("/api/", require("./routes/blogRoutes"));
+app.use("/api/", require("./routes/searchRoutes"));
+app.use("/api/", require("./routes/likeRoutes"));
 
 PORT = 8000;
 

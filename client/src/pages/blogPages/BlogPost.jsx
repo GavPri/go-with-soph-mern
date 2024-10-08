@@ -78,7 +78,7 @@ const BlogPost = () => {
       const response = await axios({
         method,
         url: endpoint,
-        data: { user },
+        data: { user, blogData },
         withCredentials: true,
       });
 
