@@ -1,5 +1,5 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 const cors = require("cors");
 const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
@@ -13,10 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: [
-      "https://gowithsoph-gamma.vercel.app",
-      "https://5173-gavpri-gowithsophmern-homzq1knwgh.ws-eu116.gitpod.io",
-    ],
+    origin: [process.env.DEV_URL, process.env.PROD_ENV],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
