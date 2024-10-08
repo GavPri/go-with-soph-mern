@@ -29,6 +29,10 @@ const createComment = async (req, res) => {
     }); // create new comment with the fields required for the schema
 
     await comment.save(); // await the comment to be saved.
+
+    await Blog.findByIdAndUpdate(blogID, { 
+      $push: { comments: comment._id }, // update the blog to populate comments.
+    });
   } catch (error) {}
 };
 
