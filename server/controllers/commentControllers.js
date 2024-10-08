@@ -49,4 +49,9 @@ const createComment = async (req, res) => {
   }
 };
 
+const deleteComment = async (req, res) => {
+  try {
+    const { commentID } = req.params._id;
+  } catch (error) {}
+};
 module.exports = { createComment };
