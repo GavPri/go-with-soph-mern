@@ -110,6 +110,23 @@ const BlogPost = () => {
       toast.error("Failed to post comment.");
     }
   };
+  const handleDeleteComment = async (commentId) => {
+    try {
+      const response = await axios.delete(
+        `/blogs/${blogId}/comments/${commentId}`
+      );
+      if (response.status === 200) {
+        setComments((prevComments) =>
+          prevComments.filter((c) => c._id !== commentId)
+        );
+        toast.success("Comment deleted!");
+      }
+    } catch (error) {
+      console.error("Failed to delete comment:", error);
+      toast.error("Failed to delete comment.");
+    }
+  };
+
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
       <SearchBar />
@@ -222,7 +239,11 @@ const BlogPost = () => {
                         Edit comment
                       </Dropdown.Item>
                       <Dropdown.Item href="#/action-3">
-                        Delete comment
+                        <button
+                          onClick={() => handleDeleteComment(comment._id)}
+                        >
+                          Delete comment
+                        </button>
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
