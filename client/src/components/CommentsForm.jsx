@@ -1,26 +1,24 @@
-import React from 'react'
+import React from "react";
 
 const CommentsForm = () => {
   return (
-    <div className='w-full '>
+    <div className="w-full ">
       <form>
         <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
-          <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+          <div class="px-4 py-2 bg-bg rounded-t-lg dark:bg-gray-800">
             <label for="comment" class="sr-only">
               Your comment
             </label>
             <textarea
               id="comment"
               rows="4"
-              class="w-full px-0 text-sm text-text bg-bg border-0 focus:ring-0 "
+              class="w-full px-0 text-sm text-text bg-bg focus:outline-none focus:ring-0 "
               placeholder="Write a comment..."
               required
             ></textarea>
           </div>
-          <div class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600">
-            <button
-              class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-brand-700 rounded-lg"
-            >
+          <div class="flex items-center justify-between px-3 py-2 border-t">
+            <button class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-brand rounded-lg">
               Post comment
             </button>
             <div class="flex ps-0 space-x-1 rtl:space-x-reverse sm:ps-2">
@@ -87,6 +85,6 @@ const CommentsForm = () => {
       </p>
     </div>
   );
-}
+};
 
-export default CommentsForm
+export default CommentsForm;

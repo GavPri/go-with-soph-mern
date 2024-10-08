@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import SearchBar from "../../components/SearchBar";
 import { CiHeart } from "react-icons/ci";
+import CommentsForm from "../../components/CommentsForm";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -168,7 +169,7 @@ const BlogPost = () => {
           <div className="w-3/4 mt-8">
             <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
           </div>
-          <div className="flex justify-between items-center w-3/4">
+          <div className="flex justify-between items-start w-3/4">
             <button
               onClick={handleLike}
               className={`p-2 font-qs flex flex-col items-center justify-evenly`}
@@ -179,6 +180,7 @@ const BlogPost = () => {
               />
               <p>{likesCount}</p>
             </button>
+            <CommentsForm />
           </div>
         </>
       ) : (
