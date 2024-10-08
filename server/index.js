@@ -25,6 +25,7 @@ app.use("/api/", require("./routes/authRoutes"));
 app.use("/api/", require("./routes/blogRoutes"));
 app.use("/api/", require("./routes/searchRoutes"));
 app.use("/api/", require("./routes/likeRoutes"));
+app.use("/api/", require("./routes/commentRoutes"));
 
 PORT = 8000;
 
