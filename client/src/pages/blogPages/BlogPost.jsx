@@ -108,7 +108,7 @@ const BlogPost = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error('Failed to post comment.')
+      toast.error("Failed to post comment.");
     }
   };
   return (
@@ -193,7 +193,11 @@ const BlogPost = () => {
               />
               <p>{likesCount}</p>
             </button>
-            <CommentsForm user={user} blogId={_id} />
+            <CommentsForm
+              user={user}
+              blogId={_id}
+              handleCommentSubmit={handleCommentSubmit}
+            />
           </div>
         </>
       ) : (

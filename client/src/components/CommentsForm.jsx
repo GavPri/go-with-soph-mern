@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
 
-const CommentsForm = ({ user, blogId }) => {
+const CommentsForm = ({ user, blogId, handleCommentSubmit }) => {
   // state for input
   const [comment, setComment] = useState("");
   return (
