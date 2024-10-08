@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../context/userContext";
 
 const CommentsForm = () => {
+  // user
+  const { user } = useContext(UserContext);
+  //blog id
   return (
     <div className="w-full ">
       <form>
