@@ -30,10 +30,17 @@ const createComment = async (req, res) => {
 
     await comment.save(); // await the comment to be saved.
 
-    await Blog.findByIdAndUpdate(blogID, { 
+    await Blog.findByIdAndUpdate(blogID, {
       $push: { comments: comment._id }, // update the blog to populate comments.
     });
-  } catch (error) {}
+
+    await comment.populate("user", "username").execPopulate();
+
+    res.status(201).json({ message: "Comment created successfully." }).send();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Catch block error." });
+  }
 };
 
 module.exports = { createComment };
