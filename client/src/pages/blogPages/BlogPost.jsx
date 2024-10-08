@@ -28,7 +28,7 @@ const BlogPost = () => {
         const { data } = await axios.get(`/get-blogs/${_id}`);
         setBlogData(data);
         setLikesCount(data.likes.length);
-
+        setComments(data.comments);
         if (user && data.likes.includes(user._id)) {
           setHasLiked(true);
         }
@@ -183,10 +183,10 @@ const BlogPost = () => {
           <div className="flex justify-between items-start w-3/4">
             <button
               onClick={handleLike}
-              className={`p-2 font-qs flex flex-col items-center justify-evenly`}
+              className={`p-2 font-qs flex flex-col items-center justify-evenly mr-4`}
             >
               <CiHeart
-                size={20}
+                size={30}
                 className={`${hasLiked ? "text-green-500" : "text-gray-500"}`}
               />
               <p>{likesCount}</p>
@@ -196,6 +196,13 @@ const BlogPost = () => {
               blogId={_id}
               handleCommentSubmit={handleCommentSubmit}
             />
+          </div>
+          <div className="w-3/4 flex flex-col">
+            {blogData.comments.map((c) => (
+              <p className="bg-bg text-text p-4 font-qs rounded-md my-2">
+                {c.content}
+              </p>
+            ))}
           </div>
         </>
       ) : (
