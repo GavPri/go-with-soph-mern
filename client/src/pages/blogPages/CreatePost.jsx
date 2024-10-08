@@ -100,7 +100,7 @@ const CreatePost = () => {
     };
 
     try {
-      const response = await axios.post("/create", dataToSend);
+      const response = await axios.post("/api/create", dataToSend);
       navigate("/blog/");
       console.log(response.data);
     } catch (error) {

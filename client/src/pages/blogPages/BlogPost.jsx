@@ -22,7 +22,7 @@ const BlogPost = () => {
     const fetchBlog = async () => {
       try {
         console.log("Fetched ID:", _id);
-        const { data } = await axios.get(`/get-blogs/${_id}`);
+        const { data } = await axios.get(`/api/get-blogs/${_id}`);
         setBlogData(data);
         setLikesCount(data.likes.length);
 
@@ -48,7 +48,7 @@ const BlogPost = () => {
   const handleDelete = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.delete(`/delete-blogs/${_id}`);
+      const response = await axios.delete(`/api/delete-blogs/${_id}`);
 
       if (response.status === 200) {
         console.log("Blog deleted successfully.");
@@ -72,8 +72,8 @@ const BlogPost = () => {
 
     try {
       const endpoint = hasLiked
-        ? `/blogs/${_id}/unlike`
-        : `/blogs/${_id}/likes`;
+        ? `/api/blogs/${_id}/unlike`
+        : `/api/blogs/${_id}/likes`;
       const method = hasLiked ? "POST" : "POST"; // Both are POST requests
       const response = await axios({
         method,
