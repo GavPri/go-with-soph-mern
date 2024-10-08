@@ -201,6 +201,7 @@ const BlogPost = () => {
             {blogData.comments.map((c) => (
               <p className="bg-bg text-text p-4 font-qs rounded-md my-2">
                 {c.content}
+                {c.user.name}
               </p>
             ))}
           </div>
