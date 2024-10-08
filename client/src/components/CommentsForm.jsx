@@ -11,10 +11,14 @@ const CommentsForm = ({ user, blogId, handleCommentSubmit }) => {
 
     if (!user) {
       return toast.error("Log in to like a post!");
+    } else {
+      console.log("User found", user);
     }
 
     if (!blogId) {
       return toast.error("Blog id is not present.");
+    } else {
+      console.log("Blog id found", blogId);
     }
 
     const commentData = {
@@ -22,6 +26,7 @@ const CommentsForm = ({ user, blogId, handleCommentSubmit }) => {
       user: user._id,
       blog: blogId,
     };
+    console.log("Comment data: ", commentData);
 
     handleCommentSubmit(commentData);
     setComment("");
