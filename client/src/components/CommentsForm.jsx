@@ -1,12 +1,34 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
+import toast from "react-hot-toast";
 
 const CommentsForm = ({ user, blogId, handleCommentSubmit }) => {
   // state for input
   const [comment, setComment] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!user) {
+      return toast.error("Log in to like a post!");
+    }
+
+    if (!blogId) {
+      return toast.error("Blog id is not present.");
+    }
+
+    const commentData = {
+      content: comment,
+      user: user._id,
+      blog: blogId,
+    };
+
+    handleCommentSubmit(commentData);
+    setComment("");
+  };
   return (
     <div className="w-full ">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
           <div class="px-4 py-2 bg-bg rounded-t-lg dark:bg-gray-800">
             <label for="comment" class="sr-only">

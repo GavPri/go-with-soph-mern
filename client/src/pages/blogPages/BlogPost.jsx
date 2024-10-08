@@ -8,7 +8,7 @@ import Modal from "react-bootstrap/Modal";
 import SearchBar from "../../components/SearchBar";
 import { CiHeart } from "react-icons/ci";
 import CommentsForm from "../../components/CommentsForm";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -98,8 +98,6 @@ const BlogPost = () => {
     }
   };
   const handleCommentSubmit = async (commentData) => {
-    e.preventDefault();
-
     try {
       const response = await axios.post(`/blogs/${_id}/comment`, commentData);
       if (response.status === 201) {
