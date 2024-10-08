@@ -8,6 +8,7 @@ import Modal from "react-bootstrap/Modal";
 import SearchBar from "../../components/SearchBar";
 import { CiHeart } from "react-icons/ci";
 import CommentsForm from "../../components/CommentsForm";
+import toast from "react-hot-toast";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const BlogPost = () => {
   const [showModal, setShowModal] = useState(false);
   const [likesCount, setLikesCount] = useState({});
   const [hasLiked, setHasLiked] = useState(false);
+  const [comments, setComments] = useState([]); // state for comments array
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -45,7 +47,6 @@ const BlogPost = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-
   const handleDelete = async () => {
     setIsLoading(true);
     try {
@@ -64,7 +65,6 @@ const BlogPost = () => {
       setIsLoading(false);
     }
   };
-
   const handleLike = async () => {
     if (!user) {
       alert("Log in to like or unlike a post!");
@@ -97,7 +97,20 @@ const BlogPost = () => {
       );
     }
   };
+  const handleCommentSubmit = async (commentData) => {
+    e.preventDefault();
 
+    try {
+      const response = await axios.post(`/blogs/${_id}/comment`, commentData);
+      if (response.status === 201) {
+        setComments((prevComments) => [...prevComments, response.data.comment]);
+        toast.success("Comment posted!");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error('Failed to post comment.')
+    }
+  };
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
       <SearchBar />
