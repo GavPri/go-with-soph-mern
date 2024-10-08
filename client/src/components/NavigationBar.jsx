@@ -27,7 +27,7 @@ function NavigationBar() {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "/api/logout",
+        "/logout",
         {},
         { withCredentials: true }
       );

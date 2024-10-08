@@ -18,7 +18,7 @@ const LikedBlogs = () => {
         return;
       }
       try {
-        const response = await axios.get("/api/liked-blogs", {
+        const response = await axios.get("/liked-blogs", {
           withCredentials: true,
         });
         setLikedBlogs(response.data.likedBlogs);

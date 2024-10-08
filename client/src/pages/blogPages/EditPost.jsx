@@ -28,7 +28,7 @@ const CreatePost = () => {
   useEffect(() => {
     const fetchBlogPost = async () => {
       try {
-        const response = await axios.get(`/api/get-blogs/${_id}`);
+        const response = await axios.get(`/get-blogs/${_id}`);
         setFormData((prevData) => ({
           ...prevData,
           ...response.data,
@@ -117,7 +117,7 @@ const CreatePost = () => {
     };
 
     try {
-      const response = await axios.put(`/api/edit-blogs/${_id}`, dataToSend);
+      const response = await axios.put(`/edit-blogs/${_id}`, dataToSend);
 
       console.log(response.data);
       navigate(`/blog/${_id}`);

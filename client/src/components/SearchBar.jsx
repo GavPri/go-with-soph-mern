@@ -25,7 +25,7 @@ const SearchBar = () => {
   const handleSearch = async (e) => {
     setIsSearching(true);
     try {
-      const response = await axios.get(`/api/search-blogs/?q=${searchTerm}`);
+      const response = await axios.get(`/search-blogs/?q=${searchTerm}`);
       setSearchResults(response.data); // Store the results in state
     } catch (error) {
       console.log(error);
