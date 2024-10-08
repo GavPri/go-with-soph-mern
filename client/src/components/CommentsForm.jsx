@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
 
-const CommentsForm = () => {
-  // user
-  const { user } = useContext(UserContext);
-  //blog id
+const CommentsForm = ({ user, blogId }) => {
+  // state for input
+  const [comment, setComment] = useState("");
   return (
     <div className="w-full ">
       <form>
@@ -14,6 +13,8 @@ const CommentsForm = () => {
               Your comment
             </label>
             <textarea
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
               id="comment"
               rows="4"
               class="w-full px-0 text-sm text-text bg-bg focus:outline-none focus:ring-0 "

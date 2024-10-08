@@ -180,7 +180,7 @@ const BlogPost = () => {
               />
               <p>{likesCount}</p>
             </button>
-            <CommentsForm />
+            <CommentsForm user={user} blogId={_id} />
           </div>
         </>
       ) : (
