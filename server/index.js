@@ -13,7 +13,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://gowithsoph-gamma.vercel.app",
+    origin: [
+      "https://gowithsoph-gamma.vercel.app",
+      "https://5173-gavpri-gowithsophmern-homzq1knwgh.ws-eu116.gitpod.io",
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
