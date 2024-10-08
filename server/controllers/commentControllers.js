@@ -3,20 +3,19 @@ const User = require("../models/userModel"); // Ensure User model is imported if
 
 const createComment = async (req, res) => {
   try {
-    const blogID = req.params._id; 
-    const userID = req.user._id; 
-    const content = req.body.content; 
+    const blogID = req.params._id;
+    const userID = req.user._id;
+    const content = req.body.content;
 
-    if (!userID){
-      return res.status(500).json({error: 'No user id found.'})
+    if (!userID) {
+      return res.status(500).json({ error: "No user id found." });
     }
-  
+
     const blog = await Blog.findById(blogID);
     if (!blog) {
       return res.status(404).json({ error: "No blog found." });
     }
 
-   
     if (!content || content.length < 1 || content.length > 1000) {
       return res
         .status(400)
@@ -24,17 +23,15 @@ const createComment = async (req, res) => {
     }
 
     const comment = {
-      user: userID, 
+      user: userID,
       content,
-      createdAt: new Date(), 
+      createdAt: new Date(),
     };
 
     blog.comments.push(comment);
 
-    
     await blog.save();
 
-  
     res.status(201).json({
       message: "Comment created successfully.",
       comment: {
@@ -44,10 +41,10 @@ const createComment = async (req, res) => {
         },
         content: comment.content,
       },
-      blog: blog, 
+      blog: blog,
     });
   } catch (error) {
-    console.error(error); 
+    console.error(error);
     res.status(500).json({ error: "Internal server error." });
   }
 };
