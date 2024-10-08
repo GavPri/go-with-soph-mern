@@ -33,7 +33,18 @@ const createComment = async (req, res) => {
 
     await comment.populate("user", "username").execPopulate();
 
-    res.status(201).json({ message: "Comment created successfully." })
+    res.status(201).json({
+      message: "Comment created successfully.",
+      comment: {
+        _id: comment._id,
+        blog: comment.blog,
+        user: {
+          _id: comment.user,
+          username: comment.user.username,
+        },
+        content: comment.content,
+      },
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Catch block error." });
