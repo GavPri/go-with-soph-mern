@@ -9,6 +9,17 @@ const createComment = async (req, res) => {
   const blog = await Blog.findById(blogID); // await the blog post being found.
 
   try {
+    if (!userID) {
+      return res.status(404).json({ error: "No userId found." });
+    }
+    if (!blog) {
+      return res.status(404).json({ error: "No blog" });
+    }
+    if (content.length < 1 || content.length > 1000) {
+      return res
+        .status(400)
+        .json({ error: "Comment must be between 1 and 1000 characters." });
+    }
   } catch (error) {}
 };
 
