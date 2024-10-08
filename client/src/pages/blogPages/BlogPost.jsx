@@ -208,7 +208,7 @@ const BlogPost = () => {
                 </p>
                 {/* Check if the logged-in user owns the comment */}
                 {user && c.user._id === user._id && (
-                  <Dropdown className="absolute top-2.5 right-2.5">
+                  <Dropdown className="absolute top-0 right-0">
                     <Dropdown.Toggle
                       variant="success"
                       id="dropdown-basic"
