@@ -56,7 +56,10 @@ const getBlogs = async (req, res) => {
 
 const getBlogsID = async (req, res) => {
   try {
-    const blogPost = await Blog.findById(req.params._id);
+    const blogPost = await Blog.findById(req.params._id).populate(
+      "comments.user",
+      "name"
+    );
     if (!blogPost) {
       res.status(404).json({ error: "No matching blog post found." });
     }
