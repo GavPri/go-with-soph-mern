@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const User = require("./userModel");
-const Comment = require("./commentModel");
 
 const blogSchema = new Schema(
   {
@@ -50,7 +48,7 @@ const blogSchema = new Schema(
         ref: "User", // Optional: if you want to populate later
       },
     ],
-     comments: [
+    comments: [
       {
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Reference to User who made the comment
         content: { type: String, required: true }, // The comment text
