@@ -9,6 +9,7 @@ import SearchBar from "../../components/SearchBar";
 import { CiHeart } from "react-icons/ci";
 import CommentsForm from "../../components/CommentsForm";
 import { toast } from "react-hot-toast";
+import { BsThreeDots } from "react-icons/bs";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -177,7 +178,7 @@ const BlogPost = () => {
               {blogData.title}
             </h1>
           </div>
-          <div className="w-3/4 mt-8">
+          <div className="w-3/4 my-8">
             <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
           </div>
           <div className="flex justify-between items-start w-3/4">
@@ -199,10 +200,34 @@ const BlogPost = () => {
           </div>
           <div className="w-3/4 flex flex-col">
             {blogData.comments.map((c) => (
-              <p className="bg-bg text-text p-4 font-qs rounded-md my-2">
-                {c.content}
-                {c.user.name}
-              </p>
+              <div className="bg-bg text-text p-4 font-qs rounded-md my-2 flex flex-col relative">
+                <p className="text-xl mb-2">{c.content}</p>
+                <p>
+                  <span className="mr-2">-</span>
+                  {c.user.name}
+                </p>
+                {/* Check if the logged-in user owns the comment */}
+                {user && c.user._id === user._id && (
+                  <Dropdown className="absolute top-2.5 right-2.5">
+                    <Dropdown.Toggle
+                      variant="success"
+                      id="dropdown-basic"
+                      className="flex justify-evenly items-center"
+                    >
+                      <BsThreeDots />
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-2">
+                        Edit comment
+                      </Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">
+                        Delete comment
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                )}
+              </div>
             ))}
           </div>
         </>
