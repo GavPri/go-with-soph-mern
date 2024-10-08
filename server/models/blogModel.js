@@ -50,10 +50,11 @@ const blogSchema = new Schema(
         ref: "User", // Optional: if you want to populate later
       },
     ],
-    comments: [
+     comments: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
+        user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Reference to User who made the comment
+        content: { type: String, required: true }, // The comment text
+        createdAt: { type: Date, default: Date.now }, // Timestamp for when the comment was created
       },
     ],
     publishedAt: { type: Date, default: Date.now },
