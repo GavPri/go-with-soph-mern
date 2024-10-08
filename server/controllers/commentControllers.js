@@ -20,8 +20,8 @@ const createComment = async (req, res) => {
     }
 
     const comment = new Comment({
-      userID,
-      blog,
+      user: userID,
+      blog: blogID,
       content,
     }); // create new comment with the fields required for the schema
 
@@ -31,7 +31,7 @@ const createComment = async (req, res) => {
       $push: { comments: comment._id }, // update the blog to populate comments.
     });
 
-    await comment.populate("user", "username").execPopulate();
+    await comment.populate("user", "username")
 
     res.status(201).json({
       message: "Comment created successfully.",
