@@ -22,6 +22,7 @@ const createBlog = async (req, res) => {
       continent,
       content,
       author,
+      comments: [],
     });
 
     await newBlogPost.save();
