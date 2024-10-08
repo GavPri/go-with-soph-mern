@@ -18,7 +18,7 @@ import BlogPost from "./pages/blogPages/BlogPost";
 import EditPost from "./pages/blogPages/EditPost";
 import LikedBlogs from "./pages/blogPages/LikedBlogs";
 
-axios.defaults.baseURL = "https://gowithsoph.vercel.app";
+axios.defaults.baseURL = "https://gowithsoph.vercel.app/api";
 
 axios.defaults.withCredentials = true;
 
