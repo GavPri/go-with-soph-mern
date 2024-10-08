@@ -50,10 +50,12 @@ const blogSchema = new Schema(
         ref: "User", // Optional: if you want to populate later
       },
     ],
-    comments: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment",
-    },
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
     publishedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
