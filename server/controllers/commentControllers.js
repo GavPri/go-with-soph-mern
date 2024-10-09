@@ -54,7 +54,7 @@ const deleteComment = async (req, res) => {
     const commentID = req.params._id;
 
     const comment = await Comment.findOne({
-      id: commentID,
+      _id: commentID,
       user: req.user._id,
     });
 
@@ -62,7 +62,7 @@ const deleteComment = async (req, res) => {
       return res.status(404).json({ error: "No comment found." });
     }
 
-    await Comment.deleteOne({ _id: commentId });
+    await Comment.deleteOne({ _id: commentID });
     res.status(200).json({ message: "Comment deleted successfully" });
   } catch (error) {
     console.log(error);
