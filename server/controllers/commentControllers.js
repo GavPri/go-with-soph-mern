@@ -57,7 +57,7 @@ const deleteComment = async (req, res) => {
     const blogPost = await Blog.findById(blogId); // find the blog post
 
     if (!blogPost) {
-      return res.status(404).json({ error: "No comment found." });
+      return res.status(404).json({ error: "No blog post found." });
     }
 
     const commentToDelete = blogPost.comments._id(commentID);
