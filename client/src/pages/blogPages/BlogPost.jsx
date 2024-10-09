@@ -112,9 +112,7 @@ const BlogPost = () => {
   };
   const handleDeleteComment = async (commentId) => {
     try {
-      const response = await axios.delete(
-        `/blogs/${blogId}/comments/${commentId}`
-      );
+      const response = await axios.delete(`/blogs/${_id}/delete/${commentId}`);
       if (response.status === 200) {
         setComments((prevComments) =>
           prevComments.filter((c) => c._id !== commentId)
@@ -217,7 +215,10 @@ const BlogPost = () => {
           </div>
           <div className="w-3/4 flex flex-col">
             {blogData.comments.map((c) => (
-              <div className="bg-bg text-text p-4 font-qs rounded-md my-2 flex flex-col relative">
+              <div
+                key={c._id}
+                className="bg-bg text-text p-4 font-qs rounded-md my-2 flex flex-col relative"
+              >
                 <p className="text-xl mb-2">{c.content}</p>
                 <p>
                   <span className="mr-2">-</span>
