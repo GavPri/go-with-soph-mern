@@ -9,6 +9,10 @@ const {
 const { authenticateUser } = require("../middleware/authenticateUser");
 
 router.post("/blogs/:_id/comment", authenticateUser, createComment);
-router.delete("/blogs/:_id/delete/:_id", authenticateUser, deleteComment);
+router.delete(
+  "/blogs/:blogId/delete/:commentId",
+  authenticateUser,
+  deleteComment
+);
 
 module.exports = router;
