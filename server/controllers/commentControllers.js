@@ -51,18 +51,27 @@ const createComment = async (req, res) => {
 
 const deleteComment = async (req, res) => {
   try {
-    const commentID = req.params._id;
+    const commentID = req.params.commentId; // find the comment by id
+    const blogId = req.params._id; // find the blog by ID
 
-    const comment = await Comment.findOne({
-      _id: commentID,
-      user: req.user._id,
-    });
+    const blogPost = await Blog.findById(blogId); // find the blog post
 
-    if (!comment) {
+    if (!blogPost) {
       return res.status(404).json({ error: "No comment found." });
     }
 
-    await Comment.deleteOne({ _id: commentID });
+    const commentToDelete = blogPost.comments._id(commentID);
+    if (
+      !commentToDelete ||
+      commentToDelete.user.toString() !== req.user._id.toString()
+    ) {
+      return res
+        .status(500)
+        .json({ error: "You do not have permission to delete this comment." });
+    }
+
+    blogPost.comments.pull(commentID);
+    await blogPost.save();
     res.status(200).json({ message: "Comment deleted successfully" });
   } catch (error) {
     console.log(error);
