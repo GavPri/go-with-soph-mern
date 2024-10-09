@@ -60,7 +60,7 @@ const deleteComment = async (req, res) => {
       return res.status(404).json({ error: "No blog post found." });
     }
 
-    const commentToDelete = blogPost.comments._id(commentID);
+    const commentToDelete = blogPost.comments.id(commentID);
     if (
       !commentToDelete ||
       commentToDelete.user.toString() !== req.user._id.toString()
