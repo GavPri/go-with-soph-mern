@@ -18,8 +18,7 @@ import BlogPost from "./pages/blogPages/BlogPost";
 import EditPost from "./pages/blogPages/EditPost";
 import LikedBlogs from "./pages/blogPages/LikedBlogs";
 
-axios.defaults.baseURL =
-  "https://8000-gavpri-gowithsophmern-homzq1knwgh.ws-eu116.gitpod.io/api";
+axios.defaults.baseURL = "https://gowithsoph-gamma.vercel.app/api";
 
 axios.defaults.withCredentials = true;
 
