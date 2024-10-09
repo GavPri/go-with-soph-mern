@@ -52,7 +52,7 @@ const createComment = async (req, res) => {
 const deleteComment = async (req, res) => {
   try {
     const commentID = req.params.commentId; // find the comment by id
-    const blogId = req.params.blogId; // find the blog by ID
+    const blogId = req.params._id; // find the blog by ID
 
     const blogPost = await Blog.findById(blogId); // find the blog post
 
