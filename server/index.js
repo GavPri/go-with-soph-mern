@@ -18,7 +18,6 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
-app.options("*", cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
