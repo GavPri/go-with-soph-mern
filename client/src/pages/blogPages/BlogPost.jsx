@@ -112,7 +112,9 @@ const BlogPost = () => {
   };
   const handleDeleteComment = async (commentId) => {
     try {
-      const response = await axios.delete(`/blogs/${_id}/delete/${commentId}`);
+      const response = await axios.delete(
+        `/blogs/${blogId}/delete/${commentId}`
+      );
       if (response.status === 200) {
         setComments((prevComments) =>
           prevComments.filter((c) => c._id !== commentId)
