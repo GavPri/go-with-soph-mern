@@ -240,9 +240,7 @@ const BlogPost = () => {
                         Edit comment
                       </Dropdown.Item>
                       <Dropdown.Item href="#/action-3">
-                        <button
-                          onClick={() => handleDeleteComment(comment._id)}
-                        >
+                        <button onClick={() => handleDeleteComment(c._id)}>
                           Delete comment
                         </button>
                       </Dropdown.Item>
