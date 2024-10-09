@@ -68,7 +68,7 @@ const BlogPost = () => {
   };
   const handleLike = async () => {
     if (!user) {
-      alert("Log in to like or unlike a post!");
+      toast.error("Log in to like or unlike a post!");
       return;
     }
 
@@ -93,7 +93,7 @@ const BlogPost = () => {
         `Failed to ${hasLiked ? "unlike" : "like"} the post:`,
         error
       );
-      alert(
+      toast.error(
         `Failed to ${hasLiked ? "unlike" : "like"} the post. Please try again.`
       );
     }
