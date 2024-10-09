@@ -1,6 +1,5 @@
 const express = require("express");
 require("dotenv").config();
-const cors = require("cors");
 const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
 
@@ -11,13 +10,12 @@ mongoose
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: [process.env.PROD_URL, process.env.DEV_URL],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
-);
+const cors = require("cors"); // cors configuration
+const DEV_URL = process.env.DEV_URL;
+const PROD_URL = process.env.PROD_URL;
+var whitelist = [PROD_URL, DEV_URL];
+var corsOptions = { origin: whitelist, credentials: true };
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
