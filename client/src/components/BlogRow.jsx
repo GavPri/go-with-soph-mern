@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 
-const BlogList = ({ blogs }) => {
+const BlogRow = ({ blogs }) => {
   return (
     <div className="w-3/4 flex flex-col items-center">
       <h2 className="my-6 text-text font-qs tracking-wide font-bold">
@@ -59,4 +59,4 @@ const BlogList = ({ blogs }) => {
   );
 };
 
-export default BlogList;
+export default BlogRow;
