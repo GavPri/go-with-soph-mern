@@ -42,19 +42,30 @@ const getBlogs = async (req, res) => {
   const { page = 1, limit = 3, sortBy = "newest" } = req.query; // destructure req.query
 
   const pageNumber = parseInt(page); // converting page to integer
-  const limitNumbber = parseInt(limit); // converting limit to integer
+  const limitNumber = parseInt(limit); // converting limit to integer
   try {
     let blogs;
     if (sortBy === "newest") {
       blogs = await Blog.find()
         .sort({ publishedAt: -1 }) // gets the newest blog posts.
-        .skip((pageNumber - 1) * limitNumbber) // eg page 2 - 1 = 1 * 3 = 3, skip 1,2,3 , show 4,5 6
-        .limit(limitNumbber); // limits the amount of ducuments shown to 3
+        .skip((pageNumber - 1) * limitNumber) // eg page 2 - 1 = 1 * 3 = 3, skip 1,2,3 , show 4,5 6
+        .limit(limitNumber); // limits the amount of ducuments shown to 3
     } else if (sortBy === "mostLiked") {
-      blogs = await Blog.find()
-        .sort({ likes: -1 })
-        .skip((pageNumber - 1) * limitNumbber)
-        .limit(limitNumbber);
+      blogs = await Blog.aggregate([
+        {
+          $project: {
+            _id: 1,
+            title: 1,
+            tags: 1,
+            destination: 1,
+            heroImage: 1,
+            likesCount: { $size: "$likes" }, // Create a new field for the count of likes
+          },
+        },
+        { $sort: { likesCount: -1 } }, // Sort by the likes count
+        { $skip: (pageNumber - 1) * limitNumber },
+        { $limit: limitNumber },
+      ]);
     } else {
       return res
         .status(400)
