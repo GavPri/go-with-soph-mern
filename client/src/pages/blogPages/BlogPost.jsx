@@ -101,10 +101,23 @@ const BlogPost = () => {
   };
   const handleCommentSubmit = async (commentData) => {
     try {
-      const response = await axios.post(`/blogs/${_id}/comment`, commentData);
-      if (response.status === 201) {
-        setComments((prevComments) => [...prevComments, response.data.comment]);
-        toast.success("Comment posted!");
+      const response = commentId
+        ? await axios.put(`/blogs/${_id}/edit/${commentId}`, commentData)
+        : await axios.post(`/blogs/${id}/comment`, commentData);
+      if (response.status === 201 || response.status === 200) {
+        if (commentId) {
+          setComments((prevComments) =>
+            prevComments.map((c) =>
+              c._id === commentId ? response.data.comment : c
+            )
+          );
+        } else {
+          setComments((prevComments) => [
+            ...prevComments,
+            response.data.comment,
+          ]);
+        }
+        toast.success(commentId ? "Comment updated!" : "Comment posted!");
       }
     } catch (error) {
       console.log(error);
@@ -127,8 +140,8 @@ const BlogPost = () => {
   };
   const handleEditComment = async (comment) => {
     setCommentToEdit(comment);
-    setComments((prevComments) =>
-      prevComments.filter((c) => c._id !== comment._id) // remove comments from the screen
+    setComments(
+      (prevComments) => prevComments.filter((c) => c._id !== comment._id) // remove comments from the screen
     );
   };
 
