@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const BlogListings = () => {
   const [newestBlogs, setNewestBlogs] = useState([]);
   const [mostLikedBlogs, setMostLikedBlogs] = useState([]);
+
+  useEffect(() => {
+    
+  })
   return <div>BlogListings</div>;
 };
 
