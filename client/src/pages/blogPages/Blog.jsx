@@ -11,7 +11,9 @@ const Blog = () => {
 
   const getBlogs = async () => {
     try {
-      const { data } = await axios.get("/get-blogs");
+      const { data } = await axios.get(
+        "/get-blogs?page=1&limit=3&sortBy=newest"
+      );
       setBlogs(data);
     } catch (error) {
       console.log(error);
