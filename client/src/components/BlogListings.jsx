@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import BlogRow from "./BlogRow";
 
 const BlogListings = () => {
   const [newestBlogs, setNewestBlogs] = useState([]);
@@ -12,17 +13,27 @@ const BlogListings = () => {
     setNewestBlogs(newestData);
 
     const { data: LikesData } = await axios.get(
-      "/get-blogs?page=1&limit=3&sortBy=newest"
+      "/get-blogs?page=1&limit=3&sortBy=mostLiked"
     );
     setMostLikedBlogs(LikesData);
   };
-  
+
   useEffect(() => {
     getBlogListings(); // todo create getBlogListings Fn
   }, []);
 
-
-  return <div>BlogListings</div>;
+  return (
+    <div className=" flex flex-col justify-center items-center w-full font-qs text-text text-xl">
+      <h2 className="my-6 text-text font-qs tracking-wide font-bold">
+        Latest from <span className="text-brand">GoWithSoph</span>
+      </h2>
+      <BlogRow blogs={newestBlogs} />
+      <h2 className="my-6 text-text font-qs tracking-wide font-bold">
+        Most Liked from <span className="text-brand">GoWithSoph</span>
+      </h2>
+      <BlogRow blogs={mostLikedBlogs} />
+    </div>
+  );
 };
 
 export default BlogListings;
