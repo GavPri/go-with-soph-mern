@@ -103,7 +103,7 @@ const BlogPost = () => {
     try {
       const response = commentId
         ? await axios.put(`/blogs/${_id}/edit/${commentId}`, commentData)
-        : await axios.post(`/blogs/${id}/comment`, commentData);
+        : await axios.post(`/blogs/${_id}/comment`, commentData);
       if (response.status === 201 || response.status === 200) {
         if (commentId) {
           setComments((prevComments) =>
