@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const BlogListings = () => {
-  return (
-    <div>BlogListings</div>
-  )
-}
+  const [newestBlogs, setNewestBlogs] = useState([]);
+  const [mostLikedBlogs, setMostLikedBlogs] = useState([]);
+  return <div>BlogListings</div>;
+};
 
-export default BlogListings
+export default BlogListings;
