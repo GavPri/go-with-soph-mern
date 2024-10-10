@@ -45,7 +45,10 @@ const getBlogs = async (req, res) => {
   const limitNumbber = parseInt(limit); // converting limit to integer
   try {
     let blogs;
-
+    if (sortBy === "newest") {
+    } else if (sortBy === "mostLiked") {
+    } else {
+    }
     res.status(200).json(blogs);
   } catch (error) {
     console.error(error);
