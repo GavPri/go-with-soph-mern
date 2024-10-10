@@ -44,7 +44,7 @@ const getBlogs = async (req, res) => {
   const pageNumber = parseInt(page); // converting page to integer
   const limitNumbber = parseInt(limit); // converting limit to integer
   try {
-    const blogs = await Blog.find();
+    let blogs;
 
     res.status(200).json(blogs);
   } catch (error) {
