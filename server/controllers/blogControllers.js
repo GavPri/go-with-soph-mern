@@ -39,6 +39,7 @@ const createBlog = async (req, res) => {
 
 // * get all blog posts.
 const getBlogs = async (req, res) => {
+  const { page = 1, limit = 3, sortBy = "newest" } = req.query; // destructure req.query
   try {
     const blogs = await Blog.find();
 
