@@ -19,7 +19,7 @@ const BlogListings = () => {
   };
 
   useEffect(() => {
-    getBlogListings(); // todo create getBlogListings Fn
+    getBlogListings();
   }, []);
 
   return (
