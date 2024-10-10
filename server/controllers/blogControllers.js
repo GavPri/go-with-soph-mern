@@ -40,6 +40,9 @@ const createBlog = async (req, res) => {
 // * get all blog posts.
 const getBlogs = async (req, res) => {
   const { page = 1, limit = 3, sortBy = "newest" } = req.query; // destructure req.query
+
+  const pageNumber = parseInt(page); // converting page to integer
+  const limitNumbber = parseInt(limit); // converting limit to integer
   try {
     const blogs = await Blog.find();
 
