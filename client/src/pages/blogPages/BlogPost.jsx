@@ -99,7 +99,7 @@ const BlogPost = () => {
       );
     }
   };
-  const handleCommentSubmit = async (commentData) => {
+  const handleCommentSubmit = async (commentData, commentId) => {
     try {
       const response = commentId
         ? await axios.put(`/blogs/${_id}/edit/${commentId}`, commentData)
