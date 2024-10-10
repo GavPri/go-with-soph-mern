@@ -79,6 +79,13 @@ const deleteComment = async (req, res) => {
   }
 };
 
-const editComment = async (req, res) => {};
+const editComment = async (req, res) => {
+  try {
+    const commentID = req.params.commentId; // pass the comment id from the front end.
+    const blogID = req.params._id; // find the blog id in the url
+  } catch (error) {
+    
+  }
+};
 
 module.exports = { createComment, deleteComment, editComment };
