@@ -46,6 +46,7 @@ const getBlogs = async (req, res) => {
   try {
     let blogs;
     if (sortBy === "newest") {
+      totalBlogs = await Blog.countDocuments();
       blogs = await Blog.find()
         .sort({ publishedAt: -1 }) // gets the newest blog posts.
         .skip((pageNumber - 1) * limitNumber) // eg page 2 - 1 = 1 * 3 = 3, skip 1,2,3 , show 4,5 6
@@ -66,12 +67,16 @@ const getBlogs = async (req, res) => {
         { $skip: (pageNumber - 1) * limitNumber },
         { $limit: limitNumber },
       ]);
+
+      totalBlogs = await Blog.countDocuments();
     } else {
       return res
         .status(400)
         .json({ error: 'Invalid sort option. Use "newest" or "mostLiked".' });
     }
-    res.status(200).json(blogs);
+    const totalPages = Math.ceil(totalBlogs / limitNumber); 
+
+    res.status(200).json({ blogs, totalPages });
   } catch (error) {
     console.error(error);
     res.status(500).json({
