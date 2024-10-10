@@ -1,10 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/userContext";
 import toast from "react-hot-toast";
 
-const CommentsForm = ({ user, blogId, handleCommentSubmit }) => {
+const CommentsForm = ({ user, blogId, handleCommentSubmit, commentToEdit }) => {
   // state for input
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState(
+    commentToEdit ? commentToEdit.content : ""
+  );
+
+  useEffect(() => {
+    if (commentToEdit) {
+      setComment(commentToEdit.content);
+    } else setComment("");
+  }, [commentToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +36,7 @@ const CommentsForm = ({ user, blogId, handleCommentSubmit }) => {
     };
     console.log("Comment data: ", commentData);
 
-    handleCommentSubmit(commentData);
+    handleCommentSubmit(commentData, commentToEdit ? commentToEdit._id : null);
     setComment("");
   };
   return (
