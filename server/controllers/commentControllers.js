@@ -84,11 +84,12 @@ const editComment = async (req, res) => {
     const commentID = req.params.commentId; // pass the comment id from the front end.
     const blogID = req.params._id; // find the blog id in the url
 
-    const blogPost = await Blog.findById(blogID) // query the database for the blog by id
-     
-  } catch (error) {
-    
-  }
+    const blogPost = await Blog.findById(blogID); // query the database for the blog by id
+
+    if (!blogPost) {
+      return res.status(404).json({ error: "No blog post found." }); // check if the blog post exists
+    }
+  } catch (error) {}
 };
 
 module.exports = { createComment, deleteComment, editComment };
