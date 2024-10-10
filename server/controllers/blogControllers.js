@@ -46,8 +46,19 @@ const getBlogs = async (req, res) => {
   try {
     let blogs;
     if (sortBy === "newest") {
+      blogs = await Blog.find()
+        .sort({ publishedAt: -1 }) // gets the newest blog posts.
+        .skip((pageNumber - 1) * limitNumbber) // eg page 2 - 1 = 1 * 3 = 3, skip 1,2,3 , show 4,5 6
+        .limit(limitNumbber); // limits the amount of ducuments shown to 3
     } else if (sortBy === "mostLiked") {
+      blogs = await Blog.find()
+        .sort({ likes: -1 })
+        .skip((pageNumber - 1) * limitNumbber)
+        .limit(limitNumbber);
     } else {
+      return res
+        .status(400)
+        .json({ error: 'Invalid sort option. Use "newest" or "mostLiked".' });
     }
     res.status(200).json(blogs);
   } catch (error) {
