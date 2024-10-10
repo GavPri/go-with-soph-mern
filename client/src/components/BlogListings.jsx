@@ -5,8 +5,8 @@ const BlogListings = () => {
   const [mostLikedBlogs, setMostLikedBlogs] = useState([]);
 
   useEffect(() => {
-    
-  })
+    getBlogListings() // todo create getBlogListings Fn
+  },[])
   return <div>BlogListings</div>;
 };
 
