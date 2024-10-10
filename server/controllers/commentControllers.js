@@ -97,6 +97,8 @@ const editComment = async (req, res) => {
     }
 
     commentToEdit.content = req.body.content;
+
+    await blogPost.save()
     
   } catch (error) {}
 };
