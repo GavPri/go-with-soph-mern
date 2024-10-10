@@ -91,6 +91,10 @@ const editComment = async (req, res) => {
     }
 
     const commentToEdit = blogPost.comments.id(commentID);
+
+    if (!commentToEdit || commentToEdit.user.toString() !== req.user._id.toString()){
+      return res.status(500).json({error: 'You can not delete this comment.'})
+    }
   } catch (error) {}
 };
 
