@@ -100,6 +100,7 @@ const editComment = async (req, res) => {
 
     await blogPost.save()
     
+    return res.status(200).json({message: 'Comment updated successfully.'})
   } catch (error) {}
 };
 
