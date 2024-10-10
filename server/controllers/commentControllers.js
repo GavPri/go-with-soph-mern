@@ -92,16 +92,23 @@ const editComment = async (req, res) => {
 
     const commentToEdit = blogPost.comments.id(commentID);
 
-    if (!commentToEdit || commentToEdit.user.toString() !== req.user._id.toString()){
-      return res.status(500).json({error: 'You can not delete this comment.'})
+    if (
+      !commentToEdit ||
+      commentToEdit.user.toString() !== req.user._id.toString()
+    ) {
+      return res
+        .status(500)
+        .json({ error: "You can not delete this comment." });
     }
 
     commentToEdit.content = req.body.content;
 
-    await blogPost.save()
-    
-    return res.status(200).json({message: 'Comment updated successfully.'})
-  } catch (error) {}
+    await blogPost.save();
+
+    return res.status(200).json({ message: "Comment updated successfully." });
+  } catch (error) {
+    return res.status(500).json({ error: "Catch block error." });
+  }
 };
 
 module.exports = { createComment, deleteComment, editComment };
