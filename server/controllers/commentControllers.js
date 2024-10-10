@@ -78,4 +78,7 @@ const deleteComment = async (req, res) => {
     res.status(500).json({ error: "Catch block error" });
   }
 };
-module.exports = { createComment, deleteComment };
+
+const editComment = async (req, res) => {};
+
+module.exports = { createComment, deleteComment, editComment };
