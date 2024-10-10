@@ -89,6 +89,8 @@ const editComment = async (req, res) => {
     if (!blogPost) {
       return res.status(404).json({ error: "No blog post found." }); // check if the blog post exists
     }
+
+    const commentToEdit = blogPost.comments.id(commentID);
   } catch (error) {}
 };
 
