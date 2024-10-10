@@ -125,6 +125,12 @@ const BlogPost = () => {
       toast.error("Failed to delete comment.");
     }
   };
+  const handleEditComment = async (comment) => {
+    setCommentToEdit(comment);
+    setComments((prevComments) =>
+      prevComments.filter((c) => c._id !== comment._id) // remove comments from the screen
+    );
+  };
 
   return (
     <div className="mt-32 flex flex-col justify-center items-center w-full relative">
@@ -212,6 +218,7 @@ const BlogPost = () => {
               user={user}
               blogId={_id}
               handleCommentSubmit={handleCommentSubmit}
+              commentToEdit={commentToEdit}
             />
           </div>
           <div className="w-3/4 flex flex-col">
@@ -237,7 +244,7 @@ const BlogPost = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-2">
+                      <Dropdown.Item onClick={() => handleEditComment(c)}>
                         Edit comment
                       </Dropdown.Item>
                       <Dropdown.Item href="#/action-3">
