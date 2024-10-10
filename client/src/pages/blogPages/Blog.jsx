@@ -27,7 +27,10 @@ const Blog = () => {
   return (
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <SearchBar />
-      <div className="w-3/4">
+      <div className="w-3/4 flex flex-col items-center">
+        <h2 className="my-6 text-text font-qs tracking-wide font-bold">
+          Latest from <span className="text-brand">GoWithSoph</span>
+        </h2>
         <div className="row">
           {blogs.map((blog) => {
             const { _id, title, heroImage, content, tags, destination } = blog;
