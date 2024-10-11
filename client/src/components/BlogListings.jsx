@@ -5,6 +5,8 @@ import BlogRow from "./BlogRow";
 const BlogListings = () => {
   const [newestBlogs, setNewestBlogs] = useState([]);
   const [mostLikedBlogs, setMostLikedBlogs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1); // set the current page
+  const [totalPages, setTotalPages] = useState(1); // set total pages
 
   const getBlogListings = async () => {
     const { data: newestData } = await axios.get(
