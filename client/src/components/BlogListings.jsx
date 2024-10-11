@@ -13,6 +13,7 @@ const BlogListings = () => {
       "/get-blogs?page=1&limit=3&sortBy=newest"
     );
     setNewestBlogs(newestData);
+    setTotalPages(newestData.totalPages)
 
     const { data: LikesData } = await axios.get(
       "/get-blogs?page=1&limit=3&sortBy=mostLiked"
