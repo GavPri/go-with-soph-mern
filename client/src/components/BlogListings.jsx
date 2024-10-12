@@ -23,8 +23,8 @@ const BlogListings = () => {
   };
 
   useEffect(() => {
-    getBlogListings();
-  }, []);
+    getBlogListings(currentPage);
+  }, [currentPage]);
 
   return (
     <div className=" flex flex-col justify-center items-center w-full font-qs text-text text-xl">
