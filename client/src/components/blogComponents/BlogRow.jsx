@@ -2,6 +2,7 @@
 import React from "react";
 import Pagination from "./Pagination";
 import BlogCard from "./BlogCard";
+import BlogCardSkeleton from "../skeletonComponents/blogCardSkeleton";
 
 const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
   return (
@@ -11,7 +12,11 @@ const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
           {Array.isArray(blogs) && blogs.length > 0 ? (
             blogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)
           ) : (
-            <p>No blogs available</p>
+            <div>
+              {Array.from({ length: 3 }).map((_, index) => (
+                <BlogCardSkeleton key={index} />
+              ))}
+            </div>
           )}
         </div>
         <Pagination
