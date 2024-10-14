@@ -28,7 +28,7 @@ const BlogListings = () => {
   };
 
   useEffect(() => {
-    getBlogListings(currentPage);
+    getBlogListings();
   }, [newestCurrentPage, mostLikedCurrentPage]);
 
   const handleNewestNextPage = () => {
