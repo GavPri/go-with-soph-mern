@@ -74,7 +74,7 @@ const getBlogs = async (req, res) => {
         .status(400)
         .json({ error: 'Invalid sort option. Use "newest" or "mostLiked".' });
     }
-    const totalPages = Math.ceil(totalBlogs / limitNumber); 
+    const totalPages = Math.ceil(totalBlogs / limitNumber);
 
     res.status(200).json({ blogs, totalPages });
   } catch (error) {
@@ -102,6 +102,9 @@ const getBlogsID = async (req, res) => {
     res.status(400).json({ error: "No blog found." });
   }
 };
+
+// * get blogs by contient
+const getBlogsByContinent = async (req, res) => {};
 
 // * Edit blogs by ID
 
@@ -182,4 +185,5 @@ module.exports = {
   getBlogsID,
   editBlogsID,
   deleteBlogsID,
+  getBlogsByContinent,
 };
