@@ -1,16 +1,33 @@
 import React from "react";
+import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 
 const Home = () => {
   return (
-    <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen">
-      <div className="w-full h-fit flex flex-col items-center">
+    <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
+      <div className="w-3/4 h-fit flex flex-col items-center lg:flex lg:flex-row lg:justify-between">
         {/* ----- Header & arrows div ---- */}
         <h2 className="font-qs text-text uppercase tracking-wide text-3xl text-left">
           Disc<span className="text-brand italic">o</span>ver Popula
           <span className="text-brand italic">r</span>
           <br />
-          Destin<span className="text-brand italic">a</span>tions
+          Destin<span className="text-brand italic">a</span>tions <br />
+          <span className="text-brand normal-case text-sm"> - GoWithSoph</span>
         </h2>
+        {/* ----- Arrow buttons ----- */}
+        <div className="flex justify-between items-center w-3/4 mt-6 lg:w-1/4">
+          <div>
+            <FaCircleChevronLeft
+              size={40}
+              className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
+            />
+          </div>
+          <div>
+            <FaCircleChevronRight
+              size={40}
+              className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
