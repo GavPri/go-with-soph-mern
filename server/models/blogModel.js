@@ -41,6 +41,7 @@ const blogSchema = new Schema(
     continent: {
       type: String,
       required: true,
+      index:true
     },
     likes: [
       {
