@@ -16,7 +16,7 @@ const BlogListings = () => {
   const [mostLikedTotalPages, setMostLikedTotalPages] = useState(1);
   const [mostLikedIsLoading, setMostLikedIsLoading] = useState(false);
 
-  const getBlogListings = async () => {
+  const getNewestBlogListings = async () => {
     setNewestIsLoading(true);
     const { data: newestData } = await axios.get(
       `/get-blogs?page=${newestCurrentPage}&limit=3&sortBy=newest`
@@ -25,7 +25,8 @@ const BlogListings = () => {
     setNewestBlogs(newestData.blogs);
     setNewestTotalPage(newestData.totalPages);
     setNewestIsLoading(false);
-
+  };
+  const getMostLikedBlogListings = async () => {
     setMostLikedIsLoading(true);
     const { data: LikesData } = await axios.get(
       `/get-blogs?page=${mostLikedCurrentPage}&limit=3&sortBy=mostLiked`
@@ -36,8 +37,12 @@ const BlogListings = () => {
   };
 
   useEffect(() => {
-    getBlogListings();
-  }, [newestCurrentPage, mostLikedCurrentPage]);
+    getNewestBlogListings();
+  }, [newestCurrentPage]);
+
+  useEffect(() => {
+    getMostLikedBlogListings();
+  }, [mostLikedCurrentPage]);
 
   const handleNewestNextPage = () => {
     if (newestCurrentPage < newestTotalPages) {
