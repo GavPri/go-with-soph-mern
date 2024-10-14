@@ -19,6 +19,7 @@ import EditPost from "./pages/blogPages/EditPost";
 import LikedBlogs from "./pages/blogPages/LikedBlogs";
 import { SkeletonTheme } from "react-loading-skeleton";
 axios.defaults.baseURL = "https://gowithsoph.vercel.app/api";
+import "react-loading-skeleton/dist/skeleton.css";
 
 axios.defaults.withCredentials = true;
 
