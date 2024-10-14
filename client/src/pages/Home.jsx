@@ -3,6 +3,7 @@ import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import DestinationSkeleton from "../components/skeletonComponents/destinationSkeleton";
 import axios from "axios";
 import { MdLocationPin } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
 const continents = [
   "Africa",
@@ -83,7 +84,8 @@ const Home = () => {
           className={`w-full flex gap-2 flex-col justify-center items-center lg:flex-row lg:w-3/4 lg:justify-start`}
         >
           {blogs.map((blog) => (
-            <div
+            <NavLink
+              to={`/blog/${blog._id}`}
               key={blog._id}
               className="relative h-[400px] w-[300px] bg-cover bg-center rounded-md shadow-lg overflow-hidden mb-4 flex flex-col justify-end" // Added flex and justify-end
               style={{ backgroundImage: `url(${blog.heroImage})` }}
@@ -92,10 +94,11 @@ const Home = () => {
               <div className="relative z-10 p-4 text-white">
                 <h3 className="text-xl font-bold mb-2">{blog.title}</h3>
                 <div className="flex justify-start items-center text-xl font-qs rounded-md bg-brand w-fit py-1 px-2">
-                  <MdLocationPin className="mr-2" /> <p className="mr-2">{blog.destination}</p>
+                  <MdLocationPin className="mr-2" />{" "}
+                  <p className="mr-2">{blog.destination}</p>
                 </div>
               </div>
-            </div>
+            </NavLink>
           ))}
         </div>
       ) : (
