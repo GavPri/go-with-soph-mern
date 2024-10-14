@@ -31,23 +31,33 @@ const BlogListings = () => {
     getBlogListings(currentPage);
   }, [newestCurrentPage, mostLikedCurrentPage]);
 
-  const handleNewestNextPage = () => {}
-  
+  const handleNewestNextPage = () => {};
+
   const handleNewestPreviousPage = () => {};
 
   const handleMostLikedNextPage = () => {};
-  
-  const handleMostLikedPage = () => {};
+
+  const handleMostLikedPreviousPage = () => {};
   return (
     <div className=" flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <h2 className="my-6 text-text font-qs tracking-wide font-bold">
         Latest from <span className="text-brand">GoWithSoph</span>
       </h2>
-      <BlogRow blogs={newestBlogs} />
+      <BlogRow
+        blogs={newestBlogs}
+        currentPage={newestCurrentPage}
+        onNext={handleNewestNextPage}
+        onPrevious={handleNewestPreviousPage}
+      />
       <h2 className="my-6 text-text font-qs tracking-wide font-bold">
         Most Liked from <span className="text-brand">GoWithSoph</span>
       </h2>
-      <BlogRow blogs={mostLikedBlogs} />
+      <BlogRow
+        blogs={mostLikedBlogs}
+        currentPage={mostLikedCurrentPage}
+        onNext={handleMostLikedNextPage}
+        onPrevious={handleMostLikedPreviousPage}
+      />
     </div>
   );
 };
