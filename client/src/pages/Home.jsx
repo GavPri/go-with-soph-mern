@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
-import BlogCardSkeleton from "../components/skeletonComponents/blogCardSkeleton";
+import DestinationSkeleton from "../components/skeletonComponents/destinationSkeleton";
 const continents = [
   "Africa",
   "Antarctica",
@@ -52,8 +52,8 @@ const Home = () => {
           ))}
         </ul>
       </div>
-      <div className="w-full">
-        <BlogCardSkeleton cards={3} />
+      <div className="w-3/4">
+        <DestinationSkeleton cards={3} />
       </div>
     </div>
   );
