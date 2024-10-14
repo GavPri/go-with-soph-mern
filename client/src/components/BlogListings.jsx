@@ -31,9 +31,7 @@ const BlogListings = () => {
     getBlogListings(currentPage);
   }, [newestCurrentPage, mostLikedCurrentPage]);
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
+  
 
   return (
     <div className=" flex flex-col justify-center items-center w-full font-qs text-text text-xl">
