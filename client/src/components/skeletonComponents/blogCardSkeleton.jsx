@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import Skeleton from "react-loading-skeleton";
 
-const blogCardSkeleton = () => {
+const BlogCardSkeleton = () => {
   return (
-    <div>blogCardSkeleton</div>
-  )
-}
+    <>
+      <div className="w-full mb-4">
+        <Skeleton height={120} />
+      </div>
+      <p className="mb-3">
+        <Skeleton count={3} height={20} />
+      </p>
+    </>
+  );
+};
 
-export default blogCardSkeleton
+export default BlogCardSkeleton;
