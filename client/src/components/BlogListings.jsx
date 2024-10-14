@@ -31,9 +31,17 @@ const BlogListings = () => {
     getBlogListings(currentPage);
   }, [newestCurrentPage, mostLikedCurrentPage]);
 
-  const handleNewestNextPage = () => {};
+  const handleNewestNextPage = () => {
+    if (newestCurrentPage < newestTotalPages) {
+      setNewestCurrentPage((prev) => prev + 1);
+    }
+  };
 
-  const handleNewestPreviousPage = () => {};
+  const handleNewestPreviousPage = () => {
+    if (newestCurrentPage > 1) {
+      setNewestCurrentPage((prev) => prev - 1);
+    }
+  };
 
   const handleMostLikedNextPage = () => {};
 
