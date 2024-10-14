@@ -31,8 +31,13 @@ const BlogListings = () => {
     getBlogListings(currentPage);
   }, [newestCurrentPage, mostLikedCurrentPage]);
 
+  const handleNewestNextPage = () => {}
   
+  const handleNewestPreviousPage = () => {};
 
+  const handleMostLikedNextPage = () => {};
+  
+  const handleMostLikedPage = () => {};
   return (
     <div className=" flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <h2 className="my-6 text-text font-qs tracking-wide font-bold">
