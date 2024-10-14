@@ -40,8 +40,8 @@ const Home = () => {
         </div>
       </div>
       {/* ----- Continents Tab */}
-      <div className="w-3/4">
-        <ul className="flex flex-wrap gap-2 justify-center mt-16">
+      <div className="w-3/4 flex justify-center items-center ">
+        <ul className="flex flex-wrap gap-2 justify-evenly mt-16 w-full items-center lg:justify-start">
           {continents.map((continent, idx) => (
             <li
               key={idx}
@@ -52,6 +52,7 @@ const Home = () => {
           ))}
         </ul>
       </div>
+      <div></div>
     </div>
   );
 };
