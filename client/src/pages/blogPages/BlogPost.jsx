@@ -10,6 +10,7 @@ import { CiHeart } from "react-icons/ci";
 import CommentsForm from "../../components/CommentsForm";
 import { toast } from "react-hot-toast";
 import { BsThreeDots } from "react-icons/bs";
+import BlogCardSkeleton from "../../components/skeletonComponents/blogCardSkeleton";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -273,7 +274,9 @@ const BlogPost = () => {
           </div>
         </>
       ) : (
-        <p>Loading...</p>
+        <div className="h-60 w-3/4">
+          <BlogCardSkeleton />
+        </div>
       )}
     </div>
   );
