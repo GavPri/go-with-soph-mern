@@ -17,9 +17,8 @@ import CreatePost from "./pages/blogPages/CreatePost";
 import BlogPost from "./pages/blogPages/BlogPost";
 import EditPost from "./pages/blogPages/EditPost";
 import LikedBlogs from "./pages/blogPages/LikedBlogs";
-
-axios.defaults.baseURL =
-  "https://gowithsoph.vercel.app/api";
+import { SkeletonTheme } from "react-loading-skeleton";
+axios.defaults.baseURL = "https://gowithsoph.vercel.app/api";
 
 axios.defaults.withCredentials = true;
 
@@ -56,7 +55,9 @@ function App() {
 
   return (
     <UserContextProvider>
-      <RouterProvider router={router} />
+      <SkeletonTheme baseColor="#313131" highlightColor="525252">
+        <RouterProvider router={router} />
+      </SkeletonTheme>
     </UserContextProvider>
   );
 }
