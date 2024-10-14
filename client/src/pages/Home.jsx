@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import DestinationSkeleton from "../components/skeletonComponents/destinationSkeleton";
 const continents = [
@@ -12,6 +12,10 @@ const continents = [
 ];
 
 const Home = () => {
+  const [selectedContinent, setSelectedContinent] = useState(continents[0]); // state to store selected continent
+  const [blogs, setblogs] = useState([]); // state to store the returned blogs
+  const [loading, setIsLoading] = useState(true); // state to handle loading
+
   return (
     <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
       <div className="w-3/4 h-fit flex flex-col items-center lg:flex lg:flex-row lg:justify-between">
