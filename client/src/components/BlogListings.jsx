@@ -3,11 +3,16 @@ import React, { useEffect, useState } from "react";
 import BlogRow from "./BlogRow";
 
 const BlogListings = () => {
+  // state for newest blog posts
   const [newestBlogs, setNewestBlogs] = useState([]);
-  const [mostLikedBlogs, setMostLikedBlogs] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); // set the current page
-  const [totalPages, setTotalPages] = useState(1); // set total pages
+  const [newestCurrentPage, setNewestCurrentPage] = useState(1);
+  const [newestTotalPages, setNewestTotalPage] = useState(1);
 
+  //state for most popular blogs.
+  const [mostLikedBlogs, setMostLikedBlogs] = useState([]);
+  const [mostLikedCurrentPage, setMostLikedCurrentPage] = useState(1);
+  const [mostLikedTotalPages, setMostLikedTotalPages] = useState(1);
+  
   const getBlogListings = async () => {
     const { data: newestData } = await axios.get(
       "/get-blogs?page=1&limit=3&sortBy=newest"
@@ -26,9 +31,9 @@ const BlogListings = () => {
     getBlogListings(currentPage);
   }, [currentPage]);
 
-  const handlePageChange =(newPage)=>{
-    setCurrentPage(newPage); 
-  }
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   return (
     <div className=" flex flex-col justify-center items-center w-full font-qs text-text text-xl">
