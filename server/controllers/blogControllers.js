@@ -109,10 +109,11 @@ const getBlogsByContinent = async (req, res) => {
   const { page = 1 } = req.query;
 
   try {
-    
-  } catch (error) {
-    
-  }
+    const blogs = await Blog.find({ continent })
+      .sort({ publishedAt: -1 })
+      .limit(3)
+      .skip((page - 1) * 3);
+  } catch (error) {}
 };
 
 // * Edit blogs by ID
