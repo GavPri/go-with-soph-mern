@@ -108,15 +108,16 @@ const CreatePost = () => {
     }
   };
 
-  const continents = [
-    "Asia",
-    "Africa",
-    "North America",
-    "South America",
-    "Antarctica",
-    "Europe",
-    "Australia",
-  ];
+ const continents = [
+   "Africa",
+   "Antarctica",
+   "Asia",
+   "Europe",
+   "North America",
+   "Australia (Oceania)",
+   "South America",
+ ];
+ 
   return (
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <div className="text-center flex flex-col justify-center items-center font-qs font-bold tracking-wider text-2xl mb-6 pt-6">
