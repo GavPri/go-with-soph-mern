@@ -13,7 +13,8 @@ const {
   getBlogs,
   getBlogsID,
   editBlogsID,
-  deleteBlogsID
+  deleteBlogsID,
+  getBlogsByContinent,
 } = require("../controllers/blogControllers");
 
 // * router for get and post requests
@@ -23,5 +24,6 @@ router.get("/get-blogs", getBlogs);
 router.get("/get-blogs/:_id", getBlogsID);
 router.put("/edit-blogs/:_id", editBlogsID);
 router.delete("/delete-blogs/:_id", deleteBlogsID);
+router.get("/blogs/continent/:continent", getBlogsByContinent);
 
 module.exports = router;
