@@ -17,13 +17,13 @@ const BlogListings = () => {
     const { data: newestData } = await axios.get(
       "/get-blogs?page=1&limit=3&sortBy=newest"
     );
-    setNewestBlogs(newestData);
+    setNewestBlogs(newestData.blogs);
     setNewestTotalPage(newestData.totalPages);
 
     const { data: LikesData } = await axios.get(
       "/get-blogs?page=1&limit=3&sortBy=mostLiked"
     );
-    setMostLikedBlogs(LikesData);
+    setMostLikedBlogs(LikesData.blogs);
     setMostLikedTotalPages(LikesData.totalPages);
   };
 
