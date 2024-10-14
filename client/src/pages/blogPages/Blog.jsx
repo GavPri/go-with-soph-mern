@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar";
-import BlogListings from "../../components/BlogListings";
+import BlogListings from "../../components/blogComponents/BlogListings";
 
 const Blog = () => {
   return (
