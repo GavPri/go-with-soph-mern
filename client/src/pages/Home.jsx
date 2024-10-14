@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import DestinationSkeleton from "../components/skeletonComponents/destinationSkeleton";
+import axios from 'axios'
 const continents = [
   "Africa",
   "Antarctica",
@@ -19,8 +20,9 @@ const Home = () => {
   const fetchBlogByContinent = async (continent) => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`.blogs/continent/${continent}`); // request the blogs
+      const response = await axios.get(`/blogs/continent/${continent}`); // request the blogs
       setBlogs(response.data);
+      console.log(blogs)
     } catch (error) {
       console.log(error);
       setBlogs([]);
