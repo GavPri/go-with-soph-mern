@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import Pagination from "./Pagination";
 
-const BlogRow = ({ blogs }) => {
+const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
   return (
     <div className="w-3/4 flex flex-col items-center">
       <div>
