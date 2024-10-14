@@ -1,15 +1,25 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 const BlogCardSkeleton = () => {
   return (
     <>
-      <div className="w-full mb-4">
-        <Skeleton height={120} />
-      </div>
-      <p className="mb-3">
-        <Skeleton count={3} height={20} />
-      </p>
+      <Card style={{ width: "18rem" }}>
+        <Skeleton height={320} />
+        <Card.Body>
+          <Card.Title>
+            <Skeleton />
+          </Card.Title>
+          <Card.Text>
+            <Skeleton count={3} />
+          </Card.Text>
+          <p>
+            <Skeleton width={50} />
+          </p>
+        </Card.Body>
+      </Card>
     </>
   );
 };
