@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 const Pagination = ({ currentPage, totalPages, onNext, onPrevious }) => {
   return (
@@ -10,10 +11,10 @@ const Pagination = ({ currentPage, totalPages, onNext, onPrevious }) => {
           currentPage === 1 ? "hidden" : ""
         }`}
       >
-        Previous Post
+        <FaArrowLeftLong />
       </button>
-      <p className="font-qs text-brand font-bold">
-        {currentPage} / <span className="text-text">{totalPages}</span>
+      <p className="font-qs text-text  font-bold">
+        {currentPage} / {totalPages} pages.
       </p>
       <button
         disabled={currentPage === totalPages}
@@ -22,7 +23,7 @@ const Pagination = ({ currentPage, totalPages, onNext, onPrevious }) => {
           currentPage === totalPages ? "hidden" : ""
         }`}
       >
-        Next Post
+       <FaArrowRightLong />
       </button>
     </div>
   );
