@@ -15,13 +15,14 @@ const BlogListings = () => {
 
   const getBlogListings = async () => {
     const { data: newestData } = await axios.get(
-      "/get-blogs?page=1&limit=3&sortBy=newest"
+      `/get-blogs?page=${newestCurrentPage}&limit=3&sortBy=newest`
     );
+    console.log(newestData);
     setNewestBlogs(newestData.blogs);
     setNewestTotalPage(newestData.totalPages);
 
     const { data: LikesData } = await axios.get(
-      "/get-blogs?page=1&limit=3&sortBy=mostLiked"
+      `/get-blogs?page=${mostLikedCurrentPage}&limit=3&sortBy=mostLiked`
     );
     setMostLikedBlogs(LikesData.blogs);
     setMostLikedTotalPages(LikesData.totalPages);
@@ -64,6 +65,7 @@ const BlogListings = () => {
         currentPage={newestCurrentPage}
         onNext={handleNewestNextPage}
         onPrevious={handleNewestPreviousPage}
+        totalPages={newestTotalPages}
       />
       <h2 className="my-6 text-text font-qs tracking-wide font-bold">
         Most Liked from <span className="text-brand">GoWithSoph</span>
@@ -73,6 +75,7 @@ const BlogListings = () => {
         currentPage={mostLikedCurrentPage}
         onNext={handleMostLikedNextPage}
         onPrevious={handleMostLikedPreviousPage}
+        totalPages={mostLikedTotalPages}
       />
     </div>
   );
