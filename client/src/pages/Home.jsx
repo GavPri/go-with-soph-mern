@@ -1,6 +1,16 @@
 import React from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 
+const continents = [
+  "Africa",
+  "Antarctica",
+  "Asia",
+  "Europe",
+  "North America",
+  "Australia (Oceania)",
+  "South America",
+];
+
 const Home = () => {
   return (
     <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
@@ -28,6 +38,19 @@ const Home = () => {
             />
           </div>
         </div>
+      </div>
+      {/* ----- Continents Tab */}
+      <div className="w-3/4">
+        <ul className="flex flex-wrap gap-2 justify-center mt-16">
+          {continents.map((continent, idx) => (
+            <li
+              key={idx}
+              className="hover:cursor-pointer py-1 px-2 flex rounded-md bg-bg text-accentSecondary hover:bg-brand hover:text-bg transition-all duration-500 ease-in-out"
+            >
+              {continent}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
