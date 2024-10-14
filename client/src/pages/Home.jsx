@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import DestinationSkeleton from "../components/skeletonComponents/destinationSkeleton";
-import axios from 'axios'
+import axios from "axios";
+import { MdLocationPin } from "react-icons/md";
+
 const continents = [
   "Africa",
   "Antarctica",
@@ -13,16 +15,15 @@ const continents = [
 ];
 
 const Home = () => {
-  const [selectedContinent, setSelectedContinent] = useState(continents[0]); // state to store selected continent
-  const [blogs, setBlogs] = useState([]); // state to store the returned blogs
-  const [loading, setIsLoading] = useState(true); // state to handle loading
+  const [selectedContinent, setSelectedContinent] = useState(continents[0]);
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setIsLoading] = useState(true);
 
   const fetchBlogByContinent = async (continent) => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`/blogs/continent/${continent}`); // request the blogs
+      const response = await axios.get(`/blogs/continent/${continent}`);
       setBlogs(response.data);
-      console.log(blogs)
     } catch (error) {
       console.log(error);
       setBlogs([]);
@@ -38,7 +39,6 @@ const Home = () => {
   return (
     <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
       <div className="w-3/4 h-fit flex flex-col items-center lg:flex lg:flex-row lg:justify-between">
-        {/* ----- Header & arrows div ---- */}
         <h2 className="font-qs text-text uppercase tracking-wide text-3xl text-left">
           Disc<span className="text-brand italic">o</span>ver Popula
           <span className="text-brand italic">r</span>
@@ -46,23 +46,18 @@ const Home = () => {
           Destin<span className="text-brand italic">a</span>tions <br />
           <span className="text-brand normal-case text-sm"> - GoWithSoph</span>
         </h2>
-        {/* ----- Arrow buttons ----- */}
         <div className="flex justify-between items-center w-3/4 mt-6 lg:w-1/4">
-          <div>
-            <FaCircleChevronLeft
-              size={40}
-              className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
-            />
-          </div>
-          <div>
-            <FaCircleChevronRight
-              size={40}
-              className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
-            />
-          </div>
+          <FaCircleChevronLeft
+            size={40}
+            className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
+          />
+          <FaCircleChevronRight
+            size={40}
+            className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
+          />
         </div>
       </div>
-      {/* ----- Continents Tab */}
+
       <div className="w-3/4 flex justify-center items-center mb-8">
         <ul className="flex flex-wrap gap-2 justify-evenly mt-16 w-full items-center lg:justify-start">
           {continents.map((continent, idx) => (
@@ -70,7 +65,7 @@ const Home = () => {
               key={idx}
               className={`hover:cursor-pointer py-1 px-2 flex rounded-md bg-bg text-accentSecondary hover:bg-brand hover:text-bg transition-all duration-500 ease-in-out ${
                 selectedContinent === continent ? "bg-brand text-bg" : ""
-              }`} 
+              }`}
               onClick={() => setSelectedContinent(continent)}
             >
               {continent}
@@ -78,9 +73,34 @@ const Home = () => {
           ))}
         </ul>
       </div>
-      <div className="w-3/4">
-        <DestinationSkeleton cards={3} />
-      </div>
+
+      {loading ? (
+        <div className="w-3/4">
+          <DestinationSkeleton cards={3} />
+        </div>
+      ) : blogs.length > 0 ? (
+        <div
+          className={`w-full flex gap-2 flex-col justify-center items-center lg:flex-row lg:w-3/4 lg:justify-start`}
+        >
+          {blogs.map((blog) => (
+            <div
+              key={blog._id}
+              className="relative h-[400px] w-[300px] bg-cover bg-center rounded-md shadow-lg overflow-hidden mb-4 flex flex-col justify-end" // Added flex and justify-end
+              style={{ backgroundImage: `url(${blog.heroImage})` }}
+            >
+              <div className="absolute inset-0 bg-black opacity-30"></div>
+              <div className="relative z-10 p-4 text-white">
+                <h3 className="text-xl font-bold mb-2">{blog.title}</h3>
+                <div className="flex justify-start items-center text-xl font-qs rounded-md bg-brand w-fit py-1 px-2">
+                  <MdLocationPin className="mr-2" /> <p className="mr-2">{blog.destination}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No blogs found for this continent.</p>
+      )}
     </div>
   );
 };
