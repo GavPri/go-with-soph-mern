@@ -104,7 +104,10 @@ const getBlogsID = async (req, res) => {
 };
 
 // * get blogs by contient
-const getBlogsByContinent = async (req, res) => {};
+const getBlogsByContinent = async (req, res) => {
+  const { continent } = req.params;
+  const { page = 1 } = req.query;
+};
 
 // * Edit blogs by ID
 
