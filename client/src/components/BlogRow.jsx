@@ -11,7 +11,7 @@ const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
       <div>
         <div className="row">
           {blogs.map((blog) => {
-            const { _id, title, heroImage, content, tags, destination } = blog;
+            const { _id, title, heroImage, tags, destination } = blog;
 
             return (
               <div className="col-md-4 mb-4" key={_id}>
