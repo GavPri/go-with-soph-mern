@@ -105,7 +105,7 @@ const getBlogsID = async (req, res) => {
 
 // * get blogs by contient
 const getBlogsByContinent = async (req, res) => {
-  const { continent } = req.params;
+  const {continent}  = req.params;
   const { page = 1 } = req.query;
 
   try {
@@ -114,10 +114,15 @@ const getBlogsByContinent = async (req, res) => {
       .limit(3)
       .skip((page - 1) * 3);
 
-    if(!blogs.length){
-      return res.status(404).json({error: 'No blog found.'})
+    if (!blogs.length) {
+      return res.status(404).json({ error: "No blog found." });
     }
-  } catch (error) {}
+
+    res.staus(200).json(blogs);
+  } catch (error) {
+    console.log("Error fetching blogs by continent.");
+    res.status(500).json({ message: "Server error" });
+  }
 };
 
 // * Edit blogs by ID
