@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
-
+import BlogCardSkeleton from "../components/skeletonComponents/blogCardSkeleton";
 const continents = [
   "Africa",
   "Antarctica",
@@ -40,7 +40,7 @@ const Home = () => {
         </div>
       </div>
       {/* ----- Continents Tab */}
-      <div className="w-3/4 flex justify-center items-center ">
+      <div className="w-3/4 flex justify-center items-center mb-8">
         <ul className="flex flex-wrap gap-2 justify-evenly mt-16 w-full items-center lg:justify-start">
           {continents.map((continent, idx) => (
             <li
@@ -52,7 +52,9 @@ const Home = () => {
           ))}
         </ul>
       </div>
-      <div></div>
+      <div className="w-full">
+        <BlogCardSkeleton cards={3} />
+      </div>
     </div>
   );
 };
