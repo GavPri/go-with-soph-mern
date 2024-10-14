@@ -55,7 +55,7 @@ function App() {
 
   return (
     <UserContextProvider>
-      <SkeletonTheme baseColor="#313131" highlightColor="525252">
+      <SkeletonTheme baseColor="#6b7280" highlightColor="#374151">
         <RouterProvider router={router} />
       </SkeletonTheme>
     </UserContextProvider>
