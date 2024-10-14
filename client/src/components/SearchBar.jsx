@@ -69,30 +69,17 @@ const SearchBar = () => {
         </div>
       </div>
       {/* Form to display search reaults. */}
-      <div className="absolute left-0 right-0 -bottom-50 bg-bg drop-shadow-md max-h-60 overflow-y-auto z-50 rounded-md w-full">
+      <div className="absolute left-0 right-0 -bottom-50 bg-bg drop-shadow-md max-h-[350px] overflow-y-auto z-50 rounded-md w-3/4">
         {isSearching && <p>Loading results</p>}
         {!isSearching && searchResults.length > 0 ? (
           searchResults.map((results) => (
             <NavLink
               key={results._id}
               to={`/blog/${results._id}`}
-              className={`w-full p-4 font-qs text-text bg-bg border-2 border-border rounded-md flex justify-between my-2`}
+              className={`w-full p-4 font-qs text-text bg-bg rounded-md flex justify-between my-2 hover:bg-accentSecondary hover:text-bg transition-all duration-500 ease-in-out`}
             >
               <div className="w-full lg:w-6/12 flex  flex-col justify-between items-start px-2">
-                <h3 className="text-2xl font-bold mb-2">{results.title}</h3>
-                <h4 className="text-xl font-semibold mb-2">
-                  {results.destination}
-                </h4>
-              </div>
-              <div className="hidden lg:flex lg:flex-wrap lg:gap-1 lg:justify-end">
-                {results.tags.map((tag, index) => (
-                  <div
-                    key={index}
-                    className="h-fit p-2 rounded-md border-2 border-brand bg-bg text-text drop-shadow-sm font-qs"
-                  >
-                    {tag}
-                  </div>
-                ))}
+                <h3 className="text-xl font-qs mb-2">{results.title}</h3>
               </div>
             </NavLink>
           ))
