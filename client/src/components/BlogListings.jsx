@@ -12,24 +12,24 @@ const BlogListings = () => {
   const [mostLikedBlogs, setMostLikedBlogs] = useState([]);
   const [mostLikedCurrentPage, setMostLikedCurrentPage] = useState(1);
   const [mostLikedTotalPages, setMostLikedTotalPages] = useState(1);
-  
+
   const getBlogListings = async () => {
     const { data: newestData } = await axios.get(
       "/get-blogs?page=1&limit=3&sortBy=newest"
     );
     setNewestBlogs(newestData);
-    setTotalPages(newestData.totalPages);
+    setNewestTotalPage(newestData.totalPages);
 
     const { data: LikesData } = await axios.get(
       "/get-blogs?page=1&limit=3&sortBy=mostLiked"
     );
     setMostLikedBlogs(LikesData);
-    setTotalPages(LikesData.totalPages);
+    setMostLikedTotalPages(LikesData.totalPages);
   };
 
   useEffect(() => {
     getBlogListings(currentPage);
-  }, [currentPage]);
+  }, [newestCurrentPage, mostLikedCurrentPage]);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
