@@ -16,7 +16,7 @@ const continents = [
 ];
 
 const Home = () => {
-  const [selectedContinent, setSelectedContinent] = useState(continents[0]);
+  const [selectedContinentIndex, setSelectedContinentIndex] = useState(0);
   const [blogs, setBlogs] = useState([]);
   const [loading, setIsLoading] = useState(true);
 
@@ -33,9 +33,18 @@ const Home = () => {
     }
   };
 
+  const changeContinent = (direction) => {
+    setSelectedContinentIndex((prevIndex) => {
+      const newIndex = prevIndex + direction;
+      if (newIndex < 0) return continents.length - 1; // Go to the last continent if at the beginning
+      if (newIndex >= continents.length) return 0; // Go to the first continent if at the end
+      return newIndex;
+    });
+  };
+
   useEffect(() => {
-    fetchBlogByContinent(selectedContinent);
-  }, [selectedContinent]);
+    fetchBlogByContinent(continents[selectedContinentIndex]);
+  }, [selectedContinentIndex]);
 
   return (
     <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
@@ -51,10 +60,12 @@ const Home = () => {
           <FaCircleChevronLeft
             size={40}
             className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
+            onClick={() => changeContinent(-1)} // Change continent to the left
           />
           <FaCircleChevronRight
             size={40}
             className="text-brand hover:text-accentPrimary hover:cursor-pointer transition-all duration-500 ease-in-out"
+            onClick={() => changeContinent(1)} // Change continent to the right
           />
         </div>
       </div>
@@ -65,9 +76,9 @@ const Home = () => {
             <li
               key={idx}
               className={`hover:cursor-pointer py-1 px-2 flex rounded-md bg-bg text-accentSecondary hover:bg-brand hover:text-bg transition-all duration-500 ease-in-out ${
-                selectedContinent === continent ? "bg-brand text-bg" : ""
+                selectedContinentIndex === idx ? "bg-brand text-bg" : ""
               }`}
-              onClick={() => setSelectedContinent(continent)}
+              onClick={() => setSelectedContinentIndex(idx)}
             >
               {continent}
             </li>
