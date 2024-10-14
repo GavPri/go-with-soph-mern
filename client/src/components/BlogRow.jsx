@@ -54,7 +54,7 @@ const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
             );
           })}
         </div>
-        <Pagination />
+        <Pagination currentPage={currentPage} totalPages={totalPages} onNext={onNext} onPrevious={onPrevious} />
       </div>
     </div>
   );
