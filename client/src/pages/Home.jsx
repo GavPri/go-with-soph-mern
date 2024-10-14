@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import DestinationSkeleton from "../components/skeletonComponents/destinationSkeleton";
 const continents = [
@@ -13,8 +13,25 @@ const continents = [
 
 const Home = () => {
   const [selectedContinent, setSelectedContinent] = useState(continents[0]); // state to store selected continent
-  const [blogs, setblogs] = useState([]); // state to store the returned blogs
+  const [blogs, setBlogs] = useState([]); // state to store the returned blogs
   const [loading, setIsLoading] = useState(true); // state to handle loading
+
+  const fetchBlogByContinent = async (continent) => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(`.blogs/continent/${continent}`); // request the blogs
+      setBlogs(response.data);
+    } catch (error) {
+      console.log(error);
+      setBlogs([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBlogByContinent(selectedContinent);
+  }, [selectedContinent]);
 
   return (
     <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
@@ -49,7 +66,10 @@ const Home = () => {
           {continents.map((continent, idx) => (
             <li
               key={idx}
-              className="hover:cursor-pointer py-1 px-2 flex rounded-md bg-bg text-accentSecondary hover:bg-brand hover:text-bg transition-all duration-500 ease-in-out"
+              className={`hover:cursor-pointer py-1 px-2 flex rounded-md bg-bg text-accentSecondary hover:bg-brand hover:text-bg transition-all duration-500 ease-in-out ${
+                selectedContinent === continent ? "bg-brand text-bg" : ""
+              }`} 
+              onClick={() => setSelectedContinent(continent)}
             >
               {continent}
             </li>
