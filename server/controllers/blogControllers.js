@@ -113,6 +113,10 @@ const getBlogsByContinent = async (req, res) => {
       .sort({ publishedAt: -1 })
       .limit(3)
       .skip((page - 1) * 3);
+
+    if(!blogs.length){
+      return res.status(404).json({error: 'No blog found.'})
+    }
   } catch (error) {}
 };
 
