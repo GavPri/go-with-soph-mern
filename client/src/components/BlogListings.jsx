@@ -43,9 +43,17 @@ const BlogListings = () => {
     }
   };
 
-  const handleMostLikedNextPage = () => {};
+  const handleMostLikedNextPage = () => {
+    if (mostLikedCurrentPage < mostLikedTotalPages) {
+      setMostLikedCurrentPage((prev) => prev + 1);
+    }
+  };
 
-  const handleMostLikedPreviousPage = () => {};
+  const handleMostLikedPreviousPage = () => {
+    if (mostLikedCurrentPage > 1) {
+      setMostLikedCurrentPage((prev) => prev - 1);
+    }
+  };
   return (
     <div className=" flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <h2 className="my-6 text-text font-qs tracking-wide font-bold">
