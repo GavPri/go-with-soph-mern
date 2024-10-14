@@ -5,7 +5,13 @@ import { NavLink } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import Pagination from "./Pagination";
 
-const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
+const BlogRow = ({
+  blogs,
+  currentPage,
+  totalPages,
+  onNext,
+  onPrevious,
+}) => {
   return (
     <div className="w-3/4 flex flex-col items-center">
       <div>
@@ -54,7 +60,12 @@ const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
             );
           })}
         </div>
-        <Pagination currentPage={currentPage} totalPages={totalPages} onNext={onNext} onPrevious={onPrevious} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onNext={onNext}
+          onPrevious={onPrevious}
+        />
       </div>
     </div>
   );
