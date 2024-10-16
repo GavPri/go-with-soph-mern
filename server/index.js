@@ -3,6 +3,7 @@ require("dotenv").config();
 const { mongoose, trusted } = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cloudinary = require("./cloudinary-config").v2; // create cloudinary instance.
+const compression = require("compression");
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -10,7 +11,9 @@ mongoose
   .catch((err) => console.log("database not connected", err));
 
 const app = express();
-app.use(express.json());
+app.use(compression());
+app.use(express.json({ limit: "50mb" })); // Increase JSON payload size
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 const cors = require("cors"); // cors configuration
 const DEV_URL = process.env.DEV_URL;
 const PROD_URL = process.env.PROD_URL;
