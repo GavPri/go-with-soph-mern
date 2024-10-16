@@ -7,7 +7,7 @@ import BlogCardSkeleton from "../skeletonComponents/blogCardSkeleton";
 const BlogRow = ({ blogs, currentPage, totalPages, onNext, onPrevious }) => {
   return (
     <div className="w-3/4 flex flex-col items-center">
-      <div>
+      <div className="min-w-full">
         <div className="row">
           {Array.isArray(blogs) && blogs.length > 0 ? (
             blogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)
