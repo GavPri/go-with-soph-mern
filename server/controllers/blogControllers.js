@@ -197,8 +197,18 @@ const deleteBlogsID = async (req, res) => {
     });
   }
 };
-
-const imageUpload = async (req,res) => {}
+const cloudinary = require('cloudinary').v2 // cloudinary instance.
+const imageUpload = async (req,res) => {
+  try {
+    const file = req.file; // multer will add files to req
+    if(!file){
+      return res.status(404).json({message:'No file found.'})
+    }
+    
+  } catch (error) {
+    
+  }
+}
 
 module.exports = {
   createBlog,
