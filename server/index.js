@@ -1,8 +1,8 @@
 const express = require("express");
 require("dotenv").config();
-const { mongoose } = require("mongoose");
+const { mongoose, trusted } = require("mongoose");
 const cookieParser = require("cookie-parser");
-const cloudinary = require("cloudinary").v2 // create cloudinary instance.
+const cloudinary = require("cloudinary").v2; // create cloudinary instance.
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -19,6 +19,11 @@ var corsOptions = { origin: whitelist, credentials: true };
 app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
+
+//Return "https" urls, setting secure: true
+cloudinary.config({
+  secure: true,
+});
 
 app.use("/api/", require("./routes/authRoutes"));
 app.use("/api/", require("./routes/blogRoutes"));
