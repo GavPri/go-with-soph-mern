@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
+const cloudinary = require("cloudinary").v2 // create cloudinary instance.
 
 mongoose
   .connect(process.env.MONGO_URL)
