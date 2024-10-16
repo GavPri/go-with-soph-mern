@@ -40,6 +40,10 @@ const CreatePost = () => {
     }));
   };
 
+  const handleImageChange = (e) => {
+    setImages(e.target.files);
+  }
+
   // todo add functions to display tags added
   const [tagInput, setTagInput] = useState("");
   const [images, setImages] = useState([]);
