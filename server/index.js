@@ -21,8 +21,15 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 //Return "https" urls, setting secure: true
+const CLOUD_NAME = process.env.CLOUD_NAME;
+const CLOUD_API_KEY = process.env.CLOUD_API_KEY;
+const CLOUD_API_SECRET = process.env.CLOUD_API_SECRET;
+
 cloudinary.config({
   secure: true,
+  cloud_name: CLOUD_NAME,
+  cloud_api_key: CLOUD_API_KEY,
+  cloud_api_secret: CLOUD_API_SECRET,
 });
 
 app.use("/api/", require("./routes/authRoutes"));
