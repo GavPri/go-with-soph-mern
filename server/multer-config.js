@@ -1,7 +1,7 @@
 // Configuration for multer
 
 const multer = require("multer");
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("./cloudinary-config");
 
 module.exports = upload;
