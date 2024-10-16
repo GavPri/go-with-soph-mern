@@ -127,7 +127,6 @@ const getBlogsByContinent = async (req, res) => {
 };
 
 // * Edit blogs by ID
-
 const editBlogsID = async (req, res) => {
   const { _id } = req.params;
   const {
@@ -199,6 +198,8 @@ const deleteBlogsID = async (req, res) => {
   }
 };
 
+const imageUpload = async (req,res) => {}
+
 module.exports = {
   createBlog,
   getBlogs,
@@ -206,4 +207,5 @@ module.exports = {
   editBlogsID,
   deleteBlogsID,
   getBlogsByContinent,
+  imageUpload,
 };
