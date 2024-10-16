@@ -40,13 +40,8 @@ const CreatePost = () => {
     }));
   };
 
-  const handleImageChange = (e) => {
-    setImages(e.target.files);
-  }
-
   // todo add functions to display tags added
   const [tagInput, setTagInput] = useState("");
-  const [images, setImages] = useState([]);
 
   const handleTagChange = (e) => {
     setTagInput(e.target.value);
@@ -113,16 +108,16 @@ const CreatePost = () => {
     }
   };
 
-  const continents = [
-    "Africa",
-    "Antarctica",
-    "Asia",
-    "Europe",
-    "North America",
-    "Australia (Oceania)",
-    "South America",
-  ];
-
+ const continents = [
+   "Africa",
+   "Antarctica",
+   "Asia",
+   "Europe",
+   "North America",
+   "Australia (Oceania)",
+   "South America",
+ ];
+ 
   return (
     <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <div className="text-center flex flex-col justify-center items-center font-qs font-bold tracking-wider text-2xl mb-6 pt-6">
@@ -133,7 +128,10 @@ const CreatePost = () => {
         <p className="text-lg text-text ">Create a blog post</p>
       </div>
       {/* *Form inputs for form. */}
-      <form className="h-fit w-10/12  p-4 rounded-lg" onSubmit={handleSubmit}>
+      <form
+        className="h-fit w-10/12  p-4 rounded-lg"
+        onSubmit={handleSubmit}
+      >
         {/* 3 inputs for author. */}
         {/* Title */}
         <label htmlFor="title"></label>
