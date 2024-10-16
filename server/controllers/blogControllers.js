@@ -197,18 +197,36 @@ const deleteBlogsID = async (req, res) => {
     });
   }
 };
-const cloudinary = require('cloudinary').v2 // cloudinary instance.
-const imageUpload = async (req,res) => {
+
+const cloudinary = require("cloudinary").v2; // cloudinary instance.
+const imageUpload = async (req, res) => {
   try {
-    const file = req.file; // multer will add files to req
-    if(!file){
-      return res.status(404).json({message:'No file found.'})
+    const file = req.file; // multer will add file to req
+    if (!file) {
+      return res.status(404).json({ message: "No file found." });
     }
-    
+
+    // Upload image buffer to Cloudinary using a stream
+    const stream = cloudinary.uploader.upload_stream(
+      { folder: "blog_images" }, // Optional: store the images in a specific folder
+      (error, result) => {
+        if (error) {
+          return res
+            .status(500)
+            .json({ error: "Image upload failed", details: error });
+        }
+        // Return the uploaded image's URL
+        res.status(200).json({ imageUrl: result.secure_url });
+      }
+    );
+
+    // Pipe the file's buffer to the Cloudinary upload stream
+    stream.end(file.buffer);
   } catch (error) {
-    
+    console.error("Image upload error:", error);
+    res.status(500).json({ error: "Server error while uploading image" });
   }
-}
+};
 
 module.exports = {
   createBlog,
