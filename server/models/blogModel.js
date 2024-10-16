@@ -29,6 +29,14 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
+    gallery: {
+      type: [String],
+      validate: {
+        validator: function (v) {
+          return v.length <= 10; 
+        }
+      }
+    }, 
     tags: {
       type: [String],
       required: true,
