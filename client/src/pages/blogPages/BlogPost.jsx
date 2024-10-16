@@ -210,12 +210,15 @@ const BlogPost = () => {
             className="flex flex-col justify-center items-center bg-bg w-3/4 h-[350px] bg-cover bg-center rounded-lg"
             style={{ backgroundImage: `url(${blogData.heroImage})` }}
           >
-            <h1 className="font-qs text-text text-4xl bg-bg bg-opacity-60 px-4 py-2 rounded-md text-center">
+            <h1 className="font-qs text-text text-xl bg-bg bg-opacity-80 px-2 py-2 rounded-md text-center">
               {blogData.title}
             </h1>
           </div>
           <div className="w-3/4 my-8">
-            <div dangerouslySetInnerHTML={{ __html: blogData.content }} />
+            <div
+              className="font-qs leading-8 text-text"
+              dangerouslySetInnerHTML={{ __html: blogData.content }}
+            />
           </div>
           <div className="flex justify-between items-start w-3/4">
             <button
