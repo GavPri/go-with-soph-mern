@@ -22,12 +22,11 @@ const {
 
 // * router for get and post requests
 
-router.post("/create", createBlog);
+router.post("/create", upload.array('images'), createBlog);
 router.get("/get-blogs", getBlogs);
 router.get("/get-blogs/:_id", getBlogsID);
 router.put("/edit-blogs/:_id", editBlogsID);
 router.delete("/delete-blogs/:_id", deleteBlogsID);
 router.get("/blogs/continent/:continent", getBlogsByContinent);
-router.post("/upload-image",upload.single("image"), imageUpload);
 
 module.exports = router;
