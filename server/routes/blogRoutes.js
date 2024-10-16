@@ -17,7 +17,6 @@ const {
   editBlogsID,
   deleteBlogsID,
   getBlogsByContinent,
-  imageUpload,
 } = require("../controllers/blogControllers");
 
 // * router for get and post requests
