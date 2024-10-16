@@ -6,6 +6,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const upload = require('../multer-config')
+
 // * import functions from blog controller
 
 const {
@@ -26,6 +28,6 @@ router.get("/get-blogs/:_id", getBlogsID);
 router.put("/edit-blogs/:_id", editBlogsID);
 router.delete("/delete-blogs/:_id", deleteBlogsID);
 router.get("/blogs/continent/:continent", getBlogsByContinent);
-router.post("/upload-image", imageUpload);
+router.post("/upload-image",upload.single("image"), imageUpload);
 
 module.exports = router;
