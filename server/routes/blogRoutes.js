@@ -21,7 +21,7 @@ const {
 
 // * router for get and post requests
 
-router.post("/create", upload.single('heroImage'), createBlog);
+router.post("/create", createBlog);
 router.get("/get-blogs", getBlogs);
 router.get("/get-blogs/:_id", getBlogsID);
 router.put("/edit-blogs/:_id", editBlogsID);

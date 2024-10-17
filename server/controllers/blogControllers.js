@@ -4,6 +4,7 @@ const createBlog = async (req, res) => {
   const {
     title,
     slug,
+    heroImage,
     tags,
     destination,
     continent,
@@ -11,8 +12,6 @@ const createBlog = async (req, res) => {
     author,
   } = req.body;
 
- const galleryImages = req.files.map((file) => file.path); // Get the URLs from the uploaded files
-  const heroImage = req.files[0]?.path;
 
  try {
    const newBlogPost = new Blog({
@@ -24,8 +23,7 @@ const createBlog = async (req, res) => {
      continent,
      content,
      author,
-     comments: [],
-     gallery: galleryImages, // Add the gallery images to the blog post
+     comments: []
    });
 
    await newBlogPost.save();
