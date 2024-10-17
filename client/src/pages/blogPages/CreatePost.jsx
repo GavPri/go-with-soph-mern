@@ -12,7 +12,6 @@ const CreatePost = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
-  // todo State to handle form changes.
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
@@ -24,7 +23,6 @@ const CreatePost = () => {
     author: user._id,
   });
 
-  // todo Function to change input fields ---- add values & onclicks to inputs.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -40,7 +38,6 @@ const CreatePost = () => {
     }));
   };
 
-  // todo add functions to display tags added
   const [tagInput, setTagInput] = useState("");
 
   const handleTagChange = (e) => {
