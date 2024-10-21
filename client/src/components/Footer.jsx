@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { AiOutlineTikTok } from "react-icons/ai";
@@ -31,18 +31,22 @@ const Footer = () => {
         {/* Social links */}
         <nav className="h-12 w-3/4 border-t-2 border-t-bg lg:mb-6">
           <ul className="flex justify-between lg:justify-evenly items-center">
-            <li className="py-1 px-1">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              className="py-1 px-1"
+            >
               <CiFacebook size={35} />
-            </li>
-            <li className="py-1 px-1">
+            </a>
+            <a className="py-1 px-1">
               <CiInstagram size={35} />
-            </li>
-            <li className="py-1 px-1">
+            </a>
+            <a className="py-1 px-1">
               <AiOutlineTikTok size={35} />
-            </li>
-            <li className="py-1 px-1">
+            </a>
+            <a className="py-1 px-1">
               <FaPinterest size={35} />
-            </li>
+            </a>
           </ul>
         </nav>
       </div>
