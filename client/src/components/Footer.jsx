@@ -14,10 +14,18 @@ const Footer = () => {
         <div className="flex justify-between p-4 w-full">
           <NavLink to="/">GoWithSoph</NavLink>
           <ul className="lg:flex">
-            <li className="lg:mx-2">Home</li>
-            <li className="lg:mx-2">Blog</li>
-            <li className="lg:mx-2">Register</li>
-            <li className="lg:mx-2">Login</li>
+            <NavLink to="/" className="lg:mx-2">
+              Home
+            </NavLink>
+            <NavLink to="/blog" className="lg:mx-2">
+              Blog
+            </NavLink>
+            <NavLink to="/register" className="lg:mx-2">
+              Register
+            </NavLink>
+            <NavLink to="/login" className="lg:mx-2">
+              Login
+            </NavLink>
           </ul>
         </div>
         {/* Social links */}
