@@ -13,7 +13,7 @@ const Footer = () => {
         {/* Logo and nav links */}
         <div className="flex justify-between p-4 w-full">
           <NavLink to="/">GoWithSoph</NavLink>
-          <ul className="lg:flex">
+          <ul className=" flex flex-col lg:flex-row">
             <NavLink to="/" className="lg:mx-2">
               Home
             </NavLink>
