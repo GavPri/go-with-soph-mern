@@ -30,7 +30,7 @@ const Footer = () => {
         </nav>
         {/* Social links */}
         <nav className="h-12 w-3/4 border-t-2 border-t-bg lg:mb-6">
-          <ul className="flex justify-between items-center">
+          <ul className="flex justify-between lg:justify-evenly items-center">
             <li className="py-1 px-1">
               <CiFacebook size={35} />
             </li>
