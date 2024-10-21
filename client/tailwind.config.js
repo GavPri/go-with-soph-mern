@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#F5F5F5", //White Base for background
+        bg: "#dee5e5", //White Base for background
         text: "#014421", // Dark Green for text
         border: "#00A86B", // Light Green for border
         brand: "#00A86B", // Light Green for brand elements
