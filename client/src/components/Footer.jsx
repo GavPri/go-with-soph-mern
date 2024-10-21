@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import { NavLink, Link } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { AiOutlineTikTok } from "react-icons/ai";
 import { FaPinterest } from "react-icons/fa";
+import { UserContext } from "../context/userContext";
 
 const Footer = () => {
   return (
