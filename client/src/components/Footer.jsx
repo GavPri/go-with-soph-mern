@@ -29,7 +29,7 @@ const Footer = () => {
           </ul>
         </nav>
         {/* Social links */}
-        <div className="h-12 w-3/4 border-t-2 border-t-bg lg:mb-6">
+        <nav className="h-12 w-3/4 border-t-2 border-t-bg lg:mb-6">
           <ul className="flex justify-between items-center">
             <li className="py-1 px-1">
               <CiFacebook size={35} />
@@ -44,7 +44,7 @@ const Footer = () => {
               <FaPinterest size={35} />
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
   );
