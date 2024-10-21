@@ -69,7 +69,7 @@ const SearchBar = () => {
         </div>
       </div>
       {/* Form to display search reaults. */}
-      <div className="absolute left-0 right-0 -bottom-50 bg-bg drop-shadow-md max-h-[350px] overflow-y-auto z-50 rounded-md w-3/4">
+      <div className="absolute left-0 right-0 -bottom-50 bg-bg drop-shadow-md max-h-[350px] overflow-y-auto z-50 rounded-md w-full">
         {isSearching && <p>Loading results</p>}
         {!isSearching && searchResults.length > 0 ? (
           searchResults.map((results) => (
