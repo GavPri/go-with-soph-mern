@@ -7,7 +7,7 @@ import { FaPinterest } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="w-full h-64 bg-brand mt-auto">
+    <div className="w-full h-64 border-t-2 border-accentSecondary font-qs text-lg text-text mt-auto">
       {/* ----- inner wrapping div */}
       <div className="h-full w-full flex flex-col justify-between items-center">
         {/* Logo and nav links */}
@@ -20,7 +20,7 @@ const Footer = () => {
           </ul>
         </div>
         {/* Social links */}
-        <div className="h-12 w-3/4 bg-teal-500 border-t-2 border-t-bg">
+        <div className="h-12 w-3/4 border-t-2 border-t-bg">
           <ul className="flex justify-between items-center">
             <li className="py-1 px-1">
               <CiFacebook size={35} />
