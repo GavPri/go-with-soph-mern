@@ -15,8 +15,9 @@ const Footer = () => {
           <NavLink to="/">GoWithSoph</NavLink>
           <ul className="lg:flex">
             <li className="lg:mx-2">Home</li>
-            <li className="lg:mx-2">About</li>
-            <li className="lg:mx-2">Blogs</li>
+            <li className="lg:mx-2">Blog</li>
+            <li className="lg:mx-2">Register</li>
+            <li className="lg:mx-2">Login</li>
           </ul>
         </div>
         {/* Social links */}
