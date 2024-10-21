@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
@@ -7,6 +7,7 @@ import { FaPinterest } from "react-icons/fa";
 import { UserContext } from "../context/userContext";
 
 const Footer = () => {
+  const { user } = useContext(UserContext);
   return (
     <div className="w-full lg:w-3/4 mx-auto h-64 border-t-2 border-accentSecondary font-qs text-lg text-text mt-auto">
       {/* ----- inner wrapping div */}
@@ -21,12 +22,22 @@ const Footer = () => {
             <NavLink to="/blog" className="lg:mx-2">
               Blog
             </NavLink>
-            <NavLink to="/register" className="lg:mx-2">
-              Register
-            </NavLink>
-            <NavLink to="/login" className="lg:mx-2">
-              Login
-            </NavLink>
+            {user ? (
+              <>
+                <NavLink to="logout" className="lg:mx-2">
+                  Loh out
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink to="/register" className="lg:mx-2">
+                  Register
+                </NavLink>
+                <NavLink to="/login" className="lg:mx-2">
+                  Login
+                </NavLink>
+              </>
+            )}
           </ul>
         </nav>
         {/* Social links */}
