@@ -1,13 +1,37 @@
 import React, { useContext } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { AiOutlineTikTok } from "react-icons/ai";
 import { FaPinterest } from "react-icons/fa";
 import { UserContext } from "../context/userContext";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Footer = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        "/logout",
+        {},
+        { withCredentials: true }
+      );
+
+      if (response.status === 200) {
+        toast.success("Goodbye! ");
+        setUser(null);
+        navigate("/login");
+      } else {
+        toast.error("Logout failed. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Logout failed. Please try again."); // Error toast
+      console.error("Logout failed:", error);
+    }
+  };
+
   return (
     <div className="w-full lg:w-3/4 mx-auto h-64 border-t-2 border-accentSecondary font-qs text-lg text-text mt-auto">
       {/* ----- inner wrapping div */}
@@ -24,8 +48,8 @@ const Footer = () => {
             </NavLink>
             {user ? (
               <>
-                <NavLink to="logout" className="lg:mx-2">
-                  Loh out
+                <NavLink onClick={handleLogout} className="lg:mx-2">
+                  Log out
                 </NavLink>
               </>
             ) : (
