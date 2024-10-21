@@ -4,7 +4,7 @@ import BlogListings from "../../components/blogComponents/BlogListings";
 
 const Blog = () => {
   return (
-    <div className="mt-28 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
+    <div className="mt-36 flex flex-col justify-center items-center w-full font-qs text-text text-xl">
       <SearchBar />
       <BlogListings />
     </div>

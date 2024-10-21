@@ -48,7 +48,7 @@ const Home = () => {
   }, [selectedContinentIndex]);
 
   return (
-    <div className="mt-28 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
+    <div className="mt-36 min-h-[calc(100dvh-5rem)] w-screen flex flex-col items-center">
       <div className="w-3/4 h-fit flex flex-col items-center lg:flex lg:flex-row lg:justify-between">
         <h2 className="font-qs text-text uppercase tracking-wide text-3xl text-left">
           Disc<span className="text-brand italic">o</span>ver Popula

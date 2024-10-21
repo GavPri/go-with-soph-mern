@@ -147,7 +147,7 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="mt-32 flex flex-col justify-center items-center w-full relative">
+    <div className="mt-36 flex flex-col justify-center items-center w-full relative">
       <SearchBar />
       {user && user.role === "author" && (
         <>

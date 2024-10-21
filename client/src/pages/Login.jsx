@@ -60,7 +60,7 @@ const Login = () => {
     }
   };
   return (
-    <div className=" mt-32 flex flex-col justify-center items-center w-full">
+    <div className=" mt-36 flex flex-col justify-center items-center w-full">
       <div className="text-center flex flex-col justify-center items-center font-qs font-bold tracking-wider text-2xl mb-6">
         <h2 className="flex flex-col items-center text-brand text-xl mb-2">
           {" "}
