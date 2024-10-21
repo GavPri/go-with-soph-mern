@@ -21,12 +21,20 @@ const Footer = () => {
         </div>
         {/* Social links */}
         <div className="h-12 w-3/4 bg-teal-500 border-t-2 border-t-bg">
-            <ul className="flex justify-evenly items-center">
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>Tiktok</li>
-            <li>Pinterest</li>
-            </ul>
+          <ul className="flex justify-between items-center">
+            <li>
+              <CiFacebook size={35} />
+            </li>
+            <li>
+              <CiInstagram size={35} />
+            </li>
+            <li>
+              <AiOutlineTikTok size={35} />
+            </li>
+            <li>
+              <FaPinterest size={35} />
+            </li>
+          </ul>
         </div>
       </div>
     </div>
