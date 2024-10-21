@@ -11,7 +11,7 @@ const Footer = () => {
       {/* ----- inner wrapping div */}
       <div className="h-full w-full flex flex-col justify-between items-center">
         {/* Logo and nav links */}
-        <div className="flex justify-between p-4 w-full">
+        <nav className="flex justify-between p-4 w-full">
           <NavLink to="/">GoWithSoph</NavLink>
           <ul className=" flex flex-col lg:flex-row">
             <NavLink to="/" className="lg:mx-2">
@@ -27,7 +27,7 @@ const Footer = () => {
               Login
             </NavLink>
           </ul>
-        </div>
+        </nav>
         {/* Social links */}
         <div className="h-12 w-3/4 border-t-2 border-t-bg lg:mb-6">
           <ul className="flex justify-between items-center">
