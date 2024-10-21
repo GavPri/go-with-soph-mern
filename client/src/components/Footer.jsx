@@ -41,7 +41,7 @@ const Footer = () => {
           </ul>
         </nav>
         {/* Social links */}
-        <nav className="h-12 w-3/4 border-t-2 border-t-bg lg:mb-6">
+        <nav className="h-12 w-3/4 border-t-2 border-t-bg mb-6">
           <ul className="flex justify-between lg:justify-evenly items-center">
             <a
               href="https://www.facebook.com"
