@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import SearchBar from "../../components/SearchBar";
-
+import BlogCardSkeleton from "../../components/skeletonComponents/blogCardSkeleton";
 
 const LikedBlogs = () => {
   const [likedBlogs, setLikedBlogs] = useState([]); // state for storing blog posts.
@@ -83,7 +83,9 @@ const LikedBlogs = () => {
             })}
           </div>
         ) : (
-          <p>You haven't liked any posts yet.</p>
+          <p>
+            <BlogCardSkeleton cards={3} />
+          </p>
         )}
       </div>
     </div>
