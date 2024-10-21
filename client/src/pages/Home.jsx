@@ -114,7 +114,7 @@ const Home = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col justify-evenly border-1 border-accentSecondary items-center bg-bg text-text h-64 rounded-md p-4 text-lg shadow-md">
+        <div className="flex flex-col justify-evenly border-1 border-accentSecondary items-center bg-bg text-text h-64 rounded-md p-4 text-lg shadow-md lg:w-3/4 lg:h-[400px]">
           <MdErrorOutline size={50} />
           <p className="">No blogs found for this continent.</p>
           <p className="italic text-sm">One day I'll make it there.</p>
