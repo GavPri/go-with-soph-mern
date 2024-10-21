@@ -31,10 +31,10 @@ function App() {
         <div>
           <NavigationBar />
           <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
-          <Footer />
         </div>
-        <div>
+        <div className="min-h-screen flex flex-col">
           <Outlet />
+          <Footer />
         </div>
       </>
     );
