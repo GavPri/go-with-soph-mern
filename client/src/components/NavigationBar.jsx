@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { handleLogout } from "../utils/handleLogout";
 
 function NavigationBar() {
   // * Accessing the user.
@@ -87,7 +88,10 @@ function NavigationBar() {
                 <NavLink className={getNavLinkClass} to="/likes">
                   Likes
                 </NavLink>
-                <button className={getNavLinkClass} onClick={handleLogout}>
+                <button
+                  className={getNavLinkClass}
+                  onClick={() => handleLogout(setUser, navigate)}
+                >
                   Log out
                 </button>
               </>
