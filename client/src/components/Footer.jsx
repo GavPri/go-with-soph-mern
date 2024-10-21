@@ -7,16 +7,16 @@ import { FaPinterest } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="w-full h-64 border-t-2 border-accentSecondary font-qs text-lg text-text mt-auto">
+    <div className="w-full lg:w-3/4 mx-auto h-64 border-t-2 border-accentSecondary font-qs text-lg text-text mt-auto">
       {/* ----- inner wrapping div */}
       <div className="h-full w-full flex flex-col justify-between items-center">
         {/* Logo and nav links */}
         <div className="flex justify-between p-4 w-full">
           <NavLink to="/">GoWithSoph</NavLink>
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Blogs</li>
+          <ul className="lg:flex">
+            <li className="lg:mx-2">Home</li>
+            <li className="lg:mx-2">About</li>
+            <li className="lg:mx-2">Blogs</li>
           </ul>
         </div>
         {/* Social links */}
