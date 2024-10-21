@@ -5,6 +5,7 @@ import axios from "axios";
 import { MdLocationPin } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { MdErrorOutline } from "react-icons/md";
+import AboutMe from "../components/AboutMe";
 
 const continents = [
   "Africa",
@@ -118,9 +119,16 @@ const Home = () => {
           <MdErrorOutline size={50} />
           <p className="">No blogs found for this continent.</p>
           <p className="italic text-sm">One day I'll make it there.</p>
-          <p className="text-sm capitalize">Visit the <NavLink to="/blog" className="text-brand">blog page</NavLink> to view the latest posts</p>
+          <p className="text-sm capitalize">
+            Visit the{" "}
+            <NavLink to="/blog" className="text-brand">
+              blog page
+            </NavLink>{" "}
+            to view the latest posts
+          </p>
         </div>
       )}
+      <AboutMe />
     </div>
   );
 };
