@@ -20,6 +20,7 @@ import LikedBlogs from "./pages/blogPages/LikedBlogs";
 import { SkeletonTheme } from "react-loading-skeleton";
 axios.defaults.baseURL = "https://gowithsoph.vercel.app/api";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Footer } from "react-bootstrap/lib/Modal";
 
 axios.defaults.withCredentials = true;
 
@@ -30,6 +31,7 @@ function App() {
         <div>
           <NavigationBar />
           <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
+          <Footer />
         </div>
         <div>
           <Outlet />
