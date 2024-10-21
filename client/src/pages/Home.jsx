@@ -4,6 +4,7 @@ import DestinationSkeleton from "../components/skeletonComponents/destinationSke
 import axios from "axios";
 import { MdLocationPin } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { MdErrorOutline } from "react-icons/md";
 
 const continents = [
   "Africa",
@@ -113,7 +114,12 @@ const Home = () => {
           ))}
         </div>
       ) : (
-        <p>No blogs found for this continent.</p>
+        <div className="flex flex-col justify-evenly border-1 border-accentSecondary items-center bg-bg text-text h-64 rounded-md p-4 text-lg shadow-md">
+          <MdErrorOutline size={50} />
+          <p className="">No blogs found for this continent.</p>
+          <p className="italic text-sm">One day I'll make it there.</p>
+          <p className="text-sm capitalize">Visit the <NavLink to="/blog" className="text-brand">blog page</NavLink> to view the latest posts</p>
+        </div>
       )}
     </div>
   );
