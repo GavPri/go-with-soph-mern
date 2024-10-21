@@ -1,5 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { CiFacebook } from "react-icons/ci";
+import { CiInstagram } from "react-icons/ci";
+import { AiOutlineTikTok } from "react-icons/ai";
+import { FaPinterest } from "react-icons/fa";
 
 const Footer = () => {
   return (
