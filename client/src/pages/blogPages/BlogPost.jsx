@@ -11,6 +11,7 @@ import CommentsForm from "../../components/CommentsForm";
 import { toast } from "react-hot-toast";
 import { BsThreeDots } from "react-icons/bs";
 import BlogCardSkeleton from "../../components/skeletonComponents/blogCardSkeleton";
+import { FaRegCommentDots } from "react-icons/fa";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -220,17 +221,27 @@ const BlogPost = () => {
               dangerouslySetInnerHTML={{ __html: blogData.content }}
             />
           </div>
-          <div className="flex justify-between items-start w-3/4">
-            <button
-              onClick={handleLike}
-              className={`p-2 font-qs flex flex-col items-center justify-evenly mr-4`}
-            >
-              <CiHeart
-                size={30}
-                className={`${hasLiked ? "text-green-500" : "text-gray-500"}`}
-              />
-              <p>{likesCount}</p>
-            </button>
+          <div className="flex flex-col justify-between items-start w-3/4">
+            <div className="flex justify-start items-start">
+              <button
+                onClick={handleLike}
+                className={` font-qs flex flex-col items-center justify-evenly mr-4`}
+              >
+                <CiHeart
+                  size={30}
+                  className={`${hasLiked ? "text-green-500" : "text-gray-500"}`}
+                />
+                <p>{likesCount}</p>
+              </button>
+              <div className="font-qs flex flex-col items-center justify-evenly">
+                <FaRegCommentDots
+                  size={30}
+                  className="text-brand w-6 font-thin"
+                />
+                <p>{comments.length}</p>{" "}
+                {/* This will display the number of comments */}
+              </div>
+            </div>
             <CommentsForm
               user={user}
               blogId={_id}
