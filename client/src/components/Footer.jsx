@@ -38,13 +38,25 @@ const Footer = () => {
             >
               <CiFacebook size={35} />
             </a>
-            <a className="py-1 px-1">
+            <a
+              href="https://www.instagram.com/gowithsoph"
+              target="_blank"
+              className="py-1 px-1"
+            >
               <CiInstagram size={35} />
             </a>
-            <a className="py-1 px-1">
+            <a
+              href="https://www.tiktok.com/@gowithsoph"
+              target="_blank"
+              className="py-1 px-1"
+            >
               <AiOutlineTikTok size={35} />
             </a>
-            <a className="py-1 px-1">
+            <a
+              href="https://www.pinterest.com/gowithsoph"
+              target="_blank"
+              className="py-1 px-1"
+            >
               <FaPinterest size={35} />
             </a>
           </ul>
