@@ -12,6 +12,7 @@ import { toast } from "react-hot-toast";
 import { BsThreeDots } from "react-icons/bs";
 import BlogCardSkeleton from "../../components/skeletonComponents/blogCardSkeleton";
 import { FaRegCommentDots } from "react-icons/fa";
+import BlogSkeleton from "../../components/skeletonComponents/blogSkeleton";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -288,9 +289,7 @@ const BlogPost = () => {
           </div>
         </>
       ) : (
-        <div className="h-60 w-3/4">
-          <BlogCardSkeleton />
-        </div>
+        <BlogSkeleton />
       )}
     </div>
   );
