@@ -50,7 +50,7 @@ const SearchBar = () => {
           Search
         </label>
         {/* Input wrapper */}
-        <div class="flex items-center w-full bg-bg drop-shadow-md">
+        <div class="h-16 rounded-md border-1 border-accentSecondary flex items-center w-full bg-bg drop-shadow-md">
           {/* Icon wrapper */}
           <div class="w-2/12 mr-2 flex justify-center items-center p-2 ">
             <IoMdSearch className="text-text bg-transparent" />
