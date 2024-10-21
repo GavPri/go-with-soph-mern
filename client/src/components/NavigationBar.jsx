@@ -48,7 +48,7 @@ function NavigationBar() {
     <Navbar
       expand="lg"
       expanded={expanded}
-      className="bg-bg text-text py-6 py-lg-0"
+      className="bg-bg text-text py-6 py-lg-0 border-b-2 border-accentSecondary"
       fixed="top"
     >
       <Container>
